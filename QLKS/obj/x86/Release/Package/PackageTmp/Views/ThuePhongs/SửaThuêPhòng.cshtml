@@ -1,0 +1,117 @@
+﻿@model QLKS.ThuePhong
+
+@{
+    ViewBag.Title = "Sửa thuê phòng";
+}
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.MaThuePhong)
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Phong.TenPhong, "Ten Phong", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.MaPhong, (IEnumerable<SelectListItem>)ViewBag.MaPhong, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.MaPhong, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.MaThuePhong, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.MaThuePhong, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.MaThuePhong, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.NgayBatDauThue, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.NgayBatDauThue,"{0:dd/MM/yyyy}", new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NgayBatDauThue, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.HoTenKH, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.HoTenKH, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.HoTenKH, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CMND, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CMND, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CMND, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.LoaiKhach, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @{
+                    List<SelectListItem> loaiKhachs = new List<SelectListItem>();
+                    loaiKhachs.Add(new SelectListItem
+                    {
+                        Text = "Trong nước",
+                        Value = (false).ToString(),
+                    });
+                    loaiKhachs.Add(new SelectListItem
+                    {
+                        Text = "Ngoài nước",
+                        Value = (true).ToString()
+                    });
+                }
+
+                @Html.DropDownListFor(model => model.LoaiKhach, loaiKhachs, "----Select status----")
+                
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.SoLuong, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @{
+                    List<SelectListItem> soLuong = new List<SelectListItem>();
+                    soLuong.Add(new SelectListItem
+                    {
+                        Text = 1.ToString(),
+                        Value = 1.ToString(),
+                    });
+                    soLuong.Add(new SelectListItem
+                    {
+                        Text = 2.ToString(),
+                        Value = 2.ToString(),
+                    });
+                    soLuong.Add(new SelectListItem
+                    {
+                        Text = 3.ToString(),
+                        Value = 3.ToString(),
+                    });
+                }
+
+                @Html.DropDownListFor(model => model.SoLuong, soLuong, "----Select status----")
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Lưu" class="btn btn-primary1" />
+            </div>
+        </div>
+    </div>
+                    }
+
+<div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,57 @@
+﻿@model QLKS.ChiTietDoanhThu
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div style="border:1px solid dashed" class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.DoanhThu1.MaDoanhThu, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.MaDoanhThu, (IEnumerable<SelectListItem>)ViewBag.MaDoanhThu, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.MaDoanhThu, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.LoaiPhong, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @{
+                    List<SelectListItem> listPhongs = new List<SelectListItem>();
+                    listPhongs.Add(new SelectListItem
+                    {
+                        Text = "A",
+                        Value = "A"
+                    });
+                    listPhongs.Add(new SelectListItem
+                    {
+                        Text = "B",
+                        Value = "B",
+                    });
+                    listPhongs.Add(new SelectListItem
+                    {
+                        Text = "C",
+                        Value = "C"
+                    });
+                }
+
+                @Html.DropDownListFor(model => model.LoaiPhong, listPhongs, "-- Select Status --")
+            </div>
+        </div>
+
+  
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Thêm" class="btn btn-primary1" />
+            </div>
+        </div>
+    </div>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

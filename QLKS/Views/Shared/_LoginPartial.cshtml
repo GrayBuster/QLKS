@@ -1,0 +1,27 @@
+﻿@using Microsoft.AspNet.Identity
+@model QLKS.TaiKhoan
+
+<div>
+    @if (Request.IsAuthenticated)
+    {
+        using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+        {
+            <ul class="nav navbar-nav navbar-right">
+                @*@foreach(var item in ViewBag.TaiKhoan)
+                {*@ 
+                <li>
+                    @Html.Action("TruyenDuLieu","Home",null)
+                </li>
+                @*}*@
+            </ul>
+        }
+    }
+    else
+    {
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                @Html.ActionLink("Đăngnhập", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", @style = "color:white !important;font-size:20px", @class = "glyphicon glyphicon-log-in" })
+            </li>
+        </ul>
+    }
+</div>

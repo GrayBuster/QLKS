@@ -1,0 +1,36 @@
+﻿@model QLKS.ThuePhong
+@{
+    ViewBag.Title = "ThànhCông";
+}
+
+<h2>Bạn đã thuê phòng thành công! Để thuê phòng tiếp bấm vào <a href="@Url.Action("ThuêPhòng")">đây</a> </h2>
+@Html.ActionLink("Tạo chi tiết thuê phòng","TạoChiTiếtThuêPhòng","ChiTietThuePhongs",null,new { @class="btn btn-primary1"})
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MaPhong)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaPhong)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NgayBatDauThue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgayBatDauThue)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Phong.TenPhong)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Phong.TenPhong)
+        </dd>
+
+    </dl>
+</div>
+@Html.ActionLink("Về danh sách thuê phòng","TrangThuêPhòng",null,new { @class="btn btn-primary1",style="margin-left: 20px;"})
+

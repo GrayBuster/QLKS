@@ -1,0 +1,61 @@
+﻿@model QLKS.ChiTietHoaDon
+
+@{
+    ViewBag.Title = "XoáChiTiếtHóaĐơn";
+}
+
+
+<h3 style="color:red">Bạn có mún xóa chi tiết này không?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NgayThanhToan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgayThanhToan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SoNgayThue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoNgayThue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ThanhTien)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ThanhTien)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HD.MaHD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HD.MaHD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ThuePhong.MaThuePhong)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ThuePhong.MaThuePhong)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div style="margin-left:30px;" class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn btn-primary1" /> 
+        </div>
+    }
+</div>

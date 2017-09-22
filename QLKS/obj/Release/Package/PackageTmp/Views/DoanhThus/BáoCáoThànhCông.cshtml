@@ -1,0 +1,27 @@
+﻿@model QLKS.DoanhThu
+@{
+    ViewBag.Title = "BáoCáoThànhCông";
+}
+
+<h2>Báo cáo doanh thu thành công!Nhấp vào <a href="@Url.Action("QuảnLýDoanhThu")">đây</a> để xem doanh thu </h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MaDoanhThu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaDoanhThu)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Thang)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Thang)
+        </dd>
+
+    </dl>
+</div>

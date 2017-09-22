@@ -1,0 +1,42 @@
+﻿@model QLKS.TaiKhoan
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TaiKhoan</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Pass)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pass)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Roles)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Roles)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NV.TenNV)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NV.TenNV)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Email }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

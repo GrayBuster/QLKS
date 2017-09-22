@@ -1,0 +1,60 @@
+﻿@model QLKS.HD
+
+@{
+    ViewBag.Title = "Xóa hóa đơn";
+}
+
+
+<h3>Bạn có muốn xóa hóa đơn không ?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MaHD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaHD)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MaKhachHang)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaKhachHang)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KhachHang.TenKhachHang)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KhachHang.TenKhachHang)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NV.MaNV)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaNV)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TongTien)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TongTien)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn btn-primary1" /> |
+            @Html.ActionLink("Trở về trang trước", "QuảnLýHóaĐơn", null, new { @class = "btn btn-primary1" })
+        </div>
+    }
+</div>

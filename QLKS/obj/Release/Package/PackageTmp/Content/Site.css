@@ -1,0 +1,166 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+div #mySlides
+{
+   display:block;
+   margin:auto;
+}
+.mySlides {display:none}
+.w3-left, .w3-right, .w3-badge {cursor:pointer}
+.w3-badge {height:13px;width:13px;padding:0}
+
+.lh-title
+{
+    text-align: center;
+    position: relative;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-bottom: 31px;
+}
+
+.h1-style
+{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 1.2;
+    font-family: 'Alegreya Sans SC', sans-serif;
+    letter-spacing: 0em;
+    text-align: inherit;
+    color: #14131a;
+}
+hr.lh-module-divider
+{
+    background-color: transparent;
+    background-image: none;
+    margin: 0px;
+    padding: 0px;
+    border-style:solid;
+    border-color:blue
+}
+.lh-text
+{
+    padding-top:20px;
+    text-align:center;
+    font-size:x-large;
+    font-family:Arial;
+}
+.lh-widget-area
+{
+    max-width:100%;
+}
+.lh-widget-rooms
+{
+    margin-left: -1.385rem;
+    margin-right: -1.385rem;
+    display: flex;
+    flex-wrap: wrap;
+}
+.lh-widget-rooms-type1
+{
+    max-width: 50%;
+    flex: 1 0 50%;
+     display:inline-block;
+    vertical-align:top;
+}
+.lh-widget-rooms-type1-img
+{
+    margin: 0;
+    padding: 0;
+    background: none;
+    border-radius: 0;
+    border: 30px solid #ffffff;
+}
+.lh-widget-rooms-type1-content
+{
+    display: inline-block;
+    flex-direction: column;
+    height: 100%;
+}
+.lh-widget-rooms-type1-title
+{
+    position:relative;
+    z-index: 10;
+    margin: 2px 0 10px;
+    font-style: normal;
+    font-weight: 100;
+    font-size: 31px;
+    font-family: 'Alegreya Sans SC', sans-serif;
+}
+.rooms-type1-wrapper
+{
+    display: flex;
+    text-align:left;
+    color:#51cba3;
+}
+ul li
+{
+    vertical-align:baseline;
+    font-size:large;
+    padding-left: 0;
+    background: none;
+    margin-left: 40px;
+}
+li
+{
+    text-align:left;
+    display:list-item;
+}
+.lh-widget-rooms-type2
+{
+    float:right;
+    flex: 1 0 50%;
+    max-width: 50%;
+    padding-left: 1.385rem;
+    padding-right: 1.385rem;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+.lh-widget-rooms-type2-features-img
+{
+    margin-top:20px;
+    float:left;
+    margin-left:100px;
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    border: 1px solid #f0f0f0;
+    position: relative;
+    border: 1px solid #f0f0f0;
+}
+.lh-widget-rooms-type3
+{
+    flex: 1 0 50%;
+    max-width: 50%;
+}
+.xemThem
+{
+    float:right;
+    margin-right:170px;
+    padding:10px;
+    max-width:200px;
+    height:30px;
+}

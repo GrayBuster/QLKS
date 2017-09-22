@@ -1,0 +1,39 @@
+﻿@model IEnumerable<QLKS.ChucVu>
+
+@{
+    ViewBag.Title = "Danh sách chức vụ";
+}
+
+
+<p style="margin-top:30px;">
+    @Html.ActionLink("Thêm chức vụ", "ThêmChứcVụ",null,new { @class="btn btn-primary1"})
+    @Html.ActionLink("Thêm nhân viên", "ThêmNhânViên","NVs", null, new { @class = "btn btn-primary1" })
+</p>
+<table style="border:1px solid black;margin-top:30px;" class="table">
+    <tr style="border:1px solid black;">
+        <th style="border:1px solid black;margin-top:30px;">
+            @Html.DisplayNameFor(model => model.MaCV)
+        </th>
+        <th style="border:1px solid black;margin-top:30px;">
+            @Html.DisplayNameFor(model => model.TenCV)
+        </th>
+        <th style="border:1px solid black;">
+            <p style="text-align:center;">Chức năng</p>
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr style="border:1px solid black;">
+        <td style="border:1px solid black;">
+            @Html.DisplayFor(modelItem => item.MaCV)
+        </td>
+        <td style="border:1px solid black;">
+            @Html.DisplayFor(modelItem => item.TenCV)
+        </td>
+        <td style="border:1px solid black;">
+            @Html.ActionLink("Sửa", "SửaChứcVụ", new { id = item.TenCV }, new { @class = "btn btn-primary1" })
+            @Html.ActionLink("Xóa", "XoáChứcVụ", new { id = item.TenCV }, new { @class = "btn btn-primary1" })
+        </td></tr>
+}
+
+</table>

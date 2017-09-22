@@ -1,0 +1,44 @@
+﻿@model IEnumerable<QLKS.ChiTietThuePhong>
+
+@{
+    ViewBag.Title = "ChiTiếtThuêPhòng";
+}
+
+<p>
+    @Html.ActionLink("Thêm chi tiết", "TạoChiTiếtThuêPhòng",null,new { @class="btn btn-primary1"})
+</p>
+<table style="border:1px solid black;margin-top:30px;" class="table">
+    <tr style="border:1px solid black;">
+        <th style="border:1px solid black;">
+            @Html.DisplayNameFor(model => model.SoLuongKhach)
+        </th>
+        <th style="border:1px solid black;">
+            @Html.DisplayNameFor(model => model.KhachHang.TenKhachHang)
+        </th>
+        <th style="border:1px solid black;">
+            @Html.DisplayNameFor(model => model.ThuePhong.MaThuePhong)
+        </th>
+        <th style="border:1px solid black;">
+            Chức năng
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr style="border:1px solid black;">
+        <td style="border:1px solid black;">
+            @Html.DisplayFor(modelItem => item.SoLuongKhach)
+        </td>
+        <td style="border:1px solid black;">
+            @Html.DisplayFor(modelItem => item.KhachHang.TenKhachHang)
+        </td>
+        <td style="border:1px solid black;">
+            @Html.DisplayFor(modelItem => item.ThuePhong.MaThuePhong)
+        </td>
+        <td style="border:1px solid black;">
+            @Html.ActionLink("Sửa", "SửaChiTiếtThuêPhòng", new { id=item.MaThuePhong,khachhang=item.MaKhachHang },new { @class="btn btn-primary1"}) 
+            @Html.ActionLink("Xóa", "XóaChiTiếtThuêPhòng", new { id=item.MaThuePhong, khachhang = item.MaKhachHang }, new { @class = "btn btn-primary1" } )
+        </td>
+    </tr>
+}
+
+</table>

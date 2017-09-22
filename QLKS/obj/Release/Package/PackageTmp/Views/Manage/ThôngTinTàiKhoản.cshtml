@@ -1,0 +1,50 @@
+﻿@model QLKS.TaiKhoan
+@using QLKS.Models
+@{
+    ViewBag.Title = "Thông Tin Nhân Viên";
+}
+
+<h2>Thông tin tài khoản nhân viên</h2>
+<hr style="border-color:blue"/>
+<div style="margin-left:50px;">
+    @Html.ActionLink("Sửa", "SửaThôngTinTàiKhoản", new { id = Encryption.encrypt(Model.MaNV.ToString()) }, new { @class = "btn btn-primary1" })
+    @Html.ActionLink("Sửa thông tin nhân viên","SửaNhânViên","NVs",new { id=Encryption.encrypt(Model.MaNV.ToString()) },new { @class="btn btn-primary1"})
+</div>
+<div>
+    
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pass)
+        </dt>
+
+        <dd>
+            @Html.EditorFor(model=>model.Pass,new { @readonly="Readonly"})
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Roles)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Roles)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NV.TenNV)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NV.TenNV)
+        </dd>
+
+    </dl>
+</div>
+

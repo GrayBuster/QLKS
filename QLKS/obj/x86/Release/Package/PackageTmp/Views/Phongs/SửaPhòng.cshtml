@@ -1,0 +1,103 @@
+﻿@model QLKS.Phong
+
+@{
+    ViewBag.Title = "Sửa phòng";
+}
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.MaPhong, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.MaPhong, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.MaPhong, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.TenPhong, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TenPhong, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TenPhong, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.LoaiPhong, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+               
+
+                @Html.DropDownListFor(
+           model => model.LoaiPhong,
+               new SelectList(
+                      new List<Object>
+                {
+                new { value = "A" , text = "A"  },
+                new { value = "B" , text = "B" },
+                new { value = "C" , text = "C"}
+                },
+                "value",
+                "text",
+                Model.LoaiPhong
+                )
+                )
+         </div>
+          </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.DonGia, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DonGia, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DonGia, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.GhiChu, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.GhiChu, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.GhiChu, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.TinhTrang, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @{
+                    List<SelectListItem> trinhTrangs = new List<SelectListItem>();
+                    trinhTrangs.Add(new SelectListItem
+                    {
+                        Text = "Đã đặt",
+                        Value = (true).ToString(),
+                        Selected = true
+                    });
+                    trinhTrangs.Add(new SelectListItem
+                    {
+                        Text = "Còn Phòng",
+                        Value = (false).ToString(),
+                    });
+                }
+
+                @Html.DropDownListFor(model => model.TinhTrang, trinhTrangs)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Lưu" class="btn btn-primary1" />
+            </div>
+        </div>
+    </div>
+                    }
+
+<div>
+    @Html.ActionLink("Trở về trang danh sách phòng", "TrangPhòng", null, new { @class = "btn btn-primary1" })
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

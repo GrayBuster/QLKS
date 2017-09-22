@@ -1,0 +1,48 @@
+﻿@model QLKS.KhachHang
+
+@{
+    ViewBag.Title = "ThôngTinKháchHàng";
+}
+<h2>Thêm khách hàng thành công Nhấp vào <a style="color:red" href="@Url.Action("ThêmKháchHàng")">đây</a> để thêm khách hàng</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TenKhachHang)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenKhachHang)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DiaChi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiaChi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CMND)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CMND)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LoaiKhach.TenLoaiKhach)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LoaiKhach.TenLoaiKhach)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Sửa", "SửaKháchHàng", new { id = Model.MaKhachHang },new { @class="btn btn-primary1"}) 
+    @Html.ActionLink("Về trang khách hàng", "QuảnLýKháchHàng",null,new { @class="btn btn-primary1"})
+</p>

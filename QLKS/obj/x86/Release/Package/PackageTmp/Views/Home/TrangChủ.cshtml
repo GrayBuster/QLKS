@@ -1,0 +1,309 @@
+﻿@{
+    ViewBag.Title = "Luxury Hotel";
+}
+
+@model QLKS.ThuePhong
+<link href="~/Content/Site.css" rel="stylesheet" />
+<div class="jumbotron">
+    <div class="container">
+        <h2 style="font-family:'Lucida Handwriting';font-size:40px;line-height: 1.04;text-align: inherit;color:black">
+            Luxury Hotel
+        </h2>
+    </div>
+    <br />
+    <p class="lead">
+        Luxury Hotel được thành lập vào năm 2016 và đã là 1 khách sạn &#9734;&#9734;&#9734;&#9734;&#9734; trong một năm qua.Luxury hotel là một khách sạn có đầy đủ tiện nghi cho việc nghỉ dưỡng và du lịch.Luxury còn có những dịch vụ đến bất và đã được Hiệp hội khách sạn công nhận chỉ trong một năm qua. &#9786;
+    </p>
+    <p style="text-align:center;">
+        <a href="www.huflit.edu.vn" class="btn btn-primary1 btn-lg">Donated by HUFLIT</a>
+        @Html.ActionLink("Contact us", "Contact", "Home", null, new { @class = "btn btn-primary1 btn-lg" })
+        @Html.ActionLink("About us", "About", "Home", null, new { @class = "btn btn-primary1 btn-lg" })
+    </p>
+</div>
+
+<div class="row container">
+    <div class="col-md-6">
+        <h2 style="text-align:center"><span class="label label-primary"><span class="glyphicon glyphicon-th-list"></span> Phiếu thuê phòng</span></h2>
+        @using (Html.BeginForm("TrangChủ", "Home"))
+        {
+            @Html.AntiForgeryToken()
+
+            <div style="text-align:center" class="form-horizontal">
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.MaThuePhong, htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div style="margin-left:30px;" class="col-md-7">
+                        <p>@Html.EditorFor(model => model.MaThuePhong, new { htmlAttributes = new { @class = "form-control" } })</p>
+                        @Html.ValidationMessageFor(model => model.MaThuePhong, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Phong.TenPhong, htmlAttributes: new { @class = "control-label col-md-4 col-md-4" })
+                    <div style="margin-left:30px;" class="maPhong col-md-7">
+                        @Html.DropDownListFor(model => model.MaPhong, (IEnumerable<SelectListItem>)ViewBag.MaPhong, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Phong.TenPhong, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.NgayBatDauThue, "Ngày Thuê Phòng", htmlAttributes: new { @class = "control-label col-md-4",@style="margin-top:10px;" })
+                    <div class="col-md-7">
+                        @Html.EditorFor(model => model.NgayBatDauThue, "{0:dd/MM/yyyy}", new { htmlAttributes = new { @class = "form-control col-md-6", style = "margin-top:10px;margin-left:30px;" } })
+                        @Html.ValidationMessageFor(model => model.NgayBatDauThue, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.HoTenKH, "Họ tên KH", htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class="col-md-7">
+                        @Html.EditorFor(model => model.HoTenKH, new { htmlAttributes = new { @class = "form-control", style = "margin-left:30px;" } })
+                        @Html.ValidationMessageFor(model => model.HoTenKH, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.CMND, "Chứng minh thư", htmlAttributes: new { @class = "control-label col-xs-4", style = "margin-right:10px" })
+                    <div style="margin-left:20px;margin-top:10px;" class="col-md-7">
+                        @Html.EditorFor(model => model.CMND, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.CMND, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <p>@Html.LabelFor(model => model.LoaiKhach, htmlAttributes: new { @class = "control-label col-md-4" })</p>
+                    <div style="margin-right:50px;" class="col-md-6">
+                        @{
+                            List<SelectListItem> loaiKhachs = new List<SelectListItem>();
+                            loaiKhachs.Add(new SelectListItem
+                            {
+                                Text = "Trong nước",
+                                Value = (false).ToString(),
+                            });
+                            loaiKhachs.Add(new SelectListItem
+                            {
+                                Text = "Ngoài nước",
+                                Value = (true).ToString()
+                            });
+                        }
+
+                        @Html.DropDownListFor(model => model.LoaiKhach, loaiKhachs, "----Select status----")
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.SoLuong, htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div style="margin-right:50px;" class="col-md-6">
+                        @{
+                            List<SelectListItem> soLuong = new List<SelectListItem>();
+                            soLuong.Add(new SelectListItem
+                            {
+                                Text = "1",
+                                Value = 1.ToString(),
+                            });
+                            soLuong.Add(new SelectListItem
+                            {
+                                Text = "2",
+                                Value = 2.ToString(),
+                            });
+                            soLuong.Add(new SelectListItem
+                            {
+                                Text = "3",
+                                Value = 3.ToString(),
+                            });
+                        }
+
+                        @Html.DropDownListFor(model => model.SoLuong, soLuong, "----Select status----"@*,new { @style="margin-right:50px"}*@)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2">
+                        <input type="submit" value="Đặt" class="btn btn-primary1" />
+
+                        <input class="btn btn-primary1" type="button" name="submit" value="Xem phòng trống" id="btnShow" />
+                        <div id="dvShow"></div>
+                        <script>
+                            $(document).ready(function () {
+                                $("#btnShow").click(function () {
+                                    $.ajax({
+                                        url: '@Url.Action("ShowRoom","Home")',
+                                        type: 'post',
+                                        success: function (vHtml) {
+                                            $("#dvShow").html("");
+                                            $("#dvShow").html(vHtml);
+                                        }
+                                    })
+                                })
+                            })
+
+                        </script>
+                    </div>
+                </div>
+            </div>
+                            }
+        <div>
+
+
+        </div>
+    </div>
+
+
+    <div class="col-md-6">
+        <h2 style="text-align:center"><span class="label label-primary"><span class="glyphicon glyphicon-flash"></span> Tin tức</span></h2>
+        <hr />
+        <ul class="tinTuc">
+            <li><p style="text-align:center" class="tintuc1"><a style="color:black;" href="http://kenh14.vn/khach-san-xoay-giup-khach-tro-chiem-nguong-canh-dep-tu-moi-goc-do-20170223212852308.chn">&#9755; Khách sạn xoay đẹp và lôi cuốn đến lạ thường &#9754;</a></p></li>
+            <li><p style="text-align:center" class="tintuc1"><a style="color:black;" href="http://kenh14.vn/mexico-ngu-phong-khach-san-co-xac-chet-duoi-gam-giuong-suot-nhieu-ngay-ma-khong-he-hay-biet-20161108231046271.chn">&#9755; Hiện tượng lạ ở khách sạn mexico &#9754;</a></p></li>
+            <li><p style="text-align:center" class="tintuc1"><a style="color:black;" href="~/Content/abc.html"> &#9755;Lộ clip hot cảnh Hưng 69 trong hotel&#9754;</a></p></li>
+            <li><p style="text-align:center" class="tintuc1"><a style="color:black;" href="http://kenh14.vn/10-ngay-o-khach-san-buon-chan-vi-khach-nay-da-lam-dieu-dac-biet-khien-co-phuc-vu-phong-ngac-nhien-va-xuc-dong-20170425235731787.chn"> &#9755;Vị khách làm một điều ngạc ở khách sạn&#9754;</a></p></li>
+            <li><p style="text-align:center" class="tintuc1"><a style="color:black;" href="http://kenh14.vn/bi-mat-dong-troi-ma-khong-mot-nhan-vien-khach-san-nao-dam-noi-voi-ban-20170324120754247.chn"> &#9755;Những bí mật mà nhân viên khách sạn không dám nói&#9754;</a></p></li>
+        </ul>
+        <div class="xemThem">
+
+            <p style="margin-left:50px; text-align:center;" class="btn btn-primary1"><a href="http://kenh14.vn/khach-san.html" style="color:white;">Xem thêm...</a></p>
+        </div>
+    </div>
+   </div>
+
+<div style="padding-top:50px;" class="row container">
+    <div class="col-md-12">
+        <div class="lh-title">
+            <div class="h1-style">
+                Rooms and Suites
+            </div>
+            <hr class="lh-module-divider" />
+            <div class="lh-text">
+                <p>
+                    <b style="font-family:'Lucida Handwriting'">Luxury hotel</b>   có khoảng 200 phòng và đầy đủ tiện nghi phù hợp cho cả người công tác xa và đi du lịch.
+                </p>
+            </div>
+            <hr style="border-color:white" />
+            <div class="lh-widget-area">
+                <aside>
+                    <div class="lh-widget-rooms">
+                        <div class="lh-widget-rooms-type1">
+                            <div class="lh-widget-rooms-type1-img">
+                                <img style="vertical-align:text-top" height="330" width="370" src="~/Content/singleroom.png" />
+                            </div>
+                            <div class="lh-widget-rooms-type1-content">
+                                <div style="margin-left:40px;" class="lh-widget-rooms-type1-title">
+                                    <h2 style="text-align:left;margin-left:70px;">
+                                        <b>Single Room</b>
+                                    </h2>
+                                    <div style="margin-left:70px;" class="rooms-type1-wrapper">
+                                        150k
+                                        <span style="font-size:.5em;vertical-align:baseline;">
+                                            VNĐ
+                                        </span>
+                                        <span style="font-size:.5em;vertical-align:baseline;">
+                                            /đêm
+                                        </span>
+                                    </div>
+                                    <ul>
+                                        <li>Phòng 1 người.</li>
+                                        <li>Loại: <span style="display:inline-block;color:#51cba3">A</span></li>
+                                        <li>Mô tả: <span style="display:inline-block;color:#51cba3">máy lạnh,HD flat-screen TV,bồn tắm,wifi,cable access....</span></li>
+                                        <li>Kích cỡ:35m²</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="lh-widget-rooms-type2">
+                            <div class="lh-widget-rooms-type2-img">
+                                <div class="lh-widget-rooms-type2-features-img">
+                                    <img width="370" height="330" src="~/Content/familyroom.png" />
+                                </div>
+                            </div>
+                            <div class="lh-widget-rooms-type1-content">
+                                <div style="margin-left:100px;margin-top:40px;margin-right:30px;" class="lh-widget-rooms-type1-title">
+                                    <h2 style="text-align:left;margin-left:70px;">
+                                        <b>Family Room</b>
+                                    </h2>
+                                    <div style="margin-left:70px;" class="rooms-type1-wrapper">
+                                        170k
+                                        <span style="font-size:.5em;vertical-align:baseline;">
+                                            VNĐ
+                                        </span>
+                                        <span style="font-size:.5em;vertical-align:baseline;">
+                                            /đêm
+                                        </span>
+                                    </div>
+                                    <ul>
+                                        <li>Phòng 4 người.</li>
+                                        <li>Loại: <span style="display:inline-block;color:#51cba3">B</span></li>
+                                        <li>Mô tả: <span style="display:inline-block;color:#51cba3">máy lạnh,HD flat-screen TV,bồn tắm,wifi,....</span></li>
+                                        <li>Kích cỡ:50m²</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="lh-widget-rooms-type3">
+                            <div class="lh-widget-rooms-type2-features-img">
+                                <img width="370" height="330" src="~/Content/viproom.png" />
+                            </div>
+                            <div class="lh-widget-rooms-type1-content">
+                                <div style="margin-left:50px;margin-top:40px;margin-right:30px;" class="lh-widget-rooms-type1-title">
+                                    <h2 style="text-align:left;margin-left:70px;font-family:'Agency FB'">
+                                        <b>VIP room</b>
+                                    </h2>
+                                    <div style="margin-left:70px;" class="rooms-type1-wrapper">
+                                        200k
+                                        <span style="font-size:.5em;vertical-align:baseline;">
+                                            VNĐ
+                                        </span>
+                                        <span style="font-size:.5em;vertical-align:baseline;">
+                                            /h
+                                        </span>
+                                    </div>
+                                    <ul>
+                                        <li>Couples only.</li>
+                                        <li>Loại: <span style="display:inline-block;color:#51cba3">C</span></li>
+                                        <li>Mô tả: <span style="display:inline-block;color:#51cba3">máy lạnh,HD flat-screen TV,bồn tắm,wifi,wife,BDSM,....</span></li>
+                                        <li>Kích cỡ:50m²</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="lh-widget-rooms-type2">
+                            <div class="lh-widget-rooms-type2-features-img">
+                                <img width="370" height="330" src="~/Content/suiterooms.png" />
+                            </div>
+                            <div class="lh-widget-rooms-type1-content">
+                                <div style="margin-left:90px;" class="lh-widget-rooms-type1-title">
+                                    <h2 style="text-align:left;margin-left:70px;font-family:Arial;margin-top:40px;">
+                                        <b>Suite room</b>
+                                    </h2>
+                                    <div style="margin-left:70px;" class="rooms-type1-wrapper">
+                                        170k
+                                        <span style="font-size:.5em;vertical-align:baseline;">
+                                            VNĐ
+                                        </span>
+                                        <span style="font-size:.5em;vertical-align:baseline;">
+                                            /h
+                                        </span>
+                                    </div>
+                                    <ul>
+                                        <li>Family or 2.</li>
+                                        <li>Loại: <span style="display:inline-block;color:#51cba3">C</span></li>
+                                        <li>Mô tả: <span style="display:inline-block;color:#51cba3">máy lạnh,HD flat-screen TV,bồn tắm,wifi,wife,BDSM,....</span></li>
+                                        <li>Kích cỡ:50m²</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+                <hr class="lh-module-divider" />
+            </div>
+        </div>
+    </div>
+</div>
+
+@*<div class="col-md-4 margin-top-20">
+        <a href="@Url.Action("Details","Phong")" ,class="btn btn-primary btn-large btn-block">
+            <span class="glyphicon glyphicon-question-sign"></span>
+        </a>
+    </div>*@
+@section scripts{
+    <script>var testing = true;</script>
+}

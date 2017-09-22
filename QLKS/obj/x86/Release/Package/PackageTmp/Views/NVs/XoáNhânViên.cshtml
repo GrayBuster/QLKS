@@ -1,0 +1,55 @@
+﻿@model QLKS.NV
+
+@{
+    ViewBag.Title = "Xóa nhân viên";
+}
+
+
+<h3>Bạn có chắc khi xóa nhân viên này không?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TenNV)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenNV)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SDTNV)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SDTNV)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DCNV)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DCNV)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ChucVu.MaCV)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ChucVu.MaCV)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn btn-primary5" /> 
+            @Html.ActionLink("Trở về danh sách nhân viên", "TrangNhânViên",null, new { @class = "btn btn-primary5" })
+            @Html.ActionLink("Về trang chủ", "TrangChủ", "Home", null, new { @class = "btn btn-primary5" })
+        </div>
+    }
+</div>

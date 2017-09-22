@@ -1,0 +1,55 @@
+﻿@model IEnumerable<QLKS.ChiTietHoaDon>
+@using QLKS.Models
+<table style="border:1px solid black;margin-bottom:20px;" class="table">
+    <tr style="border:1px solid black;">
+        <th style="border:1px solid black;"> 
+            @Html.DisplayNameFor(model => model.NgayThanhToan)
+        </th>
+        <th style="border:1px solid black;">
+            @Html.DisplayNameFor(model => model.SoNgayThue)
+        </th>
+        <th style="border:1px solid black;">
+            @Html.DisplayNameFor(model => model.ThanhTien)
+        </th>
+        <th style="border:1px solid black;">
+            @Html.DisplayNameFor(model => model.HD.MaHD)
+        </th>
+        <th style="border:1px solid black;">
+            @Html.DisplayNameFor(model => model.ThuePhong.MaThuePhong)
+        </th>
+        <th style="border:1px solid black;text-align:center">
+            Chức năng
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr style="border:1px solid black;">
+        <td style="border:1px solid black;">
+            @Html.DisplayFor(modelItem => item.NgayThanhToan)
+        </td>
+        <td style="border:1px solid black;">
+            @Html.DisplayFor(modelItem => item.SoNgayThue)
+        </td>
+        <td style="border:1px solid black;">
+            @Html.DisplayFor(modelItem => item.ThanhTien)
+        </td>
+        <td style="border:1px solid black;">
+            @Html.DisplayFor(modelItem => item.HD.MaHD)
+        </td>
+        <td style="border:1px solid black;">
+            @Html.DisplayFor(modelItem => item.ThuePhong.MaThuePhong)
+        </td>
+        <td style="border:1px solid black;">
+            @if (item.ThanhTien == null)
+            {
+                @Html.ActionLink("Xóa", "XoáChiTiếtHóaĐơn", "HDs", routeValues: new { id = Encryption.encrypt(item.MaHD.ToString()), MaThuePhong = Encryption.encrypt(item.MaThuePhong.ToString()) }, htmlAttributes: new { @class = "btn btn-primary1" })
+            }
+            else if(item.ThanhTien != null)
+            {
+                @Html.ActionLink("Sửa", "SửaChiTiếtHóaĐơn", "HDs", routeValues: new { id = Encryption.encrypt(item.MaHD.ToString()), MaThuePhong = Encryption.encrypt(item.MaThuePhong.ToString()) }, htmlAttributes: new { @class = "btn btn-primary1" })
+            }
+        </td>
+    </tr>
+}
+
+</table>

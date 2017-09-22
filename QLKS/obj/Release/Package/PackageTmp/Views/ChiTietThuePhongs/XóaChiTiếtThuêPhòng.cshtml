@@ -1,0 +1,46 @@
+﻿@model QLKS.ChiTietThuePhong
+
+@{
+    ViewBag.Title = "Xóa chi tiết thuê phòng";
+}
+
+
+<h3>Bạn mún xóa chi tiết thuê phòng này không ?</h3>
+<div>
+    <h4>ChiTietThuePhong</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SoLuongKhach)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoLuongKhach)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KhachHang.TenKhachHang)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KhachHang.TenKhachHang)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ThuePhong.MaThuePhong)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ThuePhong.MaThuePhong)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn btn-primary1" /> |
+        </div>
+    }
+</div>

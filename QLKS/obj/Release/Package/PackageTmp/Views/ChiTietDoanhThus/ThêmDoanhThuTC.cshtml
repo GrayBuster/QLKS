@@ -1,0 +1,43 @@
+﻿@model ChiTietDoanhThu
+@{
+    ViewBag.Title = "ThêmDoanhThuTC";
+}
+
+<h2 style="color:yellow">Bạn đã thêm doanh thu thành công !Nhấp vào <a style="color:red" href="@Url.Action("TrangDoanhThu")">đây</a> để về trang doanh thu!</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MaDoanhThu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaDoanhThu)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.LoaiPhong)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LoaiPhong)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DoanhThu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DoanhThu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tile)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tile)
+        </dd>
+
+    </dl>
+</div>

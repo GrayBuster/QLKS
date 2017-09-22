@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewBag.Title = "Report";
+}
+
+<h2>Saw a bug ? Do not hesitate to report a bug!</h2>
+<!DOCTYPE html>
+<html>
+<body>
+    <h3>Please fill out this form!</h3>
+    
+    <form method="post">
+        <h3>@ViewBag.Message</h3>
+            <div>
+                Your name: <input type='text' name='name' id='nameHoTen' /><br />
+
+                Email: <input type='text' name='email' id='email1' /><br />
+
+                Phone number: <input type='number' name='phone' id='phoneNumber' /><br />
+
+                Details:<br />
+                <textarea name='comment' id='comment'></textarea><br />
+
+                <input type='submit' value='Report' class="btn btn-primary1" name="submitButton" />
+            </div>
+    </form>
+</body>
+</html>
+@section scripts
+{
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+}

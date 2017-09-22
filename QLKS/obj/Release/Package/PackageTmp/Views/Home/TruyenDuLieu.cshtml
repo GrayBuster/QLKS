@@ -1,0 +1,45 @@
+﻿@model QLKS.TaiKhoan
+@using QLKS.Models
+<div class="nav navbar-nav navbar-right">
+    @if (Request.IsAuthenticated)
+    {
+        using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <ul class="nav navbar-nav navbar-right">
+                @if (Model.Email == HttpContext.Current.User.Identity.Name)
+                {
+
+                    if (Model.Roles == "Admin")
+                    {
+                        <li>
+                            <img style="float:left;width:30px;margin-right:10px;margin-top:10px;" src="~/Content/quidinhicon.png" />
+                            @Html.ActionLink("Qui Định", "QuiĐịnh", "QuiDinhs", new { area = "" }, new { @class = "navbar-brand", @style = "color:white !important" })
+                        </li>
+                    }
+                    if (Model.MaNV == 1 || Model.MaNV == 2)
+                    {
+                        <li>@Html.ActionLink("Tạo tài khoản", "TạoTàiKhoản", "Manage", null, new { @style = "color:white !important" })</li>
+                    }
+                    <li>
+                        @Html.ActionLink("Hello " + Session["TenNV"] + "!", "ThôngTinTàiKhoản", "Manage", new { id = Encryption.encrypt(Model.MaNV.ToString()) }, htmlAttributes: new { title = "Manage", @style = "color:white !important" })
+                    </li>
+
+                    <li><a style="color:white !important" href="javascript:document.getElementById('logoutForm').submit()"><span class="glyphicon glyphicon-log-out"></span>Đăng xuất</a></li>
+                }
+            </ul>
+        }
+    }
+    else
+    {
+
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                <a style="color:white !important" href="@Url.Action("Login","Account",null)"><span class="glyphicon glyphicon-log-in"></span>Đăng nhập</a>
+                @*@Html.ActionLink("Đăngnhập", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", @style = "color:white !important;font-size:20px", @class = "glyphicon glyphicon-log-in" })*@
+            </li>
+        </ul>
+    }
+
+</div>

@@ -1,0 +1,59 @@
+﻿@model QLKS.ChiTietDoanhThu
+
+@{
+    ViewBag.Title = "DeleteChiTietDoanhThu";
+}
+
+
+<h3>Bạn có muốn xóa doanh thu không ?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DoanhThu1.MaDoanhThu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DoanhThu1.MaDoanhThu)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.LoaiPhong)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LoaiPhong)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Thang)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Thang)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DoanhThu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DoanhThu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tile)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tile)
+        </dd>
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div style="margin-left:100px;" class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn btn-danger" /> 
+        </div>
+    }
+</div>

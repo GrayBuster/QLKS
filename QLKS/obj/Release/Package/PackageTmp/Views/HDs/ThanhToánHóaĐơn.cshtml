@@ -1,0 +1,44 @@
+﻿@model QLKS.HD
+
+@{
+    ViewBag.Title = "Thanh toán hóa đơn";
+}
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        <div class="form-group">
+            @Html.LabelFor(model => model.KhachHang.TenKhachHang, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.MaKhachHang, (IEnumerable<SelectListItem>)ViewBag.MaKH, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.MaKhachHang, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.NV.TenNV, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.MaNV, (IEnumerable<SelectListItem>)ViewBag.MaNV, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.MaNV, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Thêm" class="btn btn-primary1" />
+            </div>
+        </div>
+    </div>
+}
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

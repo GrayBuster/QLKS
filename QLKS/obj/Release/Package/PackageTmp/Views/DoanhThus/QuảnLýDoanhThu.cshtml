@@ -1,0 +1,81 @@
+﻿@model IEnumerable<QLKS.DoanhThu>
+@using QLKS.Models
+@{
+    ViewBag.Title = "Báo cáo tổng doanh thu";
+}
+
+
+<p style="margin-top:20px;margin-bottom:20px;">
+    @Html.ActionLink("Báo cáo tổng doanh thu theo tháng", "BáoCáoTổngDoanhThu", null, new { @class = "btn btn-primary1" })
+    <a class="btn btn-primary1" href="@Url.Action("ReportDoanhThu")">Xuất chi tiết doanh thu PDF</a>
+</p>
+    <table style="border:1px solid black;margin-top:30px;" class="table">
+        <tr style="border:1px solid black;">
+            <th style="border:1px solid black;">
+                @Html.DisplayNameFor(model => model.MaDoanhThu)
+            </th>
+            <th style="border:1px solid black;">
+                @Html.DisplayNameFor(model => model.Thang)
+            </th>
+            <th style="border:1px solid black;">
+                @Html.DisplayNameFor(model => model.TongDoanhThu)
+            </th>
+                <th style="border:1px solid black;text-align:center">
+                    Chức năng
+                </th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr style="border:1px solid black;">
+                <td style="border:1px solid black;">
+                    @Html.DisplayFor(modelItem => item.MaDoanhThu)
+                </td>
+                <td style="border:1px solid black;">
+                    @Html.DisplayFor(modelItem => item.Thang)
+                </td>
+                <td style="border:1px solid black;">
+                    @{
+                        if (ViewBag.Total != null)
+                        {
+                            item.TongDoanhThu = ViewBag.Total;
+                        }
+                        else
+                        {
+                            item.TongDoanhThu = 0;
+                        }
+
+                    }
+                    @Html.DisplayFor(modelItem => item.TongDoanhThu)
+                </td>
+                @if (item.TongDoanhThu == 0)
+                {
+                    <td style="border:1px solid black;">
+                        @Html.ActionLink("Xóa", "XóaDoanhThu", new { id = Encryption.encrypt(item.MaDoanhThu.ToString()) }, new { @class = "btn btn-primary1" })
+                    </td>
+                }
+            </tr>
+                        }
+
+    </table>
+<div>
+    <h2>Chi tiết doanh thu</h2>
+    <input class="btn btn-primary1" type="button" name="submit" value="Báo cáo doanh thu" id="btnShow" />
+    <hr/>
+    <div id="dvShow"></div>
+    @Html.Action("TrangDoanhThu")
+</div>
+<script>
+                            $(document).ready(function () {
+                                $("#btnShow").click(function () {
+                                    $.ajax({
+                                        url: '@Url.Action("CreateChiTietDoanhThu")',
+                                        type: 'get',
+                                        success: function (vHtml) {
+                                            $("#dvShow").html("");
+                                            $("#dvShow").html(vHtml);
+                                        }
+                                    })
+                                })
+                            })
+
+</script>

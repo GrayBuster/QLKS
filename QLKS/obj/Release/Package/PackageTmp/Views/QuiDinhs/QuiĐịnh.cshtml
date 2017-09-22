@@ -1,0 +1,56 @@
+﻿@model IEnumerable<QLKS.QuiDinh>
+@using QLKS.Models
+@{
+    ViewBag.Title = "Qui định";
+}
+
+<p>
+    @Html.ActionLink("Thêm qui định", "ThêmQuiĐịnh",null,new { @class="btn btn-primary1"})
+</p>
+<table style="border:1px solid black;margin-bottom:20px;" class="table">
+    <tr style="border:1px solid black;">
+        <th style="border:1px solid black;">
+            @Html.DisplayNameFor(model => model.MaQuiDinh)
+        </th>
+        <th style="border:1px solid black;">
+            @Html.DisplayNameFor(model => model.TenQuiDinh)
+        </th>
+        <th style="border:1px solid black;">
+            @Html.DisplayNameFor(model => model.MoTa)
+        </th>
+        <th style="border:1px solid black;">
+            @Html.DisplayNameFor(model => model.ThamSo)
+        </th>
+        <th style="border:1px solid black;">
+            @Html.DisplayNameFor(model => model.ThamSoTien)
+        </th>
+        <th style="border:1px solid black;text-align:center">
+            Chức năng
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr style="border:1px solid black;text-align:center">
+        <td style="border:1px solid black;text-align:center">
+            @Html.DisplayFor(modelItem => item.MaQuiDinh)
+        </td>
+        <td style="border:1px solid black;text-align:center">
+            @Html.DisplayFor(modelItem => item.TenQuiDinh)
+        </td>
+        <td style="border:1px solid black;text-align:center">
+            @Html.DisplayFor(modelItem => item.MoTa)
+        </td>
+        <td style="border:1px solid black;text-align:center">
+            @Html.DisplayFor(modelItem => item.ThamSo)
+        </td>
+        <td style="border:1px solid black;text-align:center">
+            @Html.DisplayFor(modelItem => item.ThamSoTien)
+        </td>
+        <td style="border:1px solid black;text-align:center">
+            @Html.ActionLink("Sửa", "SửaQuiĐịnh", new { id=Encryption.encrypt(item.MaQuiDinh.ToString()) },new { @class="btn btn-primary1"}) 
+            @Html.ActionLink("Xóa", "XóaQuiĐịnh", new { id = Encryption.encrypt(item.MaQuiDinh.ToString()) }, new { @class = "btn btn-primary1" })
+        </td>
+    </tr>
+}
+
+</table>

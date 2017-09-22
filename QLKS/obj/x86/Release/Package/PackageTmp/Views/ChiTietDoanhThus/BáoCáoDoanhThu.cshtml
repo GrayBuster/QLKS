@@ -1,0 +1,67 @@
+﻿@model QLKS.ChiTietDoanhThu
+
+@{
+    ViewBag.Title = "Báo cáo doanh thu";
+}
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.MaDoanhThu, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.MaDoanhThu, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.MaDoanhThu, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.LoaiPhong, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @{
+                    List<SelectListItem> listPhongs = new List<SelectListItem>();
+                    listPhongs.Add(new SelectListItem
+                    {
+                        Text = "A",
+                        Value = "A"
+                    });
+                    listPhongs.Add(new SelectListItem
+                    {
+                        Text = "B",
+                        Value = "B",
+                    });
+                    listPhongs.Add(new SelectListItem
+                    {
+                        Text = "C",
+                        Value = "C"
+                    });
+                }
+
+                @Html.DropDownListFor(model => model.LoaiPhong, listPhongs, "-- Select Status --")
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Thang, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Thang, "{0:dd/MM/yyyy}", new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Thang, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Thêm" class="btn btn-primary1" />
+            </div>
+        </div>
+    </div>
+}
+@Html.ActionLink("Trở về trang doanh thu","ChiTietDoanhThus",null,new { @class="btn btn-primary1"})
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

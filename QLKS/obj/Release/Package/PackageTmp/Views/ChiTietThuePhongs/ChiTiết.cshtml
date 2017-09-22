@@ -1,0 +1,40 @@
+﻿@model QLKS.ChiTietThuePhong
+
+@{
+    ViewBag.Title = "Details";
+}
+
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SoLuongKhach)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoLuongKhach)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KhachHang.TenKhachHang)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KhachHang.TenKhachHang)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ThuePhong.MaThuePhong)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ThuePhong.MaThuePhong)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Sửa", "SửaChiTiếtThuêPhòng", new { id = Model.MaThuePhong,khachHang=Model.MaKhachHang },new { @class="btn btn-primary1"}) 
+    @Html.ActionLink("Về trang chi tiết thuê phòng", "ChiTiếtThuêPhòng",null,new { @class="btn btn-primary1"})
+</p>

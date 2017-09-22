@@ -1,0 +1,53 @@
+﻿@model QLKS.Phong
+@{
+    ViewBag.Title = "TạoPhòngTC";
+}
+
+<h2>Thêm phòng thành công! Nhấp vào <a style="color:red" href="@Url.Action("TạoPhòng")">đây</a> để tiếp tục thêm phòng.</h2>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TenPhong)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenPhong)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LoaiPhong)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LoaiPhong)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DonGia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DonGia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GhiChu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GhiChu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TinhTrang)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ChuyenKieuTinhTrang)
+        </dd>
+
+    </dl>
+</div>
+
+@Html.ActionLink("Quay về danh sach phòng", "TrangPhòng", null, new { @class = "btn btn-primary1" })

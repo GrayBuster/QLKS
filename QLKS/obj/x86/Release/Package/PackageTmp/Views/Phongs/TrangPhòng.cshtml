@@ -1,0 +1,87 @@
+﻿@model PagedList.IPagedList<QLKS.Phong>
+@using PagedList.Mvc;
+@using QLKS.Models
+<link href="~/Content/PagedList.css" rel="stylesheet" />
+@{
+    ViewBag.Title = "Quản lý phòng";
+}
+<p style="margin-top:20px;margin-right:20px;">
+    <p>@Html.ActionLink("Thêm phòng", "TạoPhòng", null, new { @class = "btn btn-primary1" })
+       @Html.ActionLink("Thuê phòng", "ThuêPhòng","ThuePhongs", null, new { @class = "btn btn-primary1" })</p>
+    @using (Html.BeginForm())
+    {
+        <p style="margin-top:30px;">
+            Search: @Html.RadioButton("option", "MaPhong") <text>Mã phòng</text> | @Html.RadioButton("option", "TenPhong") <text>Tên phòng</text> | @Html.RadioButton("option", "LoaiPhong") <text> Loại phòng </text> |
+            @Html.RadioButton("option", "DonGia")<text>Đơn giá</text> | @Html.RadioButton("option", "TinhTrang") <text>Tình trạng</text> @Html.TextBox("searchString")
+            <input class="btn btn-primary1" type="submit" name="submit" value="Search" />
+        </p>
+    }
+<table style="border:1px solid black;margin-bottom:20px;" class="table">
+    <tr style="border:1px solid black;">
+        <th style="border:1px solid black;">
+           Mã Phòng
+        </th>
+        <th style="border:1px solid black;">
+            Tên Phòng
+        </th>
+        <th style="border:1px solid black;">
+            Loại Phòng
+        </th>
+        <th style="border:1px solid black;">
+            Đơn giá
+        </th>
+        <th style="border:1px solid black;">
+            Mô tả
+        </th>
+        <th style="border:1px solid black;">
+            Tình trạng phòng
+        </th>
+        <th style="border:1px solid black;">
+            <p style="text-align:center;">Chức năng</p>
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr style="border:1px solid black;">
+            <td style="border:1px solid black;">
+                @Html.DisplayFor(modelItem => item.MaPhong)
+            </td>
+            <td style="border:1px solid black;">
+                @Html.DisplayFor(modelItem => item.TenPhong)
+            </td>
+            <td style="border:1px solid black;">
+                @Html.DisplayFor(modelItem => item.LoaiPhong)
+            </td>
+            <td style="border:1px solid black;">
+                @Html.DisplayFor(modelItem => item.DonGia)
+            </td>
+            <td style="border:1px solid black;">
+                @Html.DisplayFor(modelItem => item.GhiChu)
+            </td>
+            <td style="border:1px solid black;">
+                @Html.DisplayFor(modelItem => item.ChuyenKieuTinhTrang)
+            </td>
+            <td style="border:1px solid black;">
+                @Html.ActionLink("Sửa", "SửaPhòng", new { id = Encryption.encrypt(item.MaPhong) }, new { @class = "btn btn-primary1" })
+                @Html.ActionLink("Xóa", "XoáPhòng", new { id = Encryption.encrypt(item.MaPhong) }, new { @class = "btn btn-primary1" })
+            </td>
+        </tr>
+                    }
+    
+</table>
+@if (Model.Count() > 0)
+{
+
+}
+else
+{
+    <h4 style="color:red">Không tìm thấy kết quả nào.</h4>
+}
+<p>@Html.ActionLink("Trở về danh sách", "TrangPhòng", null, new { @class = "btn btn-primary1" })</p>
+<p style="margin-left:500px;">Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount</p>
+
+<div style="margin-left:450px;">
+    @Html.PagedListPager(Model, page => Url.Action("TrangPhòng",
+    new { page }))
+</div>

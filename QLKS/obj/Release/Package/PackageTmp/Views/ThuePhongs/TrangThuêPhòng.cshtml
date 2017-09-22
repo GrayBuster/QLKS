@@ -1,0 +1,77 @@
+﻿@model IEnumerable<QLKS.ThuePhong>
+@using QLKS.Models
+@{
+    ViewBag.Title = "Danh sách thuê phòng";
+}
+
+
+<p style="margin-top:20px;margin-bottom:20px;">
+    @Html.ActionLink("Thuê phòng", "ThuêPhòng", null,new { @class="btn btn-primary1"})
+    @Html.ActionLink("Thông tin phòng", "TrangPhòng","Phongs", null, new { @class = "btn btn-primary1" })
+    @Html.ActionLink("Thêm khách hàng", "ThêmKháchHàng", "KhachHangs", null, new { @class = "btn btn-primary1" })
+</p>
+<table style="border:1px solid black;margin-bottom:20px;" class="table">
+    <tr style="border:1px solid black;">
+        <th style="border:1px solid black;">
+            @Html.DisplayNameFor(model => model.MaThuePhong)
+        </th>
+        <th style="border:1px solid black;">
+            @Html.DisplayNameFor(model => model.MaPhong)
+        </th>
+        <th style="border:1px solid black;">
+            @Html.DisplayNameFor(model => model.Phong.TenPhong)
+        </th>
+        <th style="border:1px solid black;">
+            @Html.DisplayNameFor(model => model.NgayBatDauThue)
+        </th>
+        <th style="border:1px solid black;">
+            <p style="text-align:center;">Chức năng</p>
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr style="border:1px solid black;">
+        <td style="border:1px solid black;">
+            @Html.DisplayFor(modelItem => item.MaThuePhong)
+        </td>
+        <td style="border:1px solid black;">
+          
+            @Html.DisplayFor(modelItem => item.MaPhong)
+        </td>
+        <td style="border:1px solid black;">
+         
+            @Html.DisplayFor(modelItem => item.Phong.TenPhong)
+        </td>
+        <td style="border:1px solid black;">
+            @Html.DisplayFor(modelItem => item.NgayBatDauThue)
+        </td>
+        <td style="border:1px solid black;">
+            @Html.ActionLink("Sửa", "SửaThuêPhòng", new { id=Encryption.encrypt(item.MaThuePhong.ToString()) },new { @class="btn btn-primary1"})
+            @Html.ActionLink("Xóa", "XoáThuêPhòng", new { id=Encryption.encrypt(item.MaThuePhong.ToString()) },new { @class = "btn btn-primary1" })
+        </td>
+    </tr>
+}
+
+</table>
+<hr />
+<div>
+    <h2>Chi tiết thuê phòng</h2>
+    <input class="btn btn-primary1" type="button" name="submit" value="Thêm chi tiết" id="btnShow" />
+    <div id="dvShow"></div>
+    @Html.Action("ChiTiếtThuêPhòng")
+</div>
+<script>
+                            $(document).ready(function () {
+                                $("#btnShow").click(function () {
+                                    $.ajax({
+                                        url: '@Url.Action("TạoChiTiếtThuêPhòng")',
+                                        type: 'get',
+                                        success: function (vHtml) {
+                                            $("#dvShow").html("");
+                                            $("#dvShow").html(vHtml);
+                                        }
+                                    })
+                                })
+                            })
+
+</script>

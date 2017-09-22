@@ -1,0 +1,908 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAwRe3Kvz+x0mx+6fuNDpuXgAAAAACAAAAAAAQZgAAAAEAACAAAACSrCfMiyF1UcvdsNESrhozZwRpCAX06oD7wf4vB4DBRgAAAAAOgAAAAAIAACAAAAAO+60VfYOQckm0oiu8b5PwcZ+g3p6wdGr/mVv72kYE1SAAAABFqc89IOPrPZ9UkzVGIdiyiUicWUNbpdQquBiixJsYZEAAAACkpQZ2bjs/CDKdBS8jq/xX/WHydHpV3veDv6AlKSZn7s2DNVPZxvlxChnhw9K5F5Zvgkwh/dGDEAPuFxBIMiwv</EncryptedPassword>
+    <_PublishTargetUrl>ftp://luxuryhotel.somee.com/www.luxuryhotel.somee.com</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="ApplicationInsights.config">
+      <publishTime>04/05/2017 19:37:47</publishTime>
+    </File>
+    <File Include="bin/Antlr3.Runtime.dll">
+      <publishTime>02/22/2013 08:43:40</publishTime>
+    </File>
+    <File Include="bin/ApplicationInsights.config">
+      <publishTime>04/05/2017 19:37:47</publishTime>
+    </File>
+    <File Include="bin/Content/received_1813296055659960.jpeg">
+      <publishTime>05/15/2017 12:23:04</publishTime>
+    </File>
+    <File Include="bin/Content/received_1813296058993293.jpeg">
+      <publishTime>05/15/2017 12:23:07</publishTime>
+    </File>
+    <File Include="bin/Content/received_1813296075659958.jpeg">
+      <publishTime>05/15/2017 12:23:09</publishTime>
+    </File>
+    <File Include="bin/Content/received_1813296078993291.jpeg">
+      <publishTime>05/15/2017 12:23:11</publishTime>
+    </File>
+    <File Include="bin/Content/received_1813296095659956.jpeg">
+      <publishTime>05/15/2017 12:23:14</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.CrystalReports.Engine.dll">
+      <publishTime>04/18/2017 04:39:20</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.Data.AdoDotNetInterop.dll">
+      <publishTime>04/18/2017 04:07:24</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.ReportAppServer.ClientDoc.dll">
+      <publishTime>04/18/2017 04:39:22</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.ReportAppServer.CommLayer.dll">
+      <publishTime>04/18/2017 04:39:22</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.ReportAppServer.CommonControls.dll">
+      <publishTime>04/18/2017 04:39:22</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.ReportAppServer.CommonObjectModel.dll">
+      <publishTime>04/18/2017 04:39:22</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.ReportAppServer.Controllers.dll">
+      <publishTime>04/18/2017 04:39:22</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.ReportAppServer.CubeDefModel.dll">
+      <publishTime>04/18/2017 04:39:22</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.ReportAppServer.DataDefModel.dll">
+      <publishTime>04/18/2017 04:39:22</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.ReportAppServer.DataSetConversion.dll">
+      <publishTime>04/18/2017 04:39:22</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.ReportAppServer.ObjectFactory.dll">
+      <publishTime>04/18/2017 04:39:22</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.ReportAppServer.Prompting.dll">
+      <publishTime>04/18/2017 04:39:22</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.ReportAppServer.ReportDefModel.dll">
+      <publishTime>04/18/2017 04:39:22</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.ReportAppServer.XmlSerialize.dll">
+      <publishTime>04/18/2017 04:39:22</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.ReportSource.dll">
+      <publishTime>04/18/2017 04:39:22</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.Shared.dll">
+      <publishTime>04/18/2017 04:39:22</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.dll">
+      <publishTime>03/02/2015 09:32:26</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.SqlServer.dll">
+      <publishTime>03/02/2015 09:32:26</publishTime>
+    </File>
+    <File Include="bin/log4net.dll">
+      <publishTime>03/08/2017 19:26:22</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.Agent.Intercept.dll">
+      <publishTime>11/30/2016 16:07:42</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.DependencyCollector.dll">
+      <publishTime>12/07/2016 11:45:42</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.PerfCounterCollector.dll">
+      <publishTime>12/07/2016 11:50:34</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.ServerTelemetryChannel.dll">
+      <publishTime>12/06/2016 15:15:48</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.Web.dll">
+      <publishTime>12/07/2016 11:49:10</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AI.WindowsServer.dll">
+      <publishTime>12/07/2016 11:50:34</publishTime>
+    </File>
+    <File Include="bin/Microsoft.ApplicationInsights.dll">
+      <publishTime>12/06/2016 15:09:52</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AspNet.Identity.Core.dll">
+      <publishTime>04/03/2015 17:07:22</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AspNet.Identity.EntityFramework.dll">
+      <publishTime>04/03/2015 17:07:22</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AspNet.Identity.Owin.dll">
+      <publishTime>04/03/2015 17:07:22</publishTime>
+    </File>
+    <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
+      <publishTime>06/15/2015 02:06:24</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.dll">
+      <publishTime>02/13/2015 13:16:30</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Host.SystemWeb.dll">
+      <publishTime>02/13/2015 13:16:34</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.Cookies.dll">
+      <publishTime>02/13/2015 13:16:38</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.dll">
+      <publishTime>02/13/2015 13:16:36</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.Facebook.dll">
+      <publishTime>02/13/2015 13:16:38</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.Google.dll">
+      <publishTime>02/13/2015 13:16:38</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.MicrosoftAccount.dll">
+      <publishTime>02/13/2015 13:16:40</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.OAuth.dll">
+      <publishTime>02/13/2015 13:16:40</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.Twitter.dll">
+      <publishTime>02/13/2015 13:16:42</publishTime>
+    </File>
+    <File Include="bin/Microsoft.ReportViewer.WebForms.dll">
+      <publishTime>05/29/2015 21:27:38</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Infrastructure.dll">
+      <publishTime>04/23/2012 15:23:58</publishTime>
+    </File>
+    <File Include="bin/MvcReportViewer.dll">
+      <publishTime>12/04/2015 15:09:38</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>08/03/2014 20:33:56</publishTime>
+    </File>
+    <File Include="bin/Owin.dll">
+      <publishTime>11/27/2012 13:00:52</publishTime>
+    </File>
+    <File Include="bin/PagedList.dll">
+      <publishTime>09/30/2013 17:36:38</publishTime>
+    </File>
+    <File Include="bin/PagedList.Mvc.dll">
+      <publishTime>09/30/2013 18:15:20</publishTime>
+    </File>
+    <File Include="bin/QLKS.dll">
+      <publishTime>06/05/2017 21:06:51</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.exe">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.Build.Tasks.CodeAnalysis.dll">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.dll">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.dll">
+      <publishTime>06/18/2015 20:19:44</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.VisualBasic.dll">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CSharp.Core.targets">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.VisualBasic.Core.targets">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Collections.Immutable.dll">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Reflection.Metadata.dll">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.exe">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe.config">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/stdole.dll">
+      <publishTime>07/07/2015 15:51:38</publishTime>
+    </File>
+    <File Include="bin/System.Web.Helpers.dll">
+      <publishTime>01/28/2015 04:04:30</publishTime>
+    </File>
+    <File Include="bin/System.Web.Mvc.dll">
+      <publishTime>01/28/2015 04:02:18</publishTime>
+    </File>
+    <File Include="bin/System.Web.Optimization.dll">
+      <publishTime>02/11/2014 15:26:04</publishTime>
+    </File>
+    <File Include="bin/System.Web.Razor.dll">
+      <publishTime>01/28/2015 04:02:32</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Deployment.dll">
+      <publishTime>01/28/2015 04:04:30</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.dll">
+      <publishTime>01/28/2015 04:04:30</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Razor.dll">
+      <publishTime>01/28/2015 04:04:30</publishTime>
+    </File>
+    <File Include="bin/WebGrease.dll">
+      <publishTime>09/10/2013 17:28:38</publishTime>
+    </File>
+    <File Include="Content/123.jpg">
+      <publishTime>05/15/2017 12:22:15</publishTime>
+    </File>
+    <File Include="Content/abc.html">
+      <publishTime>05/15/2017 12:22:16</publishTime>
+    </File>
+    <File Include="Content/billicon.png">
+      <publishTime>05/15/2017 12:22:17</publishTime>
+    </File>
+    <File Include="Content/boostrap-1.css">
+      <publishTime>05/15/2017 12:22:19</publishTime>
+    </File>
+    <File Include="Content/bootstrap.css">
+      <publishTime>05/15/2017 12:22:21</publishTime>
+    </File>
+    <File Include="Content/bootstrap.min.css">
+      <publishTime>05/15/2017 12:22:23</publishTime>
+    </File>
+    <File Include="Content/customericon.png">
+      <publishTime>05/21/2017 13:19:23</publishTime>
+    </File>
+    <File Include="Content/download.png">
+      <publishTime>05/15/2017 12:22:24</publishTime>
+    </File>
+    <File Include="Content/Error404.html">
+      <publishTime>05/15/2017 12:22:26</publishTime>
+    </File>
+    <File Include="Content/familyroom.png">
+      <publishTime>05/15/2017 12:22:29</publishTime>
+    </File>
+    <File Include="Content/hinh94.jpeg">
+      <publishTime>05/15/2017 12:22:43</publishTime>
+    </File>
+    <File Include="Content/Homeiocn.png">
+      <publishTime>05/15/2017 12:22:44</publishTime>
+    </File>
+    <File Include="Content/Icons8-Windows-8-City-Hotel.ico">
+      <publishTime>05/15/2017 12:22:46</publishTime>
+    </File>
+    <File Include="Content/images.png">
+      <publishTime>05/15/2017 12:22:47</publishTime>
+    </File>
+    <File Include="Content/loginicon.png">
+      <publishTime>05/15/2017 12:22:48</publishTime>
+    </File>
+    <File Include="Content/logo.png">
+      <publishTime>05/15/2017 12:22:49</publishTime>
+    </File>
+    <File Include="Content/Luxury8.jpg">
+      <publishTime>05/15/2017 12:22:52</publishTime>
+    </File>
+    <File Include="Content/LuxuryLogo.jpg">
+      <publishTime>05/15/2017 12:22:53</publishTime>
+    </File>
+    <File Include="Content/luxurylogoresized.jpg">
+      <publishTime>05/15/2017 12:22:54</publishTime>
+    </File>
+    <File Include="Content/moneyicon.png">
+      <publishTime>05/15/2017 12:22:59</publishTime>
+    </File>
+    <File Include="Content/PagedList.css">
+      <publishTime>05/15/2017 12:23:00</publishTime>
+    </File>
+    <File Include="Content/Palais-Namaskar-luxury-dream-hotels-01.jpg">
+      <publishTime>05/15/2017 12:23:01</publishTime>
+    </File>
+    <File Include="Content/personnelicon.png">
+      <publishTime>05/15/2017 12:23:03</publishTime>
+    </File>
+    <File Include="Content/quidinhicon.png">
+      <publishTime>05/25/2017 15:49:00</publishTime>
+    </File>
+    <File Include="Content/received_1813296045659961.jpeg">
+      <publishTime>05/15/2017 12:41:13</publishTime>
+    </File>
+    <File Include="Content/received_1813296055659960.jpeg">
+      <publishTime>05/15/2017 12:23:04</publishTime>
+    </File>
+    <File Include="Content/received_1813296058993293.jpeg">
+      <publishTime>05/15/2017 12:23:07</publishTime>
+    </File>
+    <File Include="Content/received_1813296075659958.jpeg">
+      <publishTime>05/15/2017 12:23:09</publishTime>
+    </File>
+    <File Include="Content/received_1813296078993291.jpeg">
+      <publishTime>05/15/2017 12:23:11</publishTime>
+    </File>
+    <File Include="Content/received_1813296095659956.jpeg">
+      <publishTime>05/15/2017 12:23:14</publishTime>
+    </File>
+    <File Include="Content/Report.html">
+      <publishTime>05/15/2017 12:23:21</publishTime>
+    </File>
+    <File Include="Content/roomicon.png">
+      <publishTime>05/15/2017 12:23:23</publishTime>
+    </File>
+    <File Include="Content/singleroom.png">
+      <publishTime>05/15/2017 12:23:24</publishTime>
+    </File>
+    <File Include="Content/Site.css">
+      <publishTime>05/21/2017 12:38:02</publishTime>
+    </File>
+    <File Include="Content/suiterooms.png">
+      <publishTime>05/15/2017 12:23:30</publishTime>
+    </File>
+    <File Include="Content/viproom.png">
+      <publishTime>05/15/2017 12:23:32</publishTime>
+    </File>
+    <File Include="favicon.ico">
+      <publishTime>04/05/2017 19:37:25</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.eot">
+      <publishTime>04/05/2017 19:37:28</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.svg">
+      <publishTime>04/05/2017 19:37:28</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.ttf">
+      <publishTime>04/05/2017 19:37:28</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.woff">
+      <publishTime>04/05/2017 19:37:28</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>04/05/2017 19:37:25</publishTime>
+    </File>
+    <File Include="Icons8-Windows-8-City-Hotel.ico">
+      <publishTime>05/05/2017 10:15:18</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>05/22/2017 17:39:12</publishTime>
+    </File>
+    <File Include="QLKS.edmx.diagram">
+      <publishTime>05/25/2017 10:48:26</publishTime>
+    </File>
+    <File Include="Report/DataSetChiTietDoanhThu.xsc">
+      <publishTime>05/16/2017 15:57:12</publishTime>
+    </File>
+    <File Include="Report/DataSetChiTietDoanhThu.xss">
+      <publishTime>05/16/2017 15:57:12</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.js">
+      <publishTime>05/15/2017 11:48:45</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.min.js">
+      <publishTime>04/05/2017 19:37:28</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.10.2.min.js">
+      <publishTime>04/05/2017 19:37:28</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.10.2.min.map">
+      <publishTime>04/05/2017 19:37:28</publishTime>
+    </File>
+    <File Include="Scripts/jquery.unobtrusive-ajax.js">
+      <publishTime>04/16/2017 12:22:26</publishTime>
+    </File>
+    <File Include="Scripts/jquery.unobtrusive-ajax.min.js">
+      <publishTime>04/16/2017 12:22:26</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.js">
+      <publishTime>04/05/2017 19:37:34</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.min.js">
+      <publishTime>04/05/2017 19:37:34</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.unobtrusive.js">
+      <publishTime>04/05/2017 19:37:34</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.unobtrusive.min.js">
+      <publishTime>04/05/2017 19:37:34</publishTime>
+    </File>
+    <File Include="Scripts/modernizr-2.6.2.js">
+      <publishTime>04/05/2017 19:37:34</publishTime>
+    </File>
+    <File Include="Scripts/MvcReportViewer.js">
+      <publishTime>05/07/2017 16:02:29</publishTime>
+    </File>
+    <File Include="Scripts/respond.js">
+      <publishTime>04/05/2017 19:37:34</publishTime>
+    </File>
+    <File Include="Scripts/respond.min.js">
+      <publishTime>04/05/2017 19:37:34</publishTime>
+    </File>
+    <File Include="Scripts/url.js">
+      <publishTime>05/07/2017 16:02:29</publishTime>
+    </File>
+    <File Include="Scripts/_references.js">
+      <publishTime>05/07/2017 16:02:29</publishTime>
+    </File>
+    <File Include="Views/Account/ConfirmEmail.cshtml">
+      <publishTime>04/05/2017 19:37:37</publishTime>
+    </File>
+    <File Include="Views/Account/ExternalLoginConfirmation.cshtml">
+      <publishTime>04/05/2017 19:37:37</publishTime>
+    </File>
+    <File Include="Views/Account/ExternalLoginFailure.cshtml">
+      <publishTime>04/05/2017 19:37:37</publishTime>
+    </File>
+    <File Include="Views/Account/ForgotPassword.cshtml">
+      <publishTime>04/05/2017 19:37:37</publishTime>
+    </File>
+    <File Include="Views/Account/ForgotPasswordConfirmation.cshtml">
+      <publishTime>04/05/2017 19:37:37</publishTime>
+    </File>
+    <File Include="Views/Account/Login.cshtml">
+      <publishTime>05/12/2017 11:48:50</publishTime>
+    </File>
+    <File Include="Views/Account/Register.cshtml">
+      <publishTime>04/05/2017 19:37:37</publishTime>
+    </File>
+    <File Include="Views/Account/ResetPassword.cshtml">
+      <publishTime>04/05/2017 19:37:37</publishTime>
+    </File>
+    <File Include="Views/Account/ResetPasswordConfirmation.cshtml">
+      <publishTime>04/05/2017 19:37:37</publishTime>
+    </File>
+    <File Include="Views/Account/SendCode.cshtml">
+      <publishTime>04/05/2017 19:37:37</publishTime>
+    </File>
+    <File Include="Views/Account/VerifyCode.cshtml">
+      <publishTime>04/05/2017 19:37:37</publishTime>
+    </File>
+    <File Include="Views/Account/_ExternalLoginsListPartial.cshtml">
+      <publishTime>04/05/2017 19:37:37</publishTime>
+    </File>
+    <File Include="Views/ChiTietDoanhThus/BáoCáoDoanhThu.cshtml">
+      <publishTime>05/12/2017 21:09:49</publishTime>
+    </File>
+    <File Include="Views/ChiTietDoanhThus/Details.cshtml">
+      <publishTime>05/09/2017 15:09:17</publishTime>
+    </File>
+    <File Include="Views/ChiTietDoanhThus/LỗiSửaDoanhThu.cshtml">
+      <publishTime>05/09/2017 15:38:16</publishTime>
+    </File>
+    <File Include="Views/ChiTietDoanhThus/LỗiThêmDoanhThu.cshtml">
+      <publishTime>05/12/2017 21:21:25</publishTime>
+    </File>
+    <File Include="Views/ChiTietDoanhThus/LỗiXóaDoanhThu.cshtml">
+      <publishTime>05/12/2017 20:35:34</publishTime>
+    </File>
+    <File Include="Views/ChiTietDoanhThus/SửaDoanhThu.cshtml">
+      <publishTime>05/09/2017 15:46:23</publishTime>
+    </File>
+    <File Include="Views/ChiTietDoanhThus/SửaDoanhThuTC.cshtml">
+      <publishTime>05/10/2017 10:11:28</publishTime>
+    </File>
+    <File Include="Views/ChiTietDoanhThus/ThêmDoanhThuTC.cshtml">
+      <publishTime>05/13/2017 10:09:03</publishTime>
+    </File>
+    <File Include="Views/ChiTietDoanhThus/TrangDoanhThu.cshtml">
+      <publishTime>05/12/2017 09:56:44</publishTime>
+    </File>
+    <File Include="Views/ChiTietDoanhThus/XóaDoanhThu.cshtml">
+      <publishTime>05/12/2017 21:23:02</publishTime>
+    </File>
+    <File Include="Views/ChiTietDoanhThus/XóaDoanhThuTC.cshtml">
+      <publishTime>05/12/2017 21:23:15</publishTime>
+    </File>
+    <File Include="Views/ChiTietHoaDons/Create.cshtml">
+      <publishTime>05/20/2017 19:33:54</publishTime>
+    </File>
+    <File Include="Views/ChiTietHoaDons/Delete.cshtml">
+      <publishTime>05/20/2017 19:33:55</publishTime>
+    </File>
+    <File Include="Views/ChiTietHoaDons/Details.cshtml">
+      <publishTime>05/20/2017 19:33:57</publishTime>
+    </File>
+    <File Include="Views/ChiTietHoaDons/Edit.cshtml">
+      <publishTime>05/20/2017 19:33:58</publishTime>
+    </File>
+    <File Include="Views/ChiTietHoaDons/Index.cshtml">
+      <publishTime>05/20/2017 19:34:00</publishTime>
+    </File>
+    <File Include="Views/ChiTietThuePhongs/ChiTiết.cshtml">
+      <publishTime>05/20/2017 15:00:59</publishTime>
+    </File>
+    <File Include="Views/ChiTietThuePhongs/ChiTiếtThuêPhòng.cshtml">
+      <publishTime>05/20/2017 16:28:21</publishTime>
+    </File>
+    <File Include="Views/ChiTietThuePhongs/SửaChiTiếtThuêPhòng.cshtml">
+      <publishTime>05/20/2017 15:09:16</publishTime>
+    </File>
+    <File Include="Views/ChiTietThuePhongs/TạoChiTiếtThuêPhòng.cshtml">
+      <publishTime>05/20/2017 16:28:46</publishTime>
+    </File>
+    <File Include="Views/ChiTietThuePhongs/XóaChiTiếtThuêPhòng.cshtml">
+      <publishTime>05/21/2017 19:02:26</publishTime>
+    </File>
+    <File Include="Views/ChucVus/Details.cshtml">
+      <publishTime>04/08/2017 16:17:57</publishTime>
+    </File>
+    <File Include="Views/ChucVus/LỗiChứcVụ.cshtml">
+      <publishTime>05/06/2017 12:52:47</publishTime>
+    </File>
+    <File Include="Views/ChucVus/LỗiXoáChứcVụ.cshtml">
+      <publishTime>05/06/2017 12:58:49</publishTime>
+    </File>
+    <File Include="Views/ChucVus/QuảnLýChứcVụ.cshtml">
+      <publishTime>05/21/2017 15:07:31</publishTime>
+    </File>
+    <File Include="Views/ChucVus/SửaChứcVụ.cshtml">
+      <publishTime>05/06/2017 12:54:58</publishTime>
+    </File>
+    <File Include="Views/ChucVus/SửaChứcVụThànhCông.cshtml">
+      <publishTime>05/06/2017 12:50:30</publishTime>
+    </File>
+    <File Include="Views/ChucVus/ThêmChứcVụ.cshtml">
+      <publishTime>05/06/2017 12:54:43</publishTime>
+    </File>
+    <File Include="Views/ChucVus/ThêmChứcVụThànhCông.cshtml">
+      <publishTime>05/06/2017 12:48:11</publishTime>
+    </File>
+    <File Include="Views/ChucVus/XoáChứcVụ.cshtml">
+      <publishTime>05/06/2017 12:54:09</publishTime>
+    </File>
+    <File Include="Views/ChucVus/XoáThànhCông.cshtml">
+      <publishTime>05/06/2017 12:58:39</publishTime>
+    </File>
+    <File Include="Views/DoanhThus/BáoCáoThànhCông.cshtml">
+      <publishTime>05/16/2017 11:09:25</publishTime>
+    </File>
+    <File Include="Views/DoanhThus/BáoCáoTổngDoanhThu.cshtml">
+      <publishTime>05/20/2017 21:01:42</publishTime>
+    </File>
+    <File Include="Views/DoanhThus/CreateChiTietDoanhThu.cshtml">
+      <publishTime>05/20/2017 20:59:57</publishTime>
+    </File>
+    <File Include="Views/DoanhThus/DeleteChiTietDoanhThu.cshtml">
+      <publishTime>05/20/2017 21:00:27</publishTime>
+    </File>
+    <File Include="Views/DoanhThus/Details.cshtml">
+      <publishTime>05/10/2017 13:04:39</publishTime>
+    </File>
+    <File Include="Views/DoanhThus/Edit.cshtml">
+      <publishTime>05/10/2017 13:04:40</publishTime>
+    </File>
+    <File Include="Views/DoanhThus/LỗiBáoCáoDoanhThu.cshtml">
+      <publishTime>05/10/2017 14:10:33</publishTime>
+    </File>
+    <File Include="Views/DoanhThus/LỗiThêmDoanhThu.cshtml">
+      <publishTime>05/13/2017 11:53:34</publishTime>
+    </File>
+    <File Include="Views/DoanhThus/LỗiXóaDoanhThu.cshtml">
+      <publishTime>05/10/2017 14:24:47</publishTime>
+    </File>
+    <File Include="Views/DoanhThus/QuảnLýDoanhThu.cshtml">
+      <publishTime>05/24/2017 17:32:44</publishTime>
+    </File>
+    <File Include="Views/DoanhThus/TrangDoanhThu.cshtml">
+      <publishTime>06/05/2017 10:23:55</publishTime>
+    </File>
+    <File Include="Views/DoanhThus/XoáThànhCôngDoanhThu.cshtml">
+      <publishTime>05/16/2017 11:34:32</publishTime>
+    </File>
+    <File Include="Views/DoanhThus/XóaDoanhThu.cshtml">
+      <publishTime>05/20/2017 21:00:58</publishTime>
+    </File>
+    <File Include="Views/DoanhThus/XóaDoanhThuTC.cshtml">
+      <publishTime>05/16/2017 11:34:36</publishTime>
+    </File>
+    <File Include="Views/Error/PMAccessDenied.cshtml">
+      <publishTime>04/26/2017 15:34:48</publishTime>
+    </File>
+    <File Include="Views/HDs/ChiTiếtHóaĐơn.cshtml">
+      <publishTime>05/28/2017 15:10:51</publishTime>
+    </File>
+    <File Include="Views/HDs/Details.cshtml">
+      <publishTime>04/28/2017 21:26:08</publishTime>
+    </File>
+    <File Include="Views/HDs/LỗiKhiSửaHĐ.cshtml">
+      <publishTime>05/07/2017 11:10:10</publishTime>
+    </File>
+    <File Include="Views/HDs/LỗiKhiXóaHD.cshtml">
+      <publishTime>05/07/2017 11:13:32</publishTime>
+    </File>
+    <File Include="Views/HDs/LỗiXoáChiTiếtDoanhThu.cshtml">
+      <publishTime>05/23/2017 09:48:52</publishTime>
+    </File>
+    <File Include="Views/HDs/QuảnLýHóaĐơn.cshtml">
+      <publishTime>05/28/2017 15:10:24</publishTime>
+    </File>
+    <File Include="Views/HDs/SửaChiTiếtHóaĐơn.cshtml">
+      <publishTime>05/22/2017 22:42:15</publishTime>
+    </File>
+    <File Include="Views/HDs/SửaHóaĐơn.cshtml">
+      <publishTime>05/20/2017 17:39:28</publishTime>
+    </File>
+    <File Include="Views/HDs/SửaThànhCôngHóaĐơn.cshtml">
+      <publishTime>05/07/2017 11:07:54</publishTime>
+    </File>
+    <File Include="Views/HDs/ThanhToánHoáTC.cshtml">
+      <publishTime>05/07/2017 11:04:33</publishTime>
+    </File>
+    <File Include="Views/HDs/ThanhToánHóaĐơn.cshtml">
+      <publishTime>05/22/2017 20:28:21</publishTime>
+    </File>
+    <File Include="Views/HDs/TạoChiTiếtHóaĐơn.cshtml">
+      <publishTime>05/20/2017 19:45:02</publishTime>
+    </File>
+    <File Include="Views/HDs/XoáChiTiếtHóaĐơn.cshtml">
+      <publishTime>05/22/2017 23:29:17</publishTime>
+    </File>
+    <File Include="Views/HDs/XoáTCHD.cshtml">
+      <publishTime>05/07/2017 11:11:17</publishTime>
+    </File>
+    <File Include="Views/HDs/XóaHóaĐơn.cshtml">
+      <publishTime>05/20/2017 17:41:39</publishTime>
+    </File>
+    <File Include="Views/Home/About.cshtml">
+      <publishTime>04/16/2017 11:42:08</publishTime>
+    </File>
+    <File Include="Views/Home/Contact.cshtml">
+      <publishTime>04/09/2017 18:45:39</publishTime>
+    </File>
+    <File Include="Views/Home/CreateError.cshtml">
+      <publishTime>05/20/2017 16:21:00</publishTime>
+    </File>
+    <File Include="Views/Home/DatPhong.cshtml">
+      <publishTime>05/20/2017 15:28:19</publishTime>
+    </File>
+    <File Include="Views/Home/NotAuthority.cshtml">
+      <publishTime>04/26/2017 13:28:29</publishTime>
+    </File>
+    <File Include="Views/Home/Report.cshtml">
+      <publishTime>04/16/2017 12:32:21</publishTime>
+    </File>
+    <File Include="Views/Home/ShowRoom.cshtml">
+      <publishTime>05/10/2017 10:29:05</publishTime>
+    </File>
+    <File Include="Views/Home/TrangChủ.cshtml">
+      <publishTime>06/05/2017 09:31:19</publishTime>
+    </File>
+    <File Include="Views/Home/TruyenDuLieu.cshtml">
+      <publishTime>05/26/2017 20:54:59</publishTime>
+    </File>
+    <File Include="Views/Home/_Thanks.cshtml">
+      <publishTime>04/16/2017 12:45:26</publishTime>
+    </File>
+    <File Include="Views/KhachHangs/QuảnLýKháchHàng.cshtml">
+      <publishTime>06/05/2017 10:10:11</publishTime>
+    </File>
+    <File Include="Views/KhachHangs/SửaKháchHàng.cshtml">
+      <publishTime>05/20/2017 17:06:53</publishTime>
+    </File>
+    <File Include="Views/KhachHangs/ThêmKháchHàng.cshtml">
+      <publishTime>06/05/2017 10:00:57</publishTime>
+    </File>
+    <File Include="Views/KhachHangs/ThôngTinKháchHàng.cshtml">
+      <publishTime>05/20/2017 17:03:44</publishTime>
+    </File>
+    <File Include="Views/KhachHangs/XóaKháchHàng.cshtml">
+      <publishTime>05/20/2017 17:05:27</publishTime>
+    </File>
+    <File Include="Views/LoaiPhongs/LoạiPhòng.cshtml">
+      <publishTime>06/05/2017 21:31:09</publishTime>
+    </File>
+    <File Include="Views/LoaiPhongs/LỗiLoạiPhòng.cshtml">
+      <publishTime>06/05/2017 20:52:27</publishTime>
+    </File>
+    <File Include="Views/LoaiPhongs/SửaLoạiPhòng.cshtml">
+      <publishTime>06/05/2017 20:39:45</publishTime>
+    </File>
+    <File Include="Views/LoaiPhongs/ThêmLoạiPhòng.cshtml">
+      <publishTime>06/05/2017 20:42:53</publishTime>
+    </File>
+    <File Include="Views/LoaiPhongs/ThêmLoạiPhòngTC.cshtml">
+      <publishTime>06/05/2017 20:49:13</publishTime>
+    </File>
+    <File Include="Views/LoaiPhongs/XóaLoạiPhòng.cshtml">
+      <publishTime>06/05/2017 20:39:41</publishTime>
+    </File>
+    <File Include="Views/Manage/AddPhoneNumber.cshtml">
+      <publishTime>04/05/2017 19:37:37</publishTime>
+    </File>
+    <File Include="Views/Manage/ChangePassword.cshtml">
+      <publishTime>04/05/2017 19:37:37</publishTime>
+    </File>
+    <File Include="Views/Manage/Index.cshtml">
+      <publishTime>04/05/2017 19:37:37</publishTime>
+    </File>
+    <File Include="Views/Manage/LỗiTạoTàiKhoản.cshtml">
+      <publishTime>05/26/2017 16:14:08</publishTime>
+    </File>
+    <File Include="Views/Manage/ManageLogins.cshtml">
+      <publishTime>04/05/2017 19:37:37</publishTime>
+    </File>
+    <File Include="Views/Manage/SetPassword.cshtml">
+      <publishTime>04/05/2017 19:37:37</publishTime>
+    </File>
+    <File Include="Views/Manage/SửaThôngTinTàiKhoản.cshtml">
+      <publishTime>05/19/2017 09:27:04</publishTime>
+    </File>
+    <File Include="Views/Manage/ThôngTinTàiKhoản.cshtml">
+      <publishTime>05/21/2017 14:49:40</publishTime>
+    </File>
+    <File Include="Views/Manage/TạoTàiKhoản.cshtml">
+      <publishTime>05/26/2017 17:17:30</publishTime>
+    </File>
+    <File Include="Views/Manage/VerifyPhoneNumber.cshtml">
+      <publishTime>04/05/2017 19:37:37</publishTime>
+    </File>
+    <File Include="Views/NVs/Details.cshtml">
+      <publishTime>04/08/2017 12:51:58</publishTime>
+    </File>
+    <File Include="Views/NVs/LỗiSửaNV.cshtml">
+      <publishTime>05/08/2017 19:17:01</publishTime>
+    </File>
+    <File Include="Views/NVs/LỗiTạonhânViên.cshtml">
+      <publishTime>05/04/2017 17:16:57</publishTime>
+    </File>
+    <File Include="Views/NVs/LỗiXoáNV.cshtml">
+      <publishTime>05/08/2017 19:19:25</publishTime>
+    </File>
+    <File Include="Views/NVs/SửaNhânViên.cshtml">
+      <publishTime>05/21/2017 18:00:20</publishTime>
+    </File>
+    <File Include="Views/NVs/SửaNVTC.cshtml">
+      <publishTime>05/21/2017 17:57:54</publishTime>
+    </File>
+    <File Include="Views/NVs/ThêmNhânViên.cshtml">
+      <publishTime>05/21/2017 18:01:39</publishTime>
+    </File>
+    <File Include="Views/NVs/ThêmNhânViênTC.cshtml">
+      <publishTime>06/05/2017 09:46:33</publishTime>
+    </File>
+    <File Include="Views/NVs/TrangNhânViên.cshtml">
+      <publishTime>06/05/2017 09:42:30</publishTime>
+    </File>
+    <File Include="Views/NVs/XoáNhânViên.cshtml">
+      <publishTime>05/05/2017 11:39:06</publishTime>
+    </File>
+    <File Include="Views/NVs/XoáNVTC.cshtml">
+      <publishTime>05/08/2017 19:20:25</publishTime>
+    </File>
+    <File Include="Views/Phongs/DeleteConfirmed.cshtml">
+      <publishTime>05/21/2017 18:04:10</publishTime>
+    </File>
+    <File Include="Views/Phongs/Details.cshtml">
+      <publishTime>05/20/2017 14:10:49</publishTime>
+    </File>
+    <File Include="Views/Phongs/LỗiSửaPhòng.cshtml">
+      <publishTime>05/08/2017 19:04:01</publishTime>
+    </File>
+    <File Include="Views/Phongs/LỗiTạoPhòng.cshtml">
+      <publishTime>05/08/2017 19:00:55</publishTime>
+    </File>
+    <File Include="Views/Phongs/SửaPhòng.cshtml">
+      <publishTime>05/21/2017 16:16:00</publishTime>
+    </File>
+    <File Include="Views/Phongs/SửaPhòngTC.cshtml">
+      <publishTime>05/08/2017 19:07:18</publishTime>
+    </File>
+    <File Include="Views/Phongs/TrangPhòng.cshtml">
+      <publishTime>06/05/2017 20:56:37</publishTime>
+    </File>
+    <File Include="Views/Phongs/TạoPhòng.cshtml">
+      <publishTime>05/20/2017 14:05:35</publishTime>
+    </File>
+    <File Include="Views/Phongs/TạoPhòngTC.cshtml">
+      <publishTime>05/20/2017 14:11:29</publishTime>
+    </File>
+    <File Include="Views/Phongs/XoáPhòng.cshtml">
+      <publishTime>05/22/2017 14:12:47</publishTime>
+    </File>
+    <File Include="Views/Phongs/XoáPhòngTC.cshtml">
+      <publishTime>05/21/2017 18:19:29</publishTime>
+    </File>
+    <File Include="Views/QuiDinhs/LỗiQuiĐịnh.cshtml">
+      <publishTime>05/25/2017 15:33:56</publishTime>
+    </File>
+    <File Include="Views/QuiDinhs/QuiĐịnh.cshtml">
+      <publishTime>05/25/2017 18:53:19</publishTime>
+    </File>
+    <File Include="Views/QuiDinhs/SửaQuiĐịnh.cshtml">
+      <publishTime>05/25/2017 15:25:54</publishTime>
+    </File>
+    <File Include="Views/QuiDinhs/ThêmQuiĐịnh.cshtml">
+      <publishTime>05/25/2017 15:35:30</publishTime>
+    </File>
+    <File Include="Views/QuiDinhs/ThôngTinQuiDịnh.cshtml">
+      <publishTime>05/25/2017 15:28:26</publishTime>
+    </File>
+    <File Include="Views/QuiDinhs/XóaQuiĐịnh.cshtml">
+      <publishTime>05/25/2017 15:11:35</publishTime>
+    </File>
+    <File Include="Views/Shared/Error.cshtml">
+      <publishTime>04/05/2017 19:37:37</publishTime>
+    </File>
+    <File Include="Views/Shared/Lockout.cshtml">
+      <publishTime>04/05/2017 19:37:37</publishTime>
+    </File>
+    <File Include="Views/Shared/_Layout.cshtml">
+      <publishTime>05/28/2017 14:49:02</publishTime>
+    </File>
+    <File Include="Views/Shared/_LoginPartial.cshtml">
+      <publishTime>05/18/2017 11:03:32</publishTime>
+    </File>
+    <File Include="Views/TaiKhoans/Create.cshtml">
+      <publishTime>05/17/2017 23:10:14</publishTime>
+    </File>
+    <File Include="Views/TaiKhoans/Delete.cshtml">
+      <publishTime>05/17/2017 23:10:15</publishTime>
+    </File>
+    <File Include="Views/TaiKhoans/Details.cshtml">
+      <publishTime>05/17/2017 23:10:17</publishTime>
+    </File>
+    <File Include="Views/TaiKhoans/Edit.cshtml">
+      <publishTime>05/17/2017 23:10:18</publishTime>
+    </File>
+    <File Include="Views/TaiKhoans/Index.cshtml">
+      <publishTime>05/18/2017 10:53:35</publishTime>
+    </File>
+    <File Include="Views/ThuePhongs/ChiTiếtThuêPhòng.cshtml">
+      <publishTime>05/22/2017 13:58:17</publishTime>
+    </File>
+    <File Include="Views/ThuePhongs/Details.cshtml">
+      <publishTime>05/15/2017 18:43:10</publishTime>
+    </File>
+    <File Include="Views/ThuePhongs/LỗiSửaTP.cshtml">
+      <publishTime>05/06/2017 19:11:32</publishTime>
+    </File>
+    <File Include="Views/ThuePhongs/LỗiThuêPhòng.cshtml">
+      <publishTime>05/05/2017 16:21:36</publishTime>
+    </File>
+    <File Include="Views/ThuePhongs/LỗiXoáThuêPhòng.cshtml">
+      <publishTime>05/06/2017 19:14:03</publishTime>
+    </File>
+    <File Include="Views/ThuePhongs/SửaChiTiếtThuêPhòng.cshtml">
+      <publishTime>05/22/2017 22:57:56</publishTime>
+    </File>
+    <File Include="Views/ThuePhongs/SửaThuêPhòng.cshtml">
+      <publishTime>05/20/2017 14:37:38</publishTime>
+    </File>
+    <File Include="Views/ThuePhongs/SửaThànhCông.cshtml">
+      <publishTime>05/06/2017 19:12:49</publishTime>
+    </File>
+    <File Include="Views/ThuePhongs/ThuêPhòng.cshtml">
+      <publishTime>05/22/2017 20:08:26</publishTime>
+    </File>
+    <File Include="Views/ThuePhongs/ThànhCông.cshtml">
+      <publishTime>05/20/2017 15:16:21</publishTime>
+    </File>
+    <File Include="Views/ThuePhongs/TrangThuêPhòng.cshtml">
+      <publishTime>05/21/2017 14:57:23</publishTime>
+    </File>
+    <File Include="Views/ThuePhongs/TạoChiTiếtThuêPhòng.cshtml">
+      <publishTime>05/26/2017 10:13:54</publishTime>
+    </File>
+    <File Include="Views/ThuePhongs/XoáChiTiếtThuêPhòng.cshtml">
+      <publishTime>05/22/2017 14:16:11</publishTime>
+    </File>
+    <File Include="Views/ThuePhongs/XoáThuêPhòng.cshtml">
+      <publishTime>05/20/2017 14:32:55</publishTime>
+    </File>
+    <File Include="Views/ThuePhongs/XoáThànhCôngTP.cshtml">
+      <publishTime>05/06/2017 19:14:59</publishTime>
+    </File>
+    <File Include="Views/Web.config">
+      <publishTime>04/05/2017 19:37:25</publishTime>
+    </File>
+    <File Include="Views/_ViewStart.cshtml">
+      <publishTime>04/05/2017 19:37:25</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>05/25/2017 16:03:52</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

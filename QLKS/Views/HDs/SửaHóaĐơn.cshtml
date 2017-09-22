@@ -1,0 +1,48 @@
+﻿@model QLKS.HD
+
+@{
+    ViewBag.Title = "Sửa Hóa Đơn";
+}
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.MaHD)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.KhachHang.MaKhachHang, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.MaKhachHang, (IEnumerable<SelectListItem>)ViewBag.MaKH, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.MaKhachHang, "", new { @class = "text-danger" })
+            </div>
+        </div>
+       
+        <div class="form-group">
+            @Html.LabelFor(model => model.NV.MaNV, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.MaNV, (IEnumerable<SelectListItem>)ViewBag.MaNV, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.NV.MaNV, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Lưu" class="btn btn-primary1" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Trở về quản lý hóa đơn", "QuảnLýHóaĐơn",null,new { @class="btn btn-primary1"})
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

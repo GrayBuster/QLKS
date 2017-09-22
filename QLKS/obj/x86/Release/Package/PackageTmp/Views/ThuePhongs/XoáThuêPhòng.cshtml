@@ -1,0 +1,80 @@
+﻿@model QLKS.ThuePhong
+
+@{
+    ViewBag.Title = "Xóa thuê phòng";
+}
+
+
+<h3 style="color:red">Bạn muốn xóa thuê phòng không?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MaThuePhong)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaThuePhong)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MaPhong)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaPhong)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Phong.TenPhong)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Phong.TenPhong)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NgayBatDauThue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgayBatDauThue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HoTenKH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HoTenKH)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CMND)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CMND)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LoaiKhach)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ChuyenKieuLoaiKhach)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SoLuong)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoLuong)
+        </dd>
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn btn-primary1" />
+        </div>
+    }
+</div>

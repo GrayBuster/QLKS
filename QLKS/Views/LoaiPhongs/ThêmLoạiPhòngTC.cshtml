@@ -1,0 +1,39 @@
+﻿@model QLKS.LoaiPhong
+@using QLKS.Models
+@{
+    ViewBag.Title = "Thành Công";
+}
+
+<h2>Bạn đã thêm thành công loại phòng . Nhấp vào <a style="color:red" href="@Url.Action("ThêmLoạiPhòng")">đây</a> để tiếp tục thêm loại phòng</h2>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MaLoai)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaLoai)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TenLoai)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenLoai)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Dongia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Dongia)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Sửa", "SửaLoạiPhòng", new { id = Encryption.encrypt(Model.MaLoai.ToString()) }, new { @class = "btn btn-primary1" }) 
+    @Html.ActionLink("Về trang loại phòng", "LoạiPhòng", null, new { @class="btn btn-primary1" })
+</p>

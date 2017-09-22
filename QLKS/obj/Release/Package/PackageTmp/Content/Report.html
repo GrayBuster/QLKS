@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>Support or Report</title>
+	<meta charset="utf-8" />
+   <link rel="stylesheet" href="boostrap-1.css" />
+</head>
+<body>
+	<h2>Support and Help</h2>
+	<h3>Please fill out this form!</h3>
+	<div>
+		<form>
+			Họ Tên: <input type='text' name='name' id='nameHoTen' /><br />
+
+			Email: <input type='text' name='email' id='email1' /><br />
+
+			Số diện thoại: <input type='number' name='phone' id='phoneNumber' /><br />
+
+			Comment:<br />
+			<textarea name='comment' id='comment'></textarea><br />
+
+			<input type='hidden' name='articleid' id='articleid' value='<? echo $_GET["id"]; ?>' />
+
+			<input type='submit' onclick="baoCao()" value='Submit' />
+            <p style="color:red;" id="thanks"></p>
+            <script>
+        function baoCao()
+        {
+            document.getElementById("thanks").innerHTML = "Cảm ơn bạn đã đóng góp ý kiến!";
+        }
+            </script>
+		</form>
+	</div>
+</body>
+</html>

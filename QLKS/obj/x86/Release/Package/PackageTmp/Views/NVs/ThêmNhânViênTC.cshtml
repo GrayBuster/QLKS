@@ -1,0 +1,46 @@
+﻿@model QLKS.NV
+@{
+    ViewBag.Title = "ThêmNhânViênTC";
+}
+
+<h2>Thêm nhân viên thành công! Nhấp vào <a href="@Url.Action("ThêmNhânViên")" style="color:red;">đây</a> để tiếp tục thêm nhân viên.</h2>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TenNV)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenNV)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SDTNV)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SDTNV)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DCNV)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DCNV)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ChucVu.MaCV)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ChucVu.MaCV)
+        </dd>
+
+    </dl>
+</div>
+
+@Html.ActionLink("Quay về danh sách nhân viên","TrangNhânViên",null,new { @class="btn btn-primary1"})
+

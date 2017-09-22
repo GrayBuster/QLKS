@@ -1,0 +1,68 @@
+﻿@model QLKS.Phong
+
+@{
+    ViewBag.Title = "Xóa Phòng";
+}
+
+<h3>Bạn có muốn xóa phòng không ?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MaPhong)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MaPhong)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TenPhong)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenPhong)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LoaiPhong)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LoaiPhong)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DonGia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DonGia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GhiChu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GhiChu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TinhTrang)
+        </dt>
+
+        <dd>
+            @Html.HiddenFor(model => model.TinhTrang)
+            @Html.DisplayFor(model => model.ChuyenKieuTinhTrang)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div style="margin-left:30px;" class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn btn-primary1" /> 
+            @Html.ActionLink("Trở về danh sách phòng", "TrangPhòng",null,new { @class="btn btn-primary1"})
+        </div>
+    }
+</div>

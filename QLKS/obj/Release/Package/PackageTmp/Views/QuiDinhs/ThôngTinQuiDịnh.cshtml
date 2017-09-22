@@ -1,0 +1,47 @@
+﻿@model QLKS.QuiDinh
+
+@{
+    ViewBag.Title = "Thông tin qui định";
+}
+
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TenQuiDinh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenQuiDinh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MoTa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MoTa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ThamSo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ThamSo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ThamSoTien)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ThamSoTien)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Về trang qui định", "QuiĐịnh",null,new { @class="btn btn-primary1"})
+</p>

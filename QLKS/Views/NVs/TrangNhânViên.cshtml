@@ -1,0 +1,97 @@
+﻿@model PagedList.IPagedList<QLKS.NV>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" />
+@using QLKS.Models
+@{
+    ViewBag.Title = "Quản lý nhân viên";
+}
+
+
+<p style="margin-top:30px;">
+    <content style="margin-right:30px;">
+        @Html.ActionLink("Thêm nhân viên", "ThêmNhânViên", null, new { @class = "btn btn-primary1" })
+        @Html.ActionLink("Thêm chức vụ", "ThêmChứcVụ", "ChucVus", null, new { @class = "btn btn-primary1" })
+    </content>
+    @using (Html.BeginForm())
+    {
+    <p style="margin-top:30px;">
+        Search Option: @Html.RadioButton("option", "ChucVu") <text>Chức vụ</text> | @Html.RadioButton("option", "MaNV") <text>Mã nhân viên</text> | @Html.RadioButton("option", "TenNV") <text> Tên Nhân Viên </text> |
+        @Html.RadioButton("option", "SDT")<text>Số điện thoại</text> | @Html.RadioButton("option","DiaChi") <text>Địa chỉ NV</text> @Html.TextBox("searchString")
+        <input type="submit" class="btn btn-primary1" name="submit" value="Search" />
+    </p>
+    }
+<table style="border:1px solid black;margin-top:30px;" class="table">
+    <tr style="border:1px solid black;">
+        <th style="border:1px solid black;">
+            Mã nhân viên
+        </th>
+        <th style="border:1px solid black;">
+            Chức vụ
+        </th>
+        <th style="border:1px solid black;">
+            Tên nhân viên
+        </th>
+        <th style="border:1px solid black;">
+            Số điện thoại
+        </th>
+        <th style="border:1px solid black;">
+            Địa chỉ
+        </th>
+        <th style="border:1px solid black;">
+            Mã chức vụ
+        </th>
+        <th style="border:1px solid black;">
+            <p style="text-align:center;">Chức năng</p>
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr style="border:1px solid black;">
+        <td style="border:1px solid black;">
+            @Html.DisplayFor(modelItem => item.MaNV)
+        </td>
+        <td style="border:1px solid black;">
+            @Html.DisplayFor(modelItem=> item.ChucVu.TenCV)
+        </td>
+        <td style="border:1px solid black;">
+            @Html.DisplayFor(modelItem => item.TenNV)
+        </td>
+        <td style="border:1px solid black;">
+            @Html.DisplayFor(modelItem => item.SDTNV)
+        </td>
+        <td style="border:1px solid black;">
+            @Html.DisplayFor(modelItem => item.DCNV)
+        </td>
+        <td style="border:1px solid black;">
+            @Html.DisplayFor(modelItem => item.ChucVu.MaCV)
+        </td>
+        <td style="border:1px solid black;">
+            @if (item.MaNV == 1 && item.MaNV == 2 && item.MaNV == 3)
+            {
+                @Html.ActionLink("Sửa", "SửaNhânViên", new { id = Encryption.encrypt(item.MaNV.ToString()) }, new { @class = "btn btn-primary1" })
+            }
+            else
+            {
+                @Html.ActionLink("Sửa", "SửaNhânViên", new { id = Encryption.encrypt(item.MaNV.ToString()) }, new { @class = "btn btn-primary1" })
+                @Html.ActionLink("Xóa", "XoáNhânViên", new { id = Encryption.encrypt(item.MaNV.ToString()) }, new { @class = "btn btn-primary1" })
+            }
+       </td>
+    </tr>
+}
+
+</table>
+@if (Model.Count() > 0)
+{
+
+}
+else
+{
+    <h5 style="color:red;">Thông tin bạn không tìm thấy</h5>
+}
+<p style="margin-left:500px;">Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount</p>
+
+<div style="margin-left:450px;">
+    @Html.PagedListPager(Model, page => Url.Action("TrangNhânViên",
+    new { page }))
+</div>
+<p>@Html.ActionLink("Trở về danh sách","TrangNhânViên",null,new {@class= "btn btn-primary1" })</p>

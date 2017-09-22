@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSetChiTietDoanhThu" targetNamespace="http://tempuri.org/DataSetChiTietDoanhThu.xsd" xmlns:mstns="http://tempuri.org/DataSetChiTietDoanhThu.xsd" xmlns="http://tempuri.org/DataSetChiTietDoanhThu.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSetChiTietDoanhThu" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSetChiTietDoanhThu" msprop:Generator_UserDSName="DataSetChiTietDoanhThu">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="ChiTietDoanhThu" msprop:Generator_TableClassName="ChiTietDoanhThuDataTable" msprop:Generator_TableVarName="tableChiTietDoanhThu" msprop:Generator_TablePropName="ChiTietDoanhThu" msprop:Generator_RowDeletingName="ChiTietDoanhThuRowDeleting" msprop:Generator_RowChangingName="ChiTietDoanhThuRowChanging" msprop:Generator_RowEvHandlerName="ChiTietDoanhThuRowChangeEventHandler" msprop:Generator_RowDeletedName="ChiTietDoanhThuRowDeleted" msprop:Generator_UserTableName="ChiTietDoanhThu" msprop:Generator_RowChangedName="ChiTietDoanhThuRowChanged" msprop:Generator_RowEvArgName="ChiTietDoanhThuRowChangeEvent" msprop:Generator_RowClassName="ChiTietDoanhThuRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="MaDoanhThu" msprop:Generator_ColumnVarNameInTable="columnMaDoanhThu" msprop:Generator_ColumnPropNameInRow="MaDoanhThu" msprop:Generator_ColumnPropNameInTable="MaDoanhThuColumn" msprop:Generator_UserColumnName="MaDoanhThu" type="xs:int" />
+              <xs:element name="Thang" msprop:Generator_ColumnVarNameInTable="columnThang" msprop:Generator_ColumnPropNameInRow="Thang" msprop:Generator_ColumnPropNameInTable="ThangColumn" msprop:Generator_UserColumnName="Thang" type="xs:dateTime" />
+              <xs:element name="DoanhThu" msprop:Generator_ColumnVarNameInTable="columnDoanhThu" msprop:Generator_ColumnPropNameInRow="DoanhThu" msprop:Generator_ColumnPropNameInTable="DoanhThuColumn" msprop:Generator_UserColumnName="DoanhThu" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Tile" msprop:Generator_ColumnVarNameInTable="columnTile" msprop:Generator_ColumnPropNameInRow="Tile" msprop:Generator_ColumnPropNameInTable="TileColumn" msprop:Generator_UserColumnName="Tile" type="xs:decimal" minOccurs="0" />
+              <xs:element name="LoaiPhong" msprop:Generator_ColumnVarNameInTable="columnLoaiPhong" msprop:Generator_ColumnPropNameInRow="LoaiPhong" msprop:Generator_ColumnPropNameInTable="LoaiPhongColumn" msprop:Generator_UserColumnName="LoaiPhong" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:length value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:ChiTietDoanhThu" />
+      <xs:field xpath="mstns:MaDoanhThu" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

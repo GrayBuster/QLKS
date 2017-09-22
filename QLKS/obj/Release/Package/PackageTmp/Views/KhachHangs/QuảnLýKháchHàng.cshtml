@@ -1,0 +1,65 @@
+﻿@model IEnumerable<QLKS.KhachHang>
+@using QLKS.Models
+@{
+    ViewBag.Title = "QuảnLýKháchHàng";
+}
+
+@using (Html.BeginForm())
+{
+    <p style="margin-top:30px;">
+        Search Option: @Html.RadioButton("option", "TenKH") <text>Tên KH</text> | @Html.RadioButton("option", "MaKH") <text>Mã KH</text> | @Html.RadioButton("option", "DiaChi") <text>Địa chỉ</text> |
+        @Html.RadioButton("option", "CMND")<text>Chứng minh</text> | @Html.TextBox("searchString")
+        <input type="submit" class="btn btn-primary1" name="submit" value="Search" />
+    </p>
+}
+<p>
+    @Html.ActionLink("Thêm khách hàng", "ThêmKháchHàng",null,new { @class="btn btn-primary1"})
+    @Html.ActionLink("Thuê phòng", "ThuêPhòng","ThuePhongs", null, new { @class = "btn btn-primary1" })
+</p>
+<table style="border:1px solid black;margin-top:30px;" class="table">
+    <tr style="border:1px solid black;">
+        <th style="border:1px solid black;">
+            @Html.DisplayNameFor(model => model.MaKhachHang)
+        </th>
+        <th style="border:1px solid black;">
+            @Html.DisplayNameFor(model => model.TenKhachHang)
+        </th>
+        <th style="border:1px solid black;">
+            @Html.DisplayNameFor(model => model.DiaChi)
+        </th>
+        <th style="border:1px solid black;">
+            @Html.DisplayNameFor(model => model.CMND)
+        </th>
+        <th style="border:1px solid black;">
+            @Html.DisplayNameFor(model => model.LoaiKhach.TenLoaiKhach)
+        </th>
+        <th style="border:1px solid black;">
+            Chức năng
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr style="border:1px solid black;">
+        <td style="border:1px solid black;">
+            @Html.DisplayFor(modelItem => item.MaKhachHang)
+        </td>
+        <td style="border:1px solid black;">
+            @Html.DisplayFor(modelItem => item.TenKhachHang)
+        </td>
+        <td style="border:1px solid black;">
+            @Html.DisplayFor(modelItem => item.DiaChi)
+        </td>
+        <td style="border:1px solid black;">
+            @Html.DisplayFor(modelItem => item.CMND)
+        </td>
+        <td style="border:1px solid black;">
+            @Html.DisplayFor(modelItem => item.LoaiKhach.TenLoaiKhach)
+        </td>
+        <td style="border:1px solid black;">
+            @Html.ActionLink("Sửa", "SửaKháchHàng", new { id=Encryption.encrypt(item.MaKhachHang.ToString()) },new { @class="btn btn-primary1"}) 
+            @Html.ActionLink("Xóa", "XóaKháchHàng", new { id= Encryption.encrypt(item.MaKhachHang.ToString()) }, new { @class = "btn btn-primary1" })
+        </td>
+    </tr>
+}
+
+</table>

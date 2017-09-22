@@ -1,0 +1,46 @@
+﻿@model IEnumerable<QLKS.LoaiPhong>
+@using QLKS.Models
+@{
+    ViewBag.Title = "Loại Phòng";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Thêm loại phòng", "ThêmLoạiPhòng",null,new { @class="btn btn-primary1"})
+</p>
+<table style="border:1px solid black;margin-bottom:20px;" class="table">
+    <tr style="border:1px solid black;">
+        <th style="border:1px solid black;">
+            @Html.DisplayNameFor(model => model.MaLoai)
+        </th>
+        <th style="border:1px solid black;">
+            @Html.DisplayNameFor(model => model.TenLoai)
+        </th>
+        <th style="border:1px solid black;">
+            @Html.DisplayNameFor(model => model.Dongia)
+        </th>
+        <th style="border:1px solid black;text-align:center">
+            Chức năng
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td style="border:1px solid black;">
+            @Html.DisplayFor(modelItem => item.MaLoai)
+        </td>
+        <td style="border:1px solid black;">
+            @Html.DisplayFor(modelItem => item.TenLoai)
+        </td>
+        <td style="border:1px solid black;">
+            @Html.DisplayFor(modelItem => item.Dongia)
+        </td>
+        <td style="border:1px solid black;">
+            @Html.ActionLink("Sửa", "SửaLoạiPhòng", new { id= Encryption.encrypt(item.MaLoai.ToString()) }, new { @class = "btn btn-primary1" }) 
+            @Html.ActionLink("Xóa", "XóaLoạiPhòng", new { id= Encryption.encrypt(item.MaLoai.ToString()) }, new { @class = "btn btn-primary1" })
+        </td>
+    </tr>
+}
+
+</table>

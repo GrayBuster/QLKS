@@ -1,0 +1,56 @@
+﻿@model IEnumerable<QLKS.ChiTietDoanhThu>
+
+@{
+    ViewBag.Title = "Quản lý doanh thu";
+}
+
+
+<p style="margin-top:30px;">
+    @Html.ActionLink("Báo cáo doanh thu", "BáoCáoDoanhThu",null,new { @class="btn btn-primary1"})
+</p>
+<table style="border:1px solid black;margin-top:30px;" class="table">
+    <tr style="border:1px solid black;">
+        <th style="border:1px solid black;">
+            @Html.DisplayNameFor(model=>model.MaDoanhThu)
+        </th>
+        <th style="border:1px solid black;">
+            @Html.DisplayNameFor(model => model.LoaiPhong)
+        </th>
+        <th style="border:1px solid black;">
+            @Html.DisplayNameFor(model => model.Thang)
+        </th>
+        <th style="border:1px solid black;">
+            @Html.DisplayNameFor(model => model.DoanhThu)
+        </th>
+        <th style="border:1px solid black;">
+            @Html.DisplayNameFor(model => model.Tile)
+        </th>
+        <th style="border:1px solid black;text-align:center">
+            Chức năng
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr style="border:1px solid black;">
+        <td style="border:1px solid black;">
+            @Html.DisplayFor(modelItem => item.MaDoanhThu)
+        </td>
+        <td style="border:1px solid black;">
+            @Html.DisplayFor(modelItem => item.LoaiPhong)
+        </td>
+        <td style="border:1px solid black;">
+            @Html.DisplayFor(modelItem => item.Thang)
+        </td>
+        <td style="border:1px solid black;">
+            @Html.DisplayFor(modelItem => item.DoanhThu)
+        </td>
+        <td style="border:1px solid black;">
+            @Html.DisplayFor(modelItem => item.Tile)
+        </td>
+        <td style="border:1px solid black;margin-left:30px;">
+            @Html.ActionLink("Xóa", "XóaDoanhThu", new { id=item.MaDoanhThu }, new { @class = "btn btn-primary1" })
+        </td>
+    </tr>
+}
+
+</table>
