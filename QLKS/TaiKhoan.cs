@@ -27,6 +27,7 @@ namespace QLKS
         [StringLength(20, MinimumLength = 4, ErrorMessage = "Password không được dưới 4 và trên 20 ký tự")]
         [DataType(DataType.Password)]
         public string Pass { get; set; }
+
         public string Roles { get; set; }
     
         public virtual NV NV { get; set; }

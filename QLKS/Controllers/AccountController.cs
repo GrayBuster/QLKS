@@ -18,7 +18,7 @@ namespace QLKS.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
-        private QLKSEntities1 db = new QLKSEntities1();
+        private QLKSEntities2 db = new QLKSEntities2();
         public AccountController()
         {
         }
@@ -414,7 +414,7 @@ namespace QLKS.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult LogOff()
         {
-            ViewBag.TaiKhoan = db.TaiKhoans;
+            ViewBag.TaiKhoan = db.TaiKhoan;
             //AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
             FormsAuthentication.SignOut();
             return RedirectToAction("Login","Account");

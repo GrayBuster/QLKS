@@ -19,8 +19,8 @@ namespace QLKS
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public ThuePhong()
         {
-            this.ChiTietHoaDons = new HashSet<ChiTietHoaDon>();
-            this.ChiTietThuePhongs = new HashSet<ChiTietThuePhong>();
+            this.ChiTietHoaDon = new HashSet<ChiTietHoaDon>();
+            this.ChiTietThuePhong = new HashSet<ChiTietThuePhong>();
         }
 
         [DisplayName("Mã thuê phòng")]
@@ -35,10 +35,11 @@ namespace QLKS
         [DataType(DataType.Date)]
         public Nullable<System.DateTime> NgayBatDauThue { get; set; }
 
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ChiTietHoaDon> ChiTietHoaDons { get; set; }
+        public virtual ICollection<ChiTietHoaDon> ChiTietHoaDon { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ChiTietThuePhong> ChiTietThuePhongs { get; set; }
+        public virtual ICollection<ChiTietThuePhong> ChiTietThuePhong { get; set; }
         public virtual Phong Phong { get; set; }
     }
 }

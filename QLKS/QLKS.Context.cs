@@ -13,10 +13,10 @@ namespace QLKS
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class QLKSEntities1 : DbContext
+    public partial class QLKSEntities2 : DbContext
     {
-        public QLKSEntities1()
-            : base("name=QLKSEntities1")
+        public QLKSEntities2()
+            : base("name=QLKSEntities2")
         {
         }
     
@@ -25,20 +25,20 @@ namespace QLKS
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<ChiTietDoanhThu> ChiTietDoanhThus { get; set; }
-        public virtual DbSet<ChiTietHoaDon> ChiTietHoaDons { get; set; }
-        public virtual DbSet<ChiTietThuePhong> ChiTietThuePhongs { get; set; }
-        public virtual DbSet<ChucVu> ChucVus { get; set; }
-        public virtual DbSet<DoanhThu> DoanhThus { get; set; }
-        public virtual DbSet<HD> HDs { get; set; }
-        public virtual DbSet<KhachHang> KhachHangs { get; set; }
-        public virtual DbSet<LoaiKhach> LoaiKhaches { get; set; }
-        public virtual DbSet<LoaiPhong> LoaiPhongs { get; set; }
-        public virtual DbSet<NV> NVs { get; set; }
-        public virtual DbSet<Phong> Phongs { get; set; }
-        public virtual DbSet<QuiDinh> QuiDinhs { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
-        public virtual DbSet<TaiKhoan> TaiKhoans { get; set; }
-        public virtual DbSet<ThuePhong> ThuePhongs { get; set; }
+        public virtual DbSet<ChiTietDoanhThu> ChiTietDoanhThu { get; set; }
+        public virtual DbSet<ChiTietHoaDon> ChiTietHoaDon { get; set; }
+        public virtual DbSet<ChiTietThuePhong> ChiTietThuePhong { get; set; }
+        public virtual DbSet<ChucVu> ChucVu { get; set; }
+        public virtual DbSet<DoanhThu> DoanhThu { get; set; }
+        public virtual DbSet<HD> HD { get; set; }
+        public virtual DbSet<KhachHang> KhachHang { get; set; }
+        public virtual DbSet<LoaiKhach> LoaiKhach { get; set; }
+        public virtual DbSet<LoaiPhong> LoaiPhong { get; set; }
+        public virtual DbSet<NV> NV { get; set; }
+        public virtual DbSet<Phong> Phong { get; set; }
+        public virtual DbSet<QuiDinh> QuiDinh { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
+        public virtual DbSet<TaiKhoan> TaiKhoan { get; set; }
+        public virtual DbSet<ThuePhong> ThuePhong { get; set; }
     }
 }

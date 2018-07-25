@@ -19,13 +19,13 @@ namespace QLKS.Controllers
     [MyAuthorize(Roles = "AM,TT,Admin")]
     public class ThuePhongsController : Controller
     {
-        private QLKSEntities1 db = new QLKSEntities1();
+        private QLKSEntities2 db = new QLKSEntities2();
         private Phong phong = new Phong();
         // GET: ThuePhongs
         [ActionName("TrangThuêPhòng")]
         public ActionResult Index()
         {
-            var thuePhongs = db.ThuePhongs.Include(t => t.Phong);
+            var thuePhongs = db.ThuePhong.Include(t => t.Phong);
             return View(thuePhongs.ToList());
         }
 
@@ -39,7 +39,7 @@ namespace QLKS.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ThuePhong thuePhong = db.ThuePhongs.Find(x);
+            ThuePhong thuePhong = db.ThuePhong.Find(x);
             if (thuePhong == null)
             {
                 return HttpNotFound();
@@ -52,7 +52,7 @@ namespace QLKS.Controllers
         public ActionResult Create()
         {
             List<SelectListItem> tenPhong = new List<SelectListItem>();
-            foreach (var item in db.Phongs)
+            foreach (var item in db.Phong)
             {
                 if (item.TinhTrang == false)
                 {
@@ -82,7 +82,7 @@ namespace QLKS.Controllers
                   if (ModelState.IsValid)
                   {
                         {
-                             db.ThuePhongs.Add(thuePhong);
+                             db.ThuePhong.Add(thuePhong);
                              db.SaveChanges();
                              return RedirectToAction("ThànhCông",new { id=Encryption.encrypt(thuePhong.MaThuePhong.ToString())});
                         }
@@ -93,7 +93,7 @@ namespace QLKS.Controllers
                 return View("LỗiThuêPhòng");
             }
             List<SelectListItem> tenPhong = new List<SelectListItem>();
-            foreach (var item in db.Phongs)
+            foreach (var item in db.Phong)
             {
                 if (item.TinhTrang == false)
                 {
@@ -119,13 +119,13 @@ namespace QLKS.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ThuePhong thuePhong = db.ThuePhongs.Find(x);
+            ThuePhong thuePhong = db.ThuePhong.Find(x);
             if (thuePhong == null)
             {
                 return HttpNotFound();
             }
             List<SelectListItem> tenPhong = new List<SelectListItem>();
-            foreach (var item in db.Phongs)
+            foreach (var item in db.Phong)
             {
                 if (item.TinhTrang == false)
                 {
@@ -163,7 +163,7 @@ namespace QLKS.Controllers
                 return View("LỗiSửaTP");
             }
             List<SelectListItem> tenPhong = new List<SelectListItem>();
-            foreach (var item in db.Phongs)
+            foreach (var item in db.Phong)
             {
                 if (item.TinhTrang == false)
                 {
@@ -189,7 +189,7 @@ namespace QLKS.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ThuePhong thuePhong = db.ThuePhongs.Find(x);
+            ThuePhong thuePhong = db.ThuePhong.Find(x);
             if (thuePhong == null)
             {
                 return HttpNotFound();
@@ -206,8 +206,8 @@ namespace QLKS.Controllers
             int x = int.Parse(decode);
             try
             {
-                ThuePhong thuePhong = db.ThuePhongs.Find(x);
-                db.ThuePhongs.Remove(thuePhong);
+                ThuePhong thuePhong = db.ThuePhong.Find(x);
+                db.ThuePhong.Remove(thuePhong);
                 db.SaveChanges();
                 return View("XoáThànhCôngTP");
             }
@@ -229,7 +229,7 @@ namespace QLKS.Controllers
         [ActionName("ChiTiếtThuêPhòng")]
         public ActionResult ChiTietThuePhong()
         {
-            var chiTietThuePhongs = db.ChiTietThuePhongs.Include(c => c.KhachHang).Include(c => c.ThuePhong);
+            var chiTietThuePhongs = db.ChiTietThuePhong.Include(c => c.KhachHang).Include(c => c.ThuePhong);
             return PartialView(chiTietThuePhongs.ToList());
         }
 
@@ -237,7 +237,7 @@ namespace QLKS.Controllers
         public ActionResult TaoChiTietThuePhong()
         {
             List<SelectListItem> tenKh = new List<SelectListItem>();
-            foreach (var item in db.KhachHangs)
+            foreach (var item in db.KhachHang)
             {
                 tenKh.Add(new SelectListItem
                 {
@@ -247,7 +247,7 @@ namespace QLKS.Controllers
             }
             ViewBag.MaKhachHang = /*new SelectList(db.KhachHangs, "MaKhachHang", "TenKhachHang", chiTietThuePhong.MaKhachHang)*/tenKh;
             List<SelectListItem> maTP = new List<SelectListItem>();
-            foreach (var i in db.ThuePhongs)
+            foreach (var i in db.ThuePhong)
             {
                 maTP.Add(new SelectListItem
                 {
@@ -269,7 +269,7 @@ namespace QLKS.Controllers
         {
             
             List<SelectListItem> tenKh = new List<SelectListItem>();
-            foreach (var item in db.KhachHangs)
+            foreach (var item in db.KhachHang)
             {
                 tenKh.Add(new SelectListItem
                 {
@@ -279,7 +279,7 @@ namespace QLKS.Controllers
             }
             ViewBag.MaKhachHang = /*new SelectList(db.KhachHangs, "MaKhachHang", "TenKhachHang", chiTietThuePhong.MaKhachHang)*/tenKh;
             List<SelectListItem> maTP = new List<SelectListItem>();
-            foreach (var i in db.ThuePhongs)
+            foreach (var i in db.ThuePhong)
             {
                 maTP.Add(new SelectListItem
                 {
@@ -292,7 +292,7 @@ namespace QLKS.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    db.ChiTietThuePhongs.Add(chiTietThuePhong);
+                    db.ChiTietThuePhong.Add(chiTietThuePhong);
                     db.SaveChanges();
                     return View("TrangThuêPhòng");
                 }
@@ -317,13 +317,13 @@ namespace QLKS.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ChiTietThuePhong chiTietThuePhong = db.ChiTietThuePhongs.Find(x, y);
+            ChiTietThuePhong chiTietThuePhong = db.ChiTietThuePhong.Find(x, y);
             if (chiTietThuePhong == null)
             {
                 return HttpNotFound();
             }
             List<SelectListItem> tenKh = new List<SelectListItem>();
-            foreach(var item in db.KhachHangs)
+            foreach(var item in db.KhachHang)
             {
                 tenKh.Add(new SelectListItem {
                 Text=item.TenKhachHang,
@@ -332,7 +332,7 @@ namespace QLKS.Controllers
             }
             ViewBag.MaKhachHang = /*new SelectList(db.KhachHangs, "MaKhachHang", "TenKhachHang", chiTietThuePhong.MaKhachHang)*/tenKh;
             List<SelectListItem> maTP = new List<SelectListItem>();
-            foreach (var i in db.ThuePhongs)
+            foreach (var i in db.ThuePhong)
             {
                         maTP.Add(new SelectListItem
                         {
@@ -354,7 +354,7 @@ namespace QLKS.Controllers
         {
        
             List<SelectListItem> tenKh = new List<SelectListItem>();
-            foreach (var item in db.KhachHangs)
+            foreach (var item in db.KhachHang)
             {
                 tenKh.Add(new SelectListItem
                 {
@@ -364,7 +364,7 @@ namespace QLKS.Controllers
             }
             ViewBag.MaKhachHang = /*new SelectList(db.KhachHangs, "MaKhachHang", "TenKhachHang", chiTietThuePhong.MaKhachHang)*/tenKh;
             List<SelectListItem> maTP = new List<SelectListItem>();
-            foreach (var i in db.ThuePhongs)
+            foreach (var i in db.ThuePhong)
             {
                         maTP.Add(new SelectListItem
                         {
@@ -402,7 +402,7 @@ namespace QLKS.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ChiTietThuePhong chiTietThuePhong = db.ChiTietThuePhongs.Find(x,y);
+            ChiTietThuePhong chiTietThuePhong = db.ChiTietThuePhong.Find(x,y);
             if (chiTietThuePhong == null)
             {
                 return HttpNotFound();
@@ -419,10 +419,10 @@ namespace QLKS.Controllers
             var decodeKH = Encryption.decrypt(khachHang);
             int x = int.Parse(decode);
             int y = int.Parse(decodeKH);
-            chiTietThuePhong = db.ChiTietThuePhongs.Find(x, y);
+            chiTietThuePhong = db.ChiTietThuePhong.Find(x, y);
             try
             {
-                db.ChiTietThuePhongs.Remove(chiTietThuePhong);
+                db.ChiTietThuePhong.Remove(chiTietThuePhong);
                 db.SaveChanges();
                 return View("ThànhCông");
             }

@@ -8,7 +8,7 @@ namespace QLKS.Controllers
 {
     public class ErrorController : Controller
     {
-        private QLKSEntities1 db = new QLKSEntities1();
+        private QLKSEntities2 db = new QLKSEntities2();
         private TaiKhoan taiKhoan = new TaiKhoan();
         // GET: Error
         [HttpGet]

@@ -11,7 +11,7 @@ namespace QLKS.Controllers
 {
     public class HomeController : Controller
     {
-        QLKSEntities1 db = new QLKSEntities1();
+        QLKSEntities2 db = new QLKSEntities2();
         Phong phong = new Phong();
         
         [HttpGet]
@@ -19,7 +19,7 @@ namespace QLKS.Controllers
         public ActionResult Index()
         {
             List<SelectListItem> tenPhong = new List<SelectListItem>();
-            foreach (var item in db.Phongs)
+            foreach (var item in db.Phong)
             {
                 if (item.TinhTrang == false)
                 {
@@ -36,7 +36,7 @@ namespace QLKS.Controllers
         }
         public ActionResult ShowRoom(string searchString,int? page)
         {
-            var listPhong = db.Phongs.ToList();
+            var listPhong = db.Phong.ToList();
             if(searchString!=null)
             {
                 page = 1;
@@ -50,7 +50,7 @@ namespace QLKS.Controllers
         public ActionResult Index([Bind(Include = "MaPhong,NgayBatDauThue")] ThuePhong thuePhong)
         {
             List<SelectListItem> tenPhong = new List<SelectListItem>();
-            foreach (var item in db.Phongs)
+            foreach (var item in db.Phong)
             {
                 if (item.TinhTrang == false)
                 {
@@ -70,7 +70,7 @@ namespace QLKS.Controllers
                 {
                     if (tinhTrang == false)
                     {
-                        db.ThuePhongs.Add(thuePhong);
+                        db.ThuePhong.Add(thuePhong);
                         db.SaveChanges();
                         return View("DatPhong");
                     }
@@ -113,7 +113,7 @@ namespace QLKS.Controllers
         public ActionResult TruyenDuLieu()
         {
             TaiKhoan taiKhoan = new TaiKhoan();
-                foreach(var item in db.TaiKhoans)
+                foreach(var item in db.TaiKhoan)
                 {
                     if(HttpContext.User.Identity.Name==item.Email)
                     {

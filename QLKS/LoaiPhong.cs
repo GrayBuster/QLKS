@@ -19,8 +19,8 @@ namespace QLKS
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public LoaiPhong()
         {
-            this.ChiTietDoanhThus = new HashSet<ChiTietDoanhThu>();
-            this.Phongs = new HashSet<Phong>();
+            this.ChiTietDoanhThu = new HashSet<ChiTietDoanhThu>();
+            this.Phong = new HashSet<Phong>();
         }
 
         [DisplayName("Mã loại phòng")]
@@ -36,9 +36,10 @@ namespace QLKS
         [DisplayFormat(DataFormatString = "{0:#,###}VNĐ")]
         public Nullable<decimal> Dongia { get; set; }
 
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ChiTietDoanhThu> ChiTietDoanhThus { get; set; }
+        public virtual ICollection<ChiTietDoanhThu> ChiTietDoanhThu { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Phong> Phongs { get; set; }
+        public virtual ICollection<Phong> Phong { get; set; }
     }
 }

@@ -13,13 +13,13 @@ namespace QLKS.Controllers
 {
     public class LoaiPhongsController : Controller
     {
-        private QLKSEntities1 db = new QLKSEntities1();
+        private QLKSEntities2 db = new QLKSEntities2();
 
         // GET: LoaiPhongs
         [ActionName("LoạiPhòng")]
         public ActionResult Index()
         {
-            return View(db.LoaiPhongs.ToList());
+            return View(db.LoaiPhong.ToList());
         }
 
         // GET: LoaiPhongs/Details/5
@@ -32,7 +32,7 @@ namespace QLKS.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            LoaiPhong loaiPhong = db.LoaiPhongs.Find(x);
+            LoaiPhong loaiPhong = db.LoaiPhong.Find(x);
             if (loaiPhong == null)
             {
                 return HttpNotFound();
@@ -59,7 +59,7 @@ namespace QLKS.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    db.LoaiPhongs.Add(loaiPhong);
+                    db.LoaiPhong.Add(loaiPhong);
                     db.SaveChanges();
                     return RedirectToAction("ThêmLoạiPhòngTC", new { id = Encryption.encrypt(loaiPhong.MaLoai.ToString()) });
                 }
@@ -83,7 +83,7 @@ namespace QLKS.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            LoaiPhong loaiPhong = db.LoaiPhongs.Find(x);
+            LoaiPhong loaiPhong = db.LoaiPhong.Find(x);
             if (loaiPhong == null)
             {
                 return HttpNotFound();
@@ -125,7 +125,7 @@ namespace QLKS.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            LoaiPhong loaiPhong = db.LoaiPhongs.Find(x);
+            LoaiPhong loaiPhong = db.LoaiPhong.Find(x);
             if (loaiPhong == null)
             {
                 return HttpNotFound();
@@ -140,10 +140,10 @@ namespace QLKS.Controllers
         {
             var decode = Encryption.decrypt(id);
             int x = int.Parse(decode);
-            LoaiPhong loaiPhong = db.LoaiPhongs.Find(x);
+            LoaiPhong loaiPhong = db.LoaiPhong.Find(x);
             try
             {
-                db.LoaiPhongs.Remove(loaiPhong);
+                db.LoaiPhong.Remove(loaiPhong);
                 db.SaveChanges();
                 return RedirectToAction("LoạiPhòng");
             }

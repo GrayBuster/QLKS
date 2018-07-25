@@ -14,13 +14,13 @@ namespace QLKS.Controllers
     [MyAuthorize(Roles ="Admin")]
     public class QuiDinhsController : Controller
     {
-        private QLKSEntities1 db = new QLKSEntities1();
+        private QLKSEntities2 db = new QLKSEntities2();
 
         // GET: QuiDinhs
         [ActionName("QuiĐịnh")]
         public ActionResult Index()
         {
-            return View(db.QuiDinhs.ToList());
+            return View(db.QuiDinh.ToList());
         }
 
         // GET: QuiDinhs/Details/5
@@ -33,7 +33,7 @@ namespace QLKS.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            QuiDinh quiDinh = db.QuiDinhs.Find(x);
+            QuiDinh quiDinh = db.QuiDinh.Find(x);
             if (quiDinh == null)
             {
                 return HttpNotFound();
@@ -60,7 +60,7 @@ namespace QLKS.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    db.QuiDinhs.Add(quiDinh);
+                    db.QuiDinh.Add(quiDinh);
                     db.SaveChanges();
                     return RedirectToAction("ThôngTinQuiĐịnh", new { id = Encryption.encrypt(quiDinh.MaQuiDinh.ToString()) });
                 }
@@ -82,7 +82,7 @@ namespace QLKS.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            QuiDinh quiDinh = db.QuiDinhs.Find(x);
+            QuiDinh quiDinh = db.QuiDinh.Find(x);
             if (quiDinh == null)
             {
                 return HttpNotFound();
@@ -117,7 +117,7 @@ namespace QLKS.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            QuiDinh quiDinh = db.QuiDinhs.Find(x);
+            QuiDinh quiDinh = db.QuiDinh.Find(x);
             if (quiDinh == null)
             {
                 return HttpNotFound();
@@ -132,10 +132,10 @@ namespace QLKS.Controllers
         {
             var decode = Encryption.decrypt(id);
             int x = int.Parse(id);
-            QuiDinh quiDinh = db.QuiDinhs.Find(x);
+            QuiDinh quiDinh = db.QuiDinh.Find(x);
             try
             {
-                db.QuiDinhs.Remove(quiDinh);
+                db.QuiDinh.Remove(quiDinh);
                 db.SaveChanges();
                 return RedirectToAction("QuiĐịnh");
             }

@@ -18,14 +18,14 @@ namespace QLKS.Controllers
     {
        
        
-        private QLKSEntities1 db = new QLKSEntities1();
+        private QLKSEntities2 db = new QLKSEntities2();
         // Get: NVs
         [EncryptedActionParameter]
         [ActionName("TrangNhânViên")]
         [MyAuthorize(Roles ="PM")]
         public ActionResult Index(string option, string searchString,int? page)
         {
-            var nVs = db.NVs.Include(n => n.ChucVu);
+            var nVs = db.NV.Include(n => n.ChucVu);
             if(searchString!=null)
             {
                 page = 1;
@@ -68,7 +68,7 @@ namespace QLKS.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            NV nV = db.NVs.Find(x);
+            NV nV = db.NV.Find(x);
             if (nV == null)
             {
                 return HttpNotFound();
@@ -81,7 +81,7 @@ namespace QLKS.Controllers
         public ActionResult Create()
         {
             List<SelectListItem> selectList = new List<SelectListItem>();
-            foreach(var item in db.ChucVus)
+            foreach(var item in db.ChucVu)
             {
                 if(item.MaCV!=1 && item.MaCV!=2 && item.MaCV!=3)
                 {
@@ -103,7 +103,7 @@ namespace QLKS.Controllers
         public ActionResult Create([Bind(Include = "MaNV,TenNV,MaCV,SDTNV,DCNV")] NV nV)
         {
             List<SelectListItem> selectList = new List<SelectListItem>();
-            foreach (var item in db.ChucVus)
+            foreach (var item in db.ChucVu)
             {
                 if (item.MaCV != 1 && item.MaCV != 2 && item.MaCV != 3)
                 {
@@ -119,7 +119,7 @@ namespace QLKS.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    db.NVs.Add(nV);
+                    db.NV.Add(nV);
                     db.SaveChanges();
                     return RedirectToAction("ThêmNhânViênTC", new { id = Encryption.encrypt(nV.MaNV.ToString()) });
                 }
@@ -141,7 +141,7 @@ namespace QLKS.Controllers
             List<SelectListItem> selectList2 = new List<SelectListItem>();
             List<SelectListItem> selectList3 = new List<SelectListItem>();
             List<SelectListItem> selectList4 = new List<SelectListItem>();
-            foreach (var item in db.ChucVus)
+            foreach (var item in db.ChucVu)
             {                
                   if(item.MaCV==1)
                   {
@@ -188,7 +188,7 @@ namespace QLKS.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            NV nV = db.NVs.Find(x);
+            NV nV = db.NV.Find(x);
             if (nV == null)
             {
                 return HttpNotFound();
@@ -208,7 +208,7 @@ namespace QLKS.Controllers
             List<SelectListItem> selectList2 = new List<SelectListItem>();
             List<SelectListItem> selectList3 = new List<SelectListItem>();
             List<SelectListItem> selectList4 = new List<SelectListItem>();
-            foreach (var item in db.ChucVus)
+            foreach (var item in db.ChucVu)
             {
                 if (item.MaCV == 1)
                 {
@@ -277,7 +277,7 @@ namespace QLKS.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            NV nV = db.NVs.Find(x);
+            NV nV = db.NV.Find(x);
             if (id == null)
             {
                 return HttpNotFound();
@@ -292,10 +292,10 @@ namespace QLKS.Controllers
         {
             var decode = Encryption.decrypt(id);
             int x = int.Parse(decode);
-            NV nV = db.NVs.Find(x);
+            NV nV = db.NV.Find(x);
             try
             {
-                db.NVs.Remove(nV);
+                db.NV.Remove(nV);
                 db.SaveChanges();
                 return View("XoáNVTC");
             }

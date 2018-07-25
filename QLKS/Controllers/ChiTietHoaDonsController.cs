@@ -12,12 +12,12 @@ namespace QLKS.Controllers
 {
     public class ChiTietHoaDonsController : Controller
     {
-        private QLKSEntities1 db = new QLKSEntities1();
+        private QLKSEntities2 db = new QLKSEntities2();
 
         // GET: ChiTietHoaDons
         public ActionResult Index()
         {
-            var chiTietHoaDons = db.ChiTietHoaDons.Include(c => c.HD).Include(c => c.ThuePhong);
+            var chiTietHoaDons = db.ChiTietHoaDon.Include(c => c.HD).Include(c => c.ThuePhong);
             return View(chiTietHoaDons.ToList());
         }
 
@@ -28,7 +28,7 @@ namespace QLKS.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ChiTietHoaDon chiTietHoaDon = db.ChiTietHoaDons.Find(id);
+            ChiTietHoaDon chiTietHoaDon = db.ChiTietHoaDon.Find(id);
             if (chiTietHoaDon == null)
             {
                 return HttpNotFound();
@@ -39,8 +39,8 @@ namespace QLKS.Controllers
         // GET: ChiTietHoaDons/Create
         public ActionResult Create()
         {
-            ViewBag.MaHD = new SelectList(db.HDs, "MaHD", "MaHD");
-            ViewBag.MaThuePhong = new SelectList(db.ThuePhongs, "MaThuePhong", "MaThuePhong");
+            ViewBag.MaHD = new SelectList(db.HD, "MaHD", "MaHD");
+            ViewBag.MaThuePhong = new SelectList(db.ThuePhong, "MaThuePhong", "MaThuePhong");
             return View();
         }
 
@@ -53,13 +53,13 @@ namespace QLKS.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.ChiTietHoaDons.Add(chiTietHoaDon);
+                db.ChiTietHoaDon.Add(chiTietHoaDon);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.MaHD = new SelectList(db.HDs, "MaHD", "MaHD", chiTietHoaDon.MaHD);
-            ViewBag.MaThuePhong = new SelectList(db.ThuePhongs, "MaThuePhong", "MaThuePhong", chiTietHoaDon.MaThuePhong);
+            ViewBag.MaHD = new SelectList(db.HD, "MaHD", "MaHD", chiTietHoaDon.MaHD);
+            ViewBag.MaThuePhong = new SelectList(db.ThuePhong, "MaThuePhong", "MaThuePhong", chiTietHoaDon.MaThuePhong);
             return View(chiTietHoaDon);
         }
 
@@ -70,13 +70,13 @@ namespace QLKS.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ChiTietHoaDon chiTietHoaDon = db.ChiTietHoaDons.Find(id);
+            ChiTietHoaDon chiTietHoaDon = db.ChiTietHoaDon.Find(id);
             if (chiTietHoaDon == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.MaHD = new SelectList(db.HDs, "MaHD", "MaHD", chiTietHoaDon.MaHD);
-            ViewBag.MaThuePhong = new SelectList(db.ThuePhongs, "MaThuePhong", "MaThuePhong", chiTietHoaDon.MaThuePhong);
+            ViewBag.MaHD = new SelectList(db.HD, "MaHD", "MaHD", chiTietHoaDon.MaHD);
+            ViewBag.MaThuePhong = new SelectList(db.ThuePhong, "MaThuePhong", "MaThuePhong", chiTietHoaDon.MaThuePhong);
             return View(chiTietHoaDon);
         }
 
@@ -93,8 +93,8 @@ namespace QLKS.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.MaHD = new SelectList(db.HDs, "MaHD", "MaHD", chiTietHoaDon.MaHD);
-            ViewBag.MaThuePhong = new SelectList(db.ThuePhongs, "MaThuePhong", "MaThuePhong", chiTietHoaDon.MaThuePhong);
+            ViewBag.MaHD = new SelectList(db.HD, "MaHD", "MaHD", chiTietHoaDon.MaHD);
+            ViewBag.MaThuePhong = new SelectList(db.ThuePhong, "MaThuePhong", "MaThuePhong", chiTietHoaDon.MaThuePhong);
             return View(chiTietHoaDon);
         }
 
@@ -105,7 +105,7 @@ namespace QLKS.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ChiTietHoaDon chiTietHoaDon = db.ChiTietHoaDons.Find(id);
+            ChiTietHoaDon chiTietHoaDon = db.ChiTietHoaDon.Find(id);
             if (chiTietHoaDon == null)
             {
                 return HttpNotFound();
@@ -118,8 +118,8 @@ namespace QLKS.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            ChiTietHoaDon chiTietHoaDon = db.ChiTietHoaDons.Find(id);
-            db.ChiTietHoaDons.Remove(chiTietHoaDon);
+            ChiTietHoaDon chiTietHoaDon = db.ChiTietHoaDon.Find(id);
+            db.ChiTietHoaDon.Remove(chiTietHoaDon);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

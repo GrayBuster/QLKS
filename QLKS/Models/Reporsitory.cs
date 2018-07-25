@@ -7,7 +7,7 @@ namespace QLKS.Models
 {
     public class Reporsitory
     {
-        static QLKSEntities1 db = new QLKSEntities1();
+        static QLKSEntities2 db = new QLKSEntities2();
         static List<TaiKhoan> users = new List<TaiKhoan>() {
 
 
@@ -20,7 +20,7 @@ namespace QLKS.Models
 
         public static TaiKhoan GetUserDetails(TaiKhoan user)
         {
-            foreach (var item in db.TaiKhoans)
+            foreach (var item in db.TaiKhoan)
             {
                 users.Add(
                     new TaiKhoan()

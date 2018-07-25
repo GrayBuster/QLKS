@@ -19,8 +19,8 @@ namespace QLKS
         [DisplayName("Mã qui định")]
         public int MaQuiDinh { get; set; }
 
-        [Required(ErrorMessage ="Tên qui định không dược bỏ trống")]
-        [StringLength(30,MinimumLength =1,ErrorMessage ="Tên qui định không được quá dài và quá ngắn")]
+        [Required(ErrorMessage = "Tên qui định không dược bỏ trống")]
+        [StringLength(30, MinimumLength = 1, ErrorMessage = "Tên qui định không được quá dài và quá ngắn")]
         [DisplayName("Tên qui định")]
         public string TenQuiDinh { get; set; }
         [Required(ErrorMessage = "Mô tả không dược bỏ trống")]
@@ -33,5 +33,6 @@ namespace QLKS
 
         [DisplayName("Tham số tiền")]
         public Nullable<decimal> ThamSoTien { get; set; }
+
     }
 }

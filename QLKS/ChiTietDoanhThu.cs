@@ -39,6 +39,7 @@ namespace QLKS
         [DisplayFormat(DataFormatString = "{0}%")]
         public Nullable<decimal> Tile { get; set; }
 
+
         public virtual DoanhThu DoanhThu1 { get; set; }
         public virtual LoaiPhong LoaiPhong { get; set; }
     }

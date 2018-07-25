@@ -26,6 +26,7 @@ namespace QLKS
         [Required(ErrorMessage = "Số lượng khách không được bỏ trống")]
         public Nullable<int> SoLuongKhach { get; set; }
 
+
         public virtual KhachHang KhachHang { get; set; }
         public virtual ThuePhong ThuePhong { get; set; }
     }

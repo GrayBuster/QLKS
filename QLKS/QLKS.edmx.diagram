@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="f00d9b10d78846638f5462843ac44c17" Name="Diagram1">
+      <Diagram DiagramId="402a0134437141d1afcb838e371378f4" Name="Diagram1">
         <EntityTypeShape EntityType="QLKSModel.ChiTietDoanhThu" Width="1.5" PointX="3" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="QLKSModel.ChiTietHoaDon" Width="1.5" PointX="7.5" PointY="7.875" IsExpanded="true" />
         <EntityTypeShape EntityType="QLKSModel.ChiTietThuePhong" Width="1.5" PointX="7.5" PointY="5" IsExpanded="true" />
@@ -17,7 +17,7 @@
         <EntityTypeShape EntityType="QLKSModel.NV" Width="1.5" PointX="3" PointY="11.75" IsExpanded="true" />
         <EntityTypeShape EntityType="QLKSModel.Phong" Width="1.5" PointX="3" PointY="7.875" IsExpanded="true" />
         <EntityTypeShape EntityType="QLKSModel.QuiDinh" Width="1.5" PointX="7.75" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLKSModel.sysdiagram" Width="1.5" PointX="9.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLKSModel.sysdiagrams" Width="1.5" PointX="9.75" PointY="1.375" IsExpanded="true" />
         <EntityTypeShape EntityType="QLKSModel.TaiKhoan" Width="1.5" PointX="5.25" PointY="15" IsExpanded="true" />
         <EntityTypeShape EntityType="QLKSModel.ThuePhong" Width="1.5" PointX="5.25" PointY="8" IsExpanded="true" />
         <AssociationConnector Association="QLKSModel.DoanhThu_Thang_MaDoanhThu_FK" ManuallyRouted="false" />

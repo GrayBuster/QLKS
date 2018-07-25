@@ -18,7 +18,7 @@ namespace QLKS
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public LoaiKhach()
         {
-            this.KhachHangs = new HashSet<KhachHang>();
+            this.KhachHang = new HashSet<KhachHang>();
         }
 
         [DisplayName("Mã loại khách")]
@@ -28,8 +28,8 @@ namespace QLKS
         public string TenLoaiKhach { get; set; }
 
         public Nullable<double> HeSo { get; set; }
-
+    
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<KhachHang> KhachHangs { get; set; }
+        public virtual ICollection<KhachHang> KhachHang { get; set; }
     }
 }

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="QLKSModelStoreContainer" CdmEntityContainer="QLKSEntities1">
-    <EntitySetMapping Name="ChiTietDoanhThus">
+  <EntityContainerMapping StorageEntityContainer="QLKSModelStoreContainer" CdmEntityContainer="QLKSEntities2">
+    <EntitySetMapping Name="ChiTietDoanhThu">
       <EntityTypeMapping TypeName="QLKSModel.ChiTietDoanhThu">
         <MappingFragment StoreEntitySet="ChiTietDoanhThu">
           <ScalarProperty Name="MaDoanhThu" ColumnName="MaDoanhThu" />
@@ -12,7 +12,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="ChiTietHoaDons">
+    <EntitySetMapping Name="ChiTietHoaDon">
       <EntityTypeMapping TypeName="QLKSModel.ChiTietHoaDon">
         <MappingFragment StoreEntitySet="ChiTietHoaDon">
           <ScalarProperty Name="MaHD" ColumnName="MaHD" />
@@ -23,7 +23,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="ChiTietThuePhongs">
+    <EntitySetMapping Name="ChiTietThuePhong">
       <EntityTypeMapping TypeName="QLKSModel.ChiTietThuePhong">
         <MappingFragment StoreEntitySet="ChiTietThuePhong">
           <ScalarProperty Name="MaThuePhong" ColumnName="MaThuePhong" />
@@ -32,7 +32,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="ChucVus">
+    <EntitySetMapping Name="ChucVu">
       <EntityTypeMapping TypeName="QLKSModel.ChucVu">
         <MappingFragment StoreEntitySet="ChucVu">
           <ScalarProperty Name="MaCV" ColumnName="MaCV" />
@@ -40,7 +40,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="DoanhThus">
+    <EntitySetMapping Name="DoanhThu">
       <EntityTypeMapping TypeName="QLKSModel.DoanhThu">
         <MappingFragment StoreEntitySet="DoanhThu">
           <ScalarProperty Name="MaDoanhThu" ColumnName="MaDoanhThu" />
@@ -48,7 +48,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="HDs">
+    <EntitySetMapping Name="HD">
       <EntityTypeMapping TypeName="QLKSModel.HD">
         <MappingFragment StoreEntitySet="HD">
           <ScalarProperty Name="MaHD" ColumnName="MaHD" />
@@ -58,7 +58,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="KhachHangs">
+    <EntitySetMapping Name="KhachHang">
       <EntityTypeMapping TypeName="QLKSModel.KhachHang">
         <MappingFragment StoreEntitySet="KhachHang">
           <ScalarProperty Name="MaKhachHang" ColumnName="MaKhachHang" />
@@ -69,7 +69,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="LoaiKhaches">
+    <EntitySetMapping Name="LoaiKhach">
       <EntityTypeMapping TypeName="QLKSModel.LoaiKhach">
         <MappingFragment StoreEntitySet="LoaiKhach">
           <ScalarProperty Name="MaLoaiKhach" ColumnName="MaLoaiKhach" />
@@ -78,7 +78,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="LoaiPhongs">
+    <EntitySetMapping Name="LoaiPhong">
       <EntityTypeMapping TypeName="QLKSModel.LoaiPhong">
         <MappingFragment StoreEntitySet="LoaiPhong">
           <ScalarProperty Name="MaLoai" ColumnName="MaLoai" />
@@ -87,7 +87,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="NVs">
+    <EntitySetMapping Name="NV">
       <EntityTypeMapping TypeName="QLKSModel.NV">
         <MappingFragment StoreEntitySet="NV">
           <ScalarProperty Name="MaNV" ColumnName="MaNV" />
@@ -98,7 +98,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Phongs">
+    <EntitySetMapping Name="Phong">
       <EntityTypeMapping TypeName="QLKSModel.Phong">
         <MappingFragment StoreEntitySet="Phong">
           <ScalarProperty Name="MaPhong" ColumnName="MaPhong" />
@@ -109,7 +109,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="QuiDinhs">
+    <EntitySetMapping Name="QuiDinh">
       <EntityTypeMapping TypeName="QLKSModel.QuiDinh">
         <MappingFragment StoreEntitySet="QuiDinh">
           <ScalarProperty Name="MaQuiDinh" ColumnName="MaQuiDinh" />
@@ -121,7 +121,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="sysdiagrams">
-      <EntityTypeMapping TypeName="QLKSModel.sysdiagram">
+      <EntityTypeMapping TypeName="QLKSModel.sysdiagrams">
         <MappingFragment StoreEntitySet="sysdiagrams">
           <ScalarProperty Name="name" ColumnName="name" />
           <ScalarProperty Name="principal_id" ColumnName="principal_id" />
@@ -131,7 +131,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="TaiKhoans">
+    <EntitySetMapping Name="TaiKhoan">
       <EntityTypeMapping TypeName="QLKSModel.TaiKhoan">
         <MappingFragment StoreEntitySet="TaiKhoan">
           <ScalarProperty Name="MaNV" ColumnName="MaNV" />
@@ -141,7 +141,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="ThuePhongs">
+    <EntitySetMapping Name="ThuePhong">
       <EntityTypeMapping TypeName="QLKSModel.ThuePhong">
         <MappingFragment StoreEntitySet="ThuePhong">
           <ScalarProperty Name="MaThuePhong" ColumnName="MaThuePhong" />

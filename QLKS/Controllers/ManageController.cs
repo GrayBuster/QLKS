@@ -54,7 +54,7 @@ namespace QLKS.Controllers
             }
         }
 
-        private QLKSEntities1 db = new QLKSEntities1();
+        private QLKSEntities2 db = new QLKSEntities2();
         //public ActionResult TruyenDuLieu()
         //{
         //    TaiKhoan taiKhoan = new TaiKhoan();
@@ -77,7 +77,7 @@ namespace QLKS.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            TaiKhoan user = db.TaiKhoans.FirstOrDefault(t=>t.MaNV==x);
+            TaiKhoan user = db.TaiKhoan.FirstOrDefault(t=>t.MaNV==x);
             if (user == null)
             {
                 return HttpNotFound();
@@ -95,12 +95,12 @@ namespace QLKS.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            TaiKhoan user = db.TaiKhoans.FirstOrDefault(u => u.MaNV.Equals(x));
+            TaiKhoan user = db.TaiKhoan.FirstOrDefault(u => u.MaNV.Equals(x));
             if (user == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.MaNV = new SelectList(db.NVs, "MaNV", "MaNV", user.MaNV);
+            ViewBag.MaNV = new SelectList(db.NV, "MaNV", "MaNV", user.MaNV);
             return View(user);
         }
         [HttpPost]
@@ -121,7 +121,7 @@ namespace QLKS.Controllers
         public ActionResult Create()
         {
             List<SelectListItem> tenNV = new List<SelectListItem>();
-            foreach (var item in db.NVs)
+            foreach (var item in db.NV)
             {
                     tenNV.Add(new SelectListItem
                     {
@@ -141,7 +141,7 @@ namespace QLKS.Controllers
         public ActionResult Create([Bind(Include = "MaNV,Email,Pass,Roles")] TaiKhoan taiKhoan)
         {
             List<SelectListItem> tenNV = new List<SelectListItem>();
-            foreach (var item in db.NVs)
+            foreach (var item in db.NV)
             {
                         tenNV.Add(new SelectListItem
                         {
@@ -154,14 +154,15 @@ namespace QLKS.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    db.TaiKhoans.Add(taiKhoan);
+                    db.TaiKhoan.Add(taiKhoan);
                     db.SaveChanges();
                     return RedirectToAction("ThôngTinTàiKhoản",new { id=Encryption.encrypt(taiKhoan.MaNV.ToString())});
                 }
             }
             catch
             {
-                return View("LỗiTạoTàiKhoản");
+                ViewBag.ExistingAcc = "Tài khoản hoặc email đã tồn tại";
+                //return View("TạoTàiKhoản");
             }
             return View(taiKhoan);
         }
@@ -169,7 +170,7 @@ namespace QLKS.Controllers
         // GET: /Manage/Index
         public async Task<ActionResult> Index(ManageMessageId? message)
         {
-            QLKSEntities1 db =new QLKSEntities1();
+            QLKSEntities2 db =new QLKSEntities2();
 
        
             ViewBag.StatusMessage =
@@ -472,7 +473,7 @@ namespace QLKS.Controllers
 
         private bool HasPassword()
         {
-            QLKSEntities1 db = new QLKSEntities1();
+            QLKSEntities2 db = new QLKSEntities2();
             var user = UserManager.FindById(User.Identity.GetUserId());
             if (user != null)
             {

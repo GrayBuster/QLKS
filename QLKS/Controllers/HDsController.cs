@@ -14,7 +14,7 @@ namespace QLKS.Controllers
     [MyAuthorize(Roles = "AM,Admin")]
     public class HDsController : Controller
     {
-        private QLKSEntities1 db = new QLKSEntities1();
+        private QLKSEntities2 db = new QLKSEntities2();
         private ThuePhong thuePhong = new ThuePhong();
         NV nV = new NV();
         // GET: HDs
@@ -22,7 +22,7 @@ namespace QLKS.Controllers
         [ActionName("QuảnLýHóaĐơn")]
         public ActionResult Index()
         {
-            var hDs = db.HDs.Include(X=>X.NV).Include(x=>x.KhachHang).ToList();
+            var hDs = db.HD.Include(X=>X.NV).Include(x=>x.KhachHang).ToList();
             return View(hDs);
         }
 
@@ -35,7 +35,7 @@ namespace QLKS.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            HD hD = db.HDs.Find(x);
+            HD hD = db.HD.Find(x);
             if (hD == null)
             {
                 return HttpNotFound();
@@ -49,7 +49,7 @@ namespace QLKS.Controllers
         {
             List<SelectListItem> tenNV = new List<SelectListItem>();
             List<SelectListItem> tenKH = new List<SelectListItem>();
-            foreach (var item in db.NVs)
+            foreach (var item in db.NV)
             {
                 if (item.ChucVu.TenCV == "Ke Toan" || item.ChucVu.TenCV == "Ke Toan Truong")
                 {
@@ -62,7 +62,7 @@ namespace QLKS.Controllers
                 }
             }
             ViewBag.MaNV = tenNV;
-            foreach(var item in db.KhachHangs)
+            foreach(var item in db.KhachHang)
             {
                 tenKH.Add(new SelectListItem
                 {
@@ -83,7 +83,7 @@ namespace QLKS.Controllers
         public ActionResult Create([Bind(Include = "MaKhachHang,MaNV,TongTien")] HD hD)
         {
             List<SelectListItem> tenKH = new List<SelectListItem>();
-            foreach (var item in db.KhachHangs)
+            foreach (var item in db.KhachHang)
             {
                 tenKH.Add(new SelectListItem
                 {
@@ -93,7 +93,7 @@ namespace QLKS.Controllers
             }
             ViewBag.MaKH = /*new SelectList(db.KhachHangs, "MaKhachHang", "TenKhachHang")*/tenKH;
             List<SelectListItem> tenNV = new List<SelectListItem>();
-            foreach (var item in db.NVs)
+            foreach (var item in db.NV)
             {
                 if (item.ChucVu.TenCV == "Ke Toan" || item.ChucVu.TenCV == "Ke Toan Truong")
                 {
@@ -108,7 +108,7 @@ namespace QLKS.Controllers
             ViewBag.MaNV = tenNV;
             if (ModelState.IsValid)
             {
-                db.HDs.Add(hD);
+                db.HD.Add(hD);
                 db.SaveChanges();
                 return View("ThanhToánHoáTC");
             }
@@ -123,7 +123,7 @@ namespace QLKS.Controllers
             var decode = Encryption.decrypt(id);
             int x = int.Parse(decode);
             List<SelectListItem> tenKH = new List<SelectListItem>();
-            foreach (var item in db.KhachHangs)
+            foreach (var item in db.KhachHang)
             {
                 tenKH.Add(new SelectListItem
                 {
@@ -136,13 +136,13 @@ namespace QLKS.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            HD hD = db.HDs.Find(x);
+            HD hD = db.HD.Find(x);
             if (hD == null)
             {
                 return HttpNotFound();
             }
             List<SelectListItem> tenNV = new List<SelectListItem>();
-            foreach (var item in db.NVs)
+            foreach (var item in db.NV)
             {
                 if (item.ChucVu.TenCV == "Ke Toan" || item.ChucVu.TenCV == "Ke Toan Truong")
                 {
@@ -167,7 +167,7 @@ namespace QLKS.Controllers
         public ActionResult Edit([Bind(Include = "MaHD,MaKhachHang,MaNV,TongTien")] HD hD)
         {
             List<SelectListItem> tenKH = new List<SelectListItem>();
-            foreach (var item in db.KhachHangs)
+            foreach (var item in db.KhachHang)
             {
                 tenKH.Add(new SelectListItem
                 {
@@ -189,9 +189,9 @@ namespace QLKS.Controllers
             {
                 return View("LỗiKhiSửaHĐ");
             }
-            ViewBag.MaTP = new SelectList(db.ThuePhongs, "MaThuePhong", "MaThuePhong", thuePhong.MaThuePhong);
+            ViewBag.MaTP = new SelectList(db.ThuePhong, "MaThuePhong", "MaThuePhong", thuePhong.MaThuePhong);
             List<SelectListItem> tenNV = new List<SelectListItem>();
-            foreach (var item in db.NVs)
+            foreach (var item in db.NV)
             {
                 if (item.ChucVu.TenCV == "Ke Toan" || item.ChucVu.TenCV == "Ke Toan Truong")
                 {
@@ -217,7 +217,7 @@ namespace QLKS.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            HD hD = db.HDs.Find(x);
+            HD hD = db.HD.Find(x);
             if (hD == null)
             {
                 return HttpNotFound();
@@ -232,9 +232,9 @@ namespace QLKS.Controllers
         {
             var decode = Encryption.decrypt(id);
             int x = int.Parse(decode);
-            HD hD = db.HDs.Find(x);
+            HD hD = db.HD.Find(x);
             try {
-                db.HDs.Remove(hD);
+                db.HD.Remove(hD);
                 db.SaveChanges();
                 return View("XoáTCHD");
             }
@@ -249,7 +249,7 @@ namespace QLKS.Controllers
         [ActionName("ChiTiếtHóaĐơn")]
         public ActionResult ChiTietHoaDon()
         {
-            var chiTietHoaDons = db.ChiTietHoaDons.Include(c => c.HD).Include(c => c.ThuePhong);
+            var chiTietHoaDons = db.ChiTietHoaDon.Include(c => c.HD).Include(c => c.ThuePhong);
             return PartialView(chiTietHoaDons.ToList());
         }
 
@@ -257,8 +257,8 @@ namespace QLKS.Controllers
         [ActionName("TạoChiTiếtHóaĐơn")]
         public ActionResult TaoChiTietHoaDon()
         {
-            ViewBag.MaHD = new SelectList(db.HDs, "MaHD", "MaHD");
-            ViewBag.MaThuePhong = new SelectList(db.ThuePhongs, "MaThuePhong", "MaThuePhong");
+            ViewBag.MaHD = new SelectList(db.HD, "MaHD", "MaHD");
+            ViewBag.MaThuePhong = new SelectList(db.ThuePhong, "MaThuePhong", "MaThuePhong");
             return PartialView();
         }
 
@@ -272,13 +272,13 @@ namespace QLKS.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.ChiTietHoaDons.Add(chiTietHoaDon);
+                db.ChiTietHoaDon.Add(chiTietHoaDon);
                 db.SaveChanges();
                 return RedirectToAction("QuảnLýHóaĐơn");
             }
 
-            ViewBag.MaHD = new SelectList(db.HDs, "MaHD", "MaHD", chiTietHoaDon.MaHD);
-            ViewBag.MaThuePhong = new SelectList(db.ThuePhongs, "MaThuePhong", "MaThuePhong", chiTietHoaDon.MaThuePhong);
+            ViewBag.MaHD = new SelectList(db.HD, "MaHD", "MaHD", chiTietHoaDon.MaHD);
+            ViewBag.MaThuePhong = new SelectList(db.ThuePhong, "MaThuePhong", "MaThuePhong", chiTietHoaDon.MaThuePhong);
             return PartialView(chiTietHoaDon);
         }
 
@@ -295,13 +295,13 @@ namespace QLKS.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ChiTietHoaDon chiTietHoaDon = db.ChiTietHoaDons.Find(x,y);
+            ChiTietHoaDon chiTietHoaDon = db.ChiTietHoaDon.Find(x,y);
             if (chiTietHoaDon == null)
             {
                 return HttpNotFound();
             }
             List<SelectListItem> maTP = new List<SelectListItem>();
-            foreach (var item in db.ThuePhongs)
+            foreach (var item in db.ThuePhong)
             {
                 maTP.Add(new SelectListItem
                 {
@@ -322,7 +322,7 @@ namespace QLKS.Controllers
         public ActionResult SuaChiTietHoaDon([Bind(Include = "MaHD,MaThuePhong,NgayThanhToan,SoNgayThue,ThanhTien")] ChiTietHoaDon chiTietHoaDon)
         {
             List<SelectListItem> maTP = new List<SelectListItem>();
-            foreach (var item in db.ThuePhongs)
+            foreach (var item in db.ThuePhong)
             {
                 maTP.Add(new SelectListItem
                 {
@@ -354,7 +354,7 @@ namespace QLKS.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ChiTietHoaDon chiTietHoaDon = db.ChiTietHoaDons.Find(x,y);
+            ChiTietHoaDon chiTietHoaDon = db.ChiTietHoaDon.Find(x,y);
             if (chiTietHoaDon == null)
             {
                 return HttpNotFound();
@@ -371,10 +371,10 @@ namespace QLKS.Controllers
             var decodeTP = Encryption.decrypt(maThuePhong);
             int x = int.Parse(decode);
             int y = int.Parse(decodeTP);
-            ChiTietHoaDon chiTietHoaDon = db.ChiTietHoaDons.Find(x,y);
+            ChiTietHoaDon chiTietHoaDon = db.ChiTietHoaDon.Find(x,y);
             try
             {
-                db.ChiTietHoaDons.Remove(chiTietHoaDon);
+                db.ChiTietHoaDon.Remove(chiTietHoaDon);
                 db.SaveChanges();
                 return RedirectToAction("QuảnLýHóaĐơn");
             }

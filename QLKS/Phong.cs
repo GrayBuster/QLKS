@@ -20,7 +20,7 @@ namespace QLKS
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Phong()
         {
-            this.ThuePhongs = new HashSet<ThuePhong>();
+            this.ThuePhong = new HashSet<ThuePhong>();
         }
 
         [Required(ErrorMessage = "Mã phòng không được bỏ trống")]
@@ -47,6 +47,6 @@ namespace QLKS
 
         public virtual LoaiPhong LoaiPhong { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ThuePhong> ThuePhongs { get; set; }
+        public virtual ICollection<ThuePhong> ThuePhong { get; set; }
     }
 }

@@ -13,13 +13,13 @@ namespace QLKS.Controllers
 {
     public class ChiTietDoanhThusController : Controller
     {
-        private QLKSEntities1 db = new QLKSEntities1();
+        private QLKSEntities2 db = new QLKSEntities2();
 
         // GET: ChiTietDoanhThus
         [ActionName("TrangDoanhThu")]
         public ActionResult Index()
         {
-            return View(db.ChiTietDoanhThus.ToList());
+            return View(db.ChiTietDoanhThu.ToList());
         }
 
         // GET: ChiTietDoanhThus/Details/5
@@ -31,7 +31,7 @@ namespace QLKS.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ChiTietDoanhThu chiTietDoanhThu = db.ChiTietDoanhThus.Find(decode);
+            ChiTietDoanhThu chiTietDoanhThu = db.ChiTietDoanhThu.Find(decode);
             if (chiTietDoanhThu == null)
             {
                 return HttpNotFound();
@@ -58,7 +58,7 @@ namespace QLKS.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    db.ChiTietDoanhThus.Add(chiTietDoanhThu);
+                    db.ChiTietDoanhThu.Add(chiTietDoanhThu);
                     db.SaveChanges();
                     return RedirectToAction("ThêmDoanhThuTC",new { id=Encryption.encrypt(chiTietDoanhThu.MaDoanhThu.ToString())});
                 }
@@ -79,7 +79,7 @@ namespace QLKS.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ChiTietDoanhThu chiTietDoanhThu = db.ChiTietDoanhThus.Find(id);
+            ChiTietDoanhThu chiTietDoanhThu = db.ChiTietDoanhThu.Find(id);
             if (chiTietDoanhThu == null)
             {
                 return HttpNotFound();
@@ -119,7 +119,7 @@ namespace QLKS.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ChiTietDoanhThu chiTietDoanhThu = db.ChiTietDoanhThus.Find(id);
+            ChiTietDoanhThu chiTietDoanhThu = db.ChiTietDoanhThu.Find(id);
             if (chiTietDoanhThu == null)
             {
                 return HttpNotFound();
@@ -132,10 +132,10 @@ namespace QLKS.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            ChiTietDoanhThu chiTietDoanhThu = db.ChiTietDoanhThus.Find(id);
+            ChiTietDoanhThu chiTietDoanhThu = db.ChiTietDoanhThu.Find(id);
             try
             {
-                db.ChiTietDoanhThus.Remove(chiTietDoanhThu);
+                db.ChiTietDoanhThu.Remove(chiTietDoanhThu);
                 db.SaveChanges();
                 return View("XóaDoanhThuTC");
             }

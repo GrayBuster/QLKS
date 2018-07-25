@@ -19,7 +19,7 @@ namespace QLKS
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public NV()
         {
-            this.HDs = new HashSet<HD>();
+            this.HD = new HashSet<HD>();
         }
 
         [DisplayName("Mã nhân viên")]
@@ -48,7 +48,7 @@ namespace QLKS
 
         public virtual ChucVu ChucVu { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<HD> HDs { get; set; }
+        public virtual ICollection<HD> HD { get; set; }
         public virtual TaiKhoan TaiKhoan { get; set; }
     }
 }

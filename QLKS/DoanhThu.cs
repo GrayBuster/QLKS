@@ -26,10 +26,6 @@ namespace QLKS
         [DisplayFormat(DataFormatString = "Tháng {0:MM}")]
         public System.DateTime Thang { get; set; }
 
-        [DisplayName("Tổng Doanh Thu")]
-        [DataType(DataType.Currency)]
-        [DisplayFormat(DataFormatString = "{0:#,###}VNĐ")]
-        public decimal TongDoanhThu { get; set; }
 
         public virtual ChiTietDoanhThu ChiTietDoanhThu { get; set; }
     }

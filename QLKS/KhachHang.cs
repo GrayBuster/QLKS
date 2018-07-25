@@ -19,8 +19,8 @@ namespace QLKS
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public KhachHang()
         {
-            this.ChiTietThuePhongs = new HashSet<ChiTietThuePhong>();
-            this.HDs = new HashSet<HD>();
+            this.ChiTietThuePhong = new HashSet<ChiTietThuePhong>();
+            this.HD = new HashSet<HD>();
         }
 
         [DisplayName("Mã khách hàng")]
@@ -43,10 +43,11 @@ namespace QLKS
         [DisplayName("Chứng minh dân nhân")]
         public string CMND { get; set; }
 
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ChiTietThuePhong> ChiTietThuePhongs { get; set; }
+        public virtual ICollection<ChiTietThuePhong> ChiTietThuePhong { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<HD> HDs { get; set; }
+        public virtual ICollection<HD> HD { get; set; }
         public virtual LoaiKhach LoaiKhach { get; set; }
     }
 }

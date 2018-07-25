@@ -17,27 +17,27 @@ namespace QLKS.Controllers
     [MyAuthorize(Roles = "AM,Admin")]
     public class DoanhThusController : Controller
     {
-        private QLKSEntities1 db = new QLKSEntities1();
+        private QLKSEntities2 db = new QLKSEntities2();
 
         // GET: DoanhThus
         [MyAuthorize(Roles = "KT")]
         [ActionName("QuảnLýDoanhThu")]
         public ActionResult Index()
         {
-            decimal? total = db.ChiTietDoanhThus.Select(x => x.DoanhThu).Sum();
+            decimal? total = db.ChiTietDoanhThu.Select(x => x.DoanhThu).Sum();
             ViewBag.Total = total;
-            return View(db.DoanhThus.ToList());
+            return View(db.DoanhThu.ToList());
         }
         public ActionResult TrangDoanhThu()
         {
-            var chiTietDoanhThu = db.ChiTietDoanhThus.ToList();
+            var chiTietDoanhThu = db.ChiTietDoanhThu.ToList();
             return PartialView(chiTietDoanhThu);
         }
         [HttpGet]
         public ActionResult CreateChiTietDoanhThu()
         {
             List<SelectListItem> maDoanhThu = new List<SelectListItem>();
-            foreach(var item in db.DoanhThus)
+            foreach(var item in db.DoanhThu)
             {
                 maDoanhThu.Add(new SelectListItem
                 {
@@ -46,7 +46,7 @@ namespace QLKS.Controllers
                 });
             }
             ViewBag.MaDoanhThu = maDoanhThu;
-            ViewBag.TenLoai = new SelectList(db.LoaiPhongs, "TenLoai", "MaLoai");
+            ViewBag.TenLoai = new SelectList(db.LoaiPhong, "TenLoai", "MaLoai");
             return PartialView();
         }
 
@@ -58,7 +58,7 @@ namespace QLKS.Controllers
         public ActionResult CreateChiTietDoanhThu([Bind(Include = "MaDoanhThu,MaLoai")] ChiTietDoanhThu chiTietDoanhThu)
         {
             List<SelectListItem> maDoanhThu = new List<SelectListItem>();
-            foreach (var item in db.DoanhThus)
+            foreach (var item in db.DoanhThu)
             {
                 maDoanhThu.Add(new SelectListItem
                 {
@@ -67,12 +67,12 @@ namespace QLKS.Controllers
                 });
             }
             ViewBag.MaDoanhThu = maDoanhThu;
-            ViewBag.TenLoai = new SelectList(db.LoaiPhongs, "MaLoai", "TenLoai");
+            ViewBag.TenLoai = new SelectList(db.LoaiPhong, "MaLoai", "TenLoai");
             try
             {
                 if (ModelState.IsValid)
                 {
-                    db.ChiTietDoanhThus.Add(chiTietDoanhThu);
+                    db.ChiTietDoanhThu.Add(chiTietDoanhThu);
                     db.SaveChanges();
                     return RedirectToAction("QuảnLýDoanhThu");
                 }
@@ -93,7 +93,7 @@ namespace QLKS.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ChiTietDoanhThu chiTietDoanhThu = db.ChiTietDoanhThus.Find(x);
+            ChiTietDoanhThu chiTietDoanhThu = db.ChiTietDoanhThu.Find(x);
             if (chiTietDoanhThu == null)
             {
                 return HttpNotFound();
@@ -108,10 +108,10 @@ namespace QLKS.Controllers
         {
             var decode = Encryption.decrypt(id);
             int x = int.Parse(decode);
-            chiTietDoanhThu = db.ChiTietDoanhThus.Find(x);
+            chiTietDoanhThu = db.ChiTietDoanhThu.Find(x);
             try
             {
-                db.ChiTietDoanhThus.Remove(chiTietDoanhThu);
+                db.ChiTietDoanhThu.Remove(chiTietDoanhThu);
                 db.SaveChanges();
                 return View("XoáThànhCôngDoanhThu");
             }
@@ -131,7 +131,7 @@ namespace QLKS.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            DoanhThu doanhThu = db.DoanhThus.Find(x);
+            DoanhThu doanhThu = db.DoanhThu.Find(x);
             if (doanhThu == null)
             {
                 return HttpNotFound();
@@ -158,7 +158,7 @@ namespace QLKS.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    db.DoanhThus.Add(doanhThu);
+                    db.DoanhThu.Add(doanhThu);
                     db.SaveChanges();
                     return RedirectToAction("BáoCáoThànhCông",new { id=Encryption.encrypt(doanhThu.MaDoanhThu.ToString())});
                 }
@@ -177,7 +177,7 @@ namespace QLKS.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            DoanhThu doanhThu = db.DoanhThus.Find(id);
+            DoanhThu doanhThu = db.DoanhThu.Find(id);
             if (doanhThu == null)
             {
                 return HttpNotFound();
@@ -211,7 +211,7 @@ namespace QLKS.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            DoanhThu doanhThu = db.DoanhThus.Find(x);
+            DoanhThu doanhThu = db.DoanhThu.Find(x);
             if (doanhThu == null)
             {
                 return HttpNotFound();
@@ -226,10 +226,10 @@ namespace QLKS.Controllers
         {
             var decode = Encryption.decrypt(id);
             int x = int.Parse(decode);
-            DoanhThu doanhThu = db.DoanhThus.Find(x);
+            DoanhThu doanhThu = db.DoanhThu.Find(x);
             try
             {
-                db.DoanhThus.Remove(doanhThu);
+                db.DoanhThu.Remove(doanhThu);
                 db.SaveChanges();
                 return View("XoáThànhCôngDoanhThu");
             }
@@ -243,13 +243,13 @@ namespace QLKS.Controllers
         {
             ReportDocument rd = new ReportDocument();
             rd.Load(Path.Combine(Server.MapPath("~/Report/CrystalReportChiTietDoanhThu.rpt")));
-            foreach(var i in db.ChiTietDoanhThus)
+            foreach(var i in db.ChiTietDoanhThu)
             {
-                foreach(var item in db.LoaiPhongs)
+                foreach(var item in db.LoaiPhong)
                 {
                     if(i.MaLoai==item.MaLoai)
                     {
-                        rd.SetDataSource(db.ChiTietDoanhThus.Select(p => new
+                        rd.SetDataSource(db.ChiTietDoanhThu.Select(p => new
                         {
                             MaDoanhThu = p.MaDoanhThu,
                             LoaiPhong = p.LoaiPhong.TenLoai,

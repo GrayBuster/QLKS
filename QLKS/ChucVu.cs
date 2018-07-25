@@ -19,7 +19,7 @@ namespace QLKS
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public ChucVu()
         {
-            this.NVs = new HashSet<NV>();
+            this.NV = new HashSet<NV>();
         }
 
         [Required(ErrorMessage = "Mã chức vụ không được bỏ trống")]
@@ -31,7 +31,8 @@ namespace QLKS
         [StringLength(20, MinimumLength = 3, ErrorMessage = "Tên chức vụ không được quá 20 và ít hơn 3 ký tự")]
         public string TenCV { get; set; }
 
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<NV> NVs { get; set; }
+        public virtual ICollection<NV> NV { get; set; }
     }
 }

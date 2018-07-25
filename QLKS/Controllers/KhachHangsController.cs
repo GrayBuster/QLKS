@@ -14,14 +14,14 @@ namespace QLKS.Controllers
     [MyAuthorize(Roles = "TT,Admin")]
     public class KhachHangsController : Controller
     {
-        private QLKSEntities1 db = new QLKSEntities1();
+        private QLKSEntities2 db = new QLKSEntities2();
 
         // GET: KhachHangs
         [ActionName("QuảnLýKháchHàng")]
         [MyAuthorize(Roles = "TT")]
         public ActionResult Index(string option,string searchString)
         {
-            var khachHangs = db.KhachHangs.Include(k => k.LoaiKhach);
+            var khachHangs = db.KhachHang.Include(k => k.LoaiKhach);
             if (option == "TenKH")
             {
                 return View(khachHangs.Where(x => x.TenKhachHang.ToUpper().Contains(searchString.ToUpper())).ToList());
@@ -54,7 +54,7 @@ namespace QLKS.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            KhachHang khachHang = db.KhachHangs.Find(x);
+            KhachHang khachHang = db.KhachHang.Find(x);
             if (khachHang == null)
             {
                 return HttpNotFound();
@@ -66,7 +66,7 @@ namespace QLKS.Controllers
         [ActionName("ThêmKháchHàng")]
         public ActionResult Create()
         {
-            ViewBag.MaLoaiKhach = new SelectList(db.LoaiKhaches, "MaLoaiKhach", "TenLoaiKhach");
+            ViewBag.MaLoaiKhach = new SelectList(db.LoaiKhach, "MaLoaiKhach", "TenLoaiKhach");
             return View();
         }
 
@@ -80,12 +80,12 @@ namespace QLKS.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.KhachHangs.Add(khachHang);
+                db.KhachHang.Add(khachHang);
                 db.SaveChanges();
                 return RedirectToAction("ThôngTinKháchHàng",new { id= Encryption.encrypt(khachHang.MaKhachHang.ToString()) });
             }
 
-            ViewBag.MaLoaiKhach = new SelectList(db.LoaiKhaches, "MaLoaiKhach", "TenLoaiKhach", khachHang.MaLoaiKhach);
+            ViewBag.MaLoaiKhach = new SelectList(db.LoaiKhach, "MaLoaiKhach", "TenLoaiKhach", khachHang.MaLoaiKhach);
             return View(khachHang);
         }
 
@@ -99,12 +99,12 @@ namespace QLKS.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            KhachHang khachHang = db.KhachHangs.Find(x);
+            KhachHang khachHang = db.KhachHang.Find(x);
             if (khachHang == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.MaLoaiKhach = new SelectList(db.LoaiKhaches, "MaLoaiKhach", "TenLoaiKhach", khachHang.MaLoaiKhach);
+            ViewBag.MaLoaiKhach = new SelectList(db.LoaiKhach, "MaLoaiKhach", "TenLoaiKhach", khachHang.MaLoaiKhach);
             return View(khachHang);
         }
 
@@ -122,7 +122,7 @@ namespace QLKS.Controllers
                 db.SaveChanges();
                 return RedirectToAction("ThôngTinKháchHàng",new { id= Encryption.encrypt(khachHang.MaKhachHang.ToString()) });
             }
-            ViewBag.MaLoaiKhach = new SelectList(db.LoaiKhaches, "MaLoaiKhach", "TenLoaiKhach", khachHang.MaLoaiKhach);
+            ViewBag.MaLoaiKhach = new SelectList(db.LoaiKhach, "MaLoaiKhach", "TenLoaiKhach", khachHang.MaLoaiKhach);
             return View(khachHang);
         }
 
@@ -137,7 +137,7 @@ namespace QLKS.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            KhachHang khachHang = db.KhachHangs.Find(x);
+            KhachHang khachHang = db.KhachHang.Find(x);
             if (khachHang == null)
             {
                 return HttpNotFound();
@@ -152,8 +152,8 @@ namespace QLKS.Controllers
         {
             var decode = Encryption.decrypt(id);
             int x = int.Parse(decode);
-            KhachHang khachHang = db.KhachHangs.Find(x);
-            db.KhachHangs.Remove(khachHang);
+            KhachHang khachHang = db.KhachHang.Find(x);
+            db.KhachHang.Remove(khachHang);
             db.SaveChanges();
             return RedirectToAction("QuảnLýKháchHàng");
         }

@@ -18,7 +18,7 @@ namespace QLKS.Controllers
     [MyAuthorize(Roles ="Admin,TT")]
     public class PhongsController : Controller
     {
-        private QLKSEntities1 db = new QLKSEntities1();
+        private QLKSEntities2 db = new QLKSEntities2();
         private Phong phong = new Phong();
         // GET: Phongs
         [ActionName("TrangPhòng")]
@@ -32,26 +32,26 @@ namespace QLKS.Controllers
             int pageNumber = (page ?? 1);
             if (option == "MaPhong")
             {
-                return View(db.Phongs.Where(x => x.MaPhong.ToString().Contains(searchString.ToUpper())).ToList().ToPagedList(pageNumber, pageSize));
+                return View(db.Phong.Where(x => x.MaPhong.ToString().Contains(searchString.ToUpper())).ToList().ToPagedList(pageNumber, pageSize));
             }
             else if (option == "TenPhong")
             {
-                return View(db.Phongs.Where(x => x.TenPhong.ToUpper().Contains(searchString.ToUpper())).ToList().ToPagedList(pageNumber, pageSize));
+                return View(db.Phong.Where(x => x.TenPhong.ToUpper().Contains(searchString.ToUpper())).ToList().ToPagedList(pageNumber, pageSize));
             }
             else if (option == "LoaiPhong")
             {
-                return View(db.Phongs.Where(x => x.LoaiPhong.TenLoai.ToUpper().Contains(searchString.ToUpper())).ToList().ToPagedList(pageNumber, pageSize));
+                return View(db.Phong.Where(x => x.LoaiPhong.TenLoai.ToUpper().Contains(searchString.ToUpper())).ToList().ToPagedList(pageNumber, pageSize));
             }
             else if (option == "DonGia")
             {
-                return View(db.Phongs.Where(x => x.LoaiPhong.Dongia.ToString().Contains(searchString)).ToList().ToPagedList(pageNumber, pageSize));
+                return View(db.Phong.Where(x => x.LoaiPhong.Dongia.ToString().Contains(searchString)).ToList().ToPagedList(pageNumber, pageSize));
             }
             else if (option == "TinhTrang")
             {
-                return View(db.Phongs.ToList().Where(x => x.ChuyenKieuTinhTrang.ToUpper().Contains(searchString.ToUpper())).ToList().ToPagedList(pageNumber, pageSize));
+                return View(db.Phong.ToList().Where(x => x.ChuyenKieuTinhTrang.ToUpper().Contains(searchString.ToUpper())).ToList().ToPagedList(pageNumber, pageSize));
             }
             else
-                return View(db.Phongs.Include(i=>i.LoaiPhong).OrderBy(x=>x.MaPhong).ToPagedList(pageNumber, pageSize));
+                return View(db.Phong.Include(i=>i.LoaiPhong).OrderBy(x=>x.MaPhong).ToPagedList(pageNumber, pageSize));
         }
 
         // GET: Phongs/Details/5
@@ -64,7 +64,7 @@ namespace QLKS.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Phong phong = db.Phongs.Find(x);
+            Phong phong = db.Phong.Find(x);
             if (phong == null)
             {
                 return HttpNotFound();
@@ -77,7 +77,7 @@ namespace QLKS.Controllers
         public ActionResult Create()
         {
             List<SelectListItem> loaiPhong = new List<SelectListItem>();
-            foreach (var item in db.LoaiPhongs)
+            foreach (var item in db.LoaiPhong)
             {
                 loaiPhong.Add(new SelectListItem
                 {
@@ -98,7 +98,7 @@ namespace QLKS.Controllers
         public ActionResult Create([Bind(Include = "MaPhong,TenPhong,MaLoai,GhiChu,TinhTrang")] Phong phong)
         {
             List<SelectListItem> loaiPhong = new List<SelectListItem>();
-            foreach (var item in db.LoaiPhongs)
+            foreach (var item in db.LoaiPhong)
             {
                 loaiPhong.Add(new SelectListItem
                 {
@@ -111,7 +111,7 @@ namespace QLKS.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    db.Phongs.Add(phong);
+                    db.Phong.Add(phong);
                     db.SaveChanges();
                     return RedirectToAction("TạoPhòngTC",new { id=Encryption.encrypt(phong.MaPhong.ToString())});
                 }
@@ -130,7 +130,7 @@ namespace QLKS.Controllers
             var decode = Encryption.decrypt(id);
             int x = int.Parse(decode);
             List<SelectListItem> loaiPhong = new List<SelectListItem>();
-            foreach (var item in db.LoaiPhongs)
+            foreach (var item in db.LoaiPhong)
             {
                 loaiPhong.Add(new SelectListItem
                 {
@@ -143,7 +143,7 @@ namespace QLKS.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Phong phong = db.Phongs.FirstOrDefault(p => p.MaPhong == x);
+            Phong phong = db.Phong.FirstOrDefault(p => p.MaPhong == x);
             if (phong == null)
             {
                 return HttpNotFound();
@@ -160,7 +160,7 @@ namespace QLKS.Controllers
         public ActionResult Edit([Bind(Include = "MaPhong,TenPhong,MaLoai,GhiChu,TinhTrang")] Phong phong)
         {
             List<SelectListItem> loaiPhong = new List<SelectListItem>();
-            foreach (var item in db.LoaiPhongs)
+            foreach (var item in db.LoaiPhong)
             {
                 loaiPhong.Add(new SelectListItem
                 {
@@ -195,7 +195,7 @@ namespace QLKS.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Phong phong = db.Phongs.Find(x);
+            Phong phong = db.Phong.Find(x);
             if (phong == null)
             {
                 return HttpNotFound();
@@ -210,12 +210,12 @@ namespace QLKS.Controllers
         {
             var decode = Encryption.decrypt(id);
             int x = int.Parse(decode);
-            Phong phong = db.Phongs.Find(x);
+            Phong phong = db.Phong.Find(x);
             try
             {
                 if (phong.TinhTrang.Value == false)
                 {
-                    db.Phongs.Remove(phong);
+                    db.Phong.Remove(phong);
                     db.SaveChanges();
                     return View("XoáPhòngTC");
                 }

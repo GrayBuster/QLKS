@@ -35,38 +35,42 @@
                     {
                         TaiKhoan user = new TaiKhoan();
                         user = Session["User"] as TaiKhoan;
-                        if (user.Roles == "Admin")
+                        if (user != null)
                         {
-                            <img style="float:left;width:30px;margin-right:10px;margin-top:10px;" src="~/Content/personnelicon.png" />
-                            @Html.ActionLink("Nhân Viên", "TrangNhânViên", "NVs", new { area = "" }, new { @class = "navbar-brand", @style = "color:white !important" })
-                            <img style="float:left;width:30px;margin-right:10px;margin-top:10px;" src="~/Content/roomicon.png" />
-                            @Html.ActionLink("Phòng", "TrangPhòng", "Phongs", new { area = "" }, new { @class = "navbar-brand", @style = "color:white !important" })
-                            <img style="float:left;width:30px;margin-right:10px;margin-top:10px;" src="~/Content/customericon.png" />
-                            @Html.ActionLink("Khách Hàng", "QuảnLýKháchHàng", "KhachHangs", new { area = "" }, new { @class = "navbar-brand", @style = "color:white !important" })
-                            <img style="float:left;width:30px;margin-right:10px;height:35px;margin-top:10px;" src="~/Content/billicon.png" />
-                            @Html.ActionLink("Hóa Đơn", "QuảnLýHóaĐơn", "HDs", new { area = "" }, new { @class = "navbar-brand", @style = "color:white !important" })
-                            <img style="float:left;width:30px;margin-right:10px;margin-top:10px;" src="~/Content/moneyicon.png" />
-                            @Html.ActionLink("Doanh Thu", "QuảnLýDoanhThu", "DoanhThus", new { area = "" }, new { @class = "navbar-brand", @style = "color:white !important" })
+                            if (user.Roles == "Admin")
+                            {
+                                <img style="float:left;width:30px;margin-right:10px;margin-top:10px;" src="~/Content/personnelicon.png" />
+                                @Html.ActionLink("Nhân Viên", "TrangNhânViên", "NVs", new { area = "" }, new { @class = "navbar-brand", @style = "color:white !important" })
+                                <img style="float:left;width:30px;margin-right:10px;margin-top:10px;" src="~/Content/roomicon.png" />
+                                @Html.ActionLink("Phòng", "TrangPhòng", "Phongs", new { area = "" }, new { @class = "navbar-brand", @style = "color:white !important" })
+                                <img style="float:left;width:30px;margin-right:10px;margin-top:10px;" src="~/Content/customericon.png" />
+                                @Html.ActionLink("Khách Hàng", "QuảnLýKháchHàng", "KhachHangs", new { area = "" }, new { @class = "navbar-brand", @style = "color:white !important" })
+                                <img style="float:left;width:30px;margin-right:10px;height:35px;margin-top:10px;" src="~/Content/billicon.png" />
+                                @Html.ActionLink("Hóa Đơn", "QuảnLýHóaĐơn", "HDs", new { area = "" }, new { @class = "navbar-brand", @style = "color:white !important" })
+                                <img style="float:left;width:30px;margin-right:10px;margin-top:10px;" src="~/Content/moneyicon.png" />
+                                @Html.ActionLink("Doanh Thu", "QuảnLýDoanhThu", "DoanhThus", new { area = "" }, new { @class = "navbar-brand", @style = "color:white !important" })
+                            }
+                            else if (user.Roles == "KT" || user.Roles == "AM")
+                            {
+                                <img style="float:left;width:30px;margin-right:10px;height:35px;margin-top:10px;" src="~/Content/billicon.png" />
+                                @Html.ActionLink("Hóa Đơn", "QuảnLýHóaĐơn", "HDs", new { area = "" }, new { @class = "navbar-brand", @style = "color:white !important" })
+                                <img style="float:left;width:30px;margin-right:10px;margin-top:10px;" src="~/Content/moneyicon.png" />
+                                @Html.ActionLink("Doanh Thu", "QuảnLýDoanhThu", "DoanhThus", new { area = "" }, new { @class = "navbar-brand", @style = "color:white !important" })
+                            }
+                            else if (user.Roles == "TT")
+                            {
+                                <img style="float:left;width:30px;margin-right:10px;margin-top:10px;" src="~/Content/roomicon.png" />
+                                @Html.ActionLink("Phòng", "TrangPhòng", "Phongs", new { area = "" }, new { @class = "navbar-brand", @style = "color:white !important" })
+                                <img style="float:left;width:30px;margin-right:10px;margin-top:10px;" src="~/Content/customericon.png" />
+                                @Html.ActionLink("Khách Hàng", "QuảnLýKháchHàng", "KhachHangs", new { area = "" }, new { @class = "navbar-brand", @style = "color:white !important" })
+                            }
+                            else if (user.Roles == "PM")
+                            {
+                                <img style="float:left;width:30px;margin-right:10px;margin-top:10px;" src="~/Content/personnelicon.png" />
+                                @Html.ActionLink("Nhân Viên", "TrangNhânViên", "NVs", new { area = "" }, new { @class = "navbar-brand", @style = "color:white !important" })
+                            }
                         }
-                        else if (user.Roles == "KT" || user.Roles == "AM")
-                        {
-                            <img style="float:left;width:30px;margin-right:10px;height:35px;margin-top:10px;" src="~/Content/billicon.png" />
-                            @Html.ActionLink("Hóa Đơn", "QuảnLýHóaĐơn", "HDs", new { area = "" }, new { @class = "navbar-brand", @style = "color:white !important" })
-                            <img style="float:left;width:30px;margin-right:10px;margin-top:10px;" src="~/Content/moneyicon.png" />
-                            @Html.ActionLink("Doanh Thu", "QuảnLýDoanhThu", "DoanhThus", new { area = "" }, new { @class = "navbar-brand", @style = "color:white !important" })
-                        }
-                        else if (user.Roles == "TT")
-                        {
-                            <img style="float:left;width:30px;margin-right:10px;margin-top:10px;" src="~/Content/roomicon.png" />
-                            @Html.ActionLink("Phòng", "TrangPhòng", "Phongs", new { area = "" }, new { @class = "navbar-brand", @style = "color:white !important" })
-                            <img style="float:left;width:30px;margin-right:10px;margin-top:10px;" src="~/Content/customericon.png" />
-                            @Html.ActionLink("Khách Hàng", "QuảnLýKháchHàng", "KhachHangs", new { area = "" }, new { @class = "navbar-brand", @style = "color:white !important" })
-                        }
-                        else if (user.Roles == "PM")
-                        {
-                            <img style="float:left;width:30px;margin-right:10px;margin-top:10px;" src="~/Content/personnelicon.png" />
-                            @Html.ActionLink("Nhân Viên", "TrangNhânViên", "NVs", new { area = "" }, new { @class = "navbar-brand", @style = "color:white !important" })
-                        }
+
                     }
                     else
                     {

@@ -15,9 +15,9 @@ namespace QLKS.Models
             //var isAuthorized= base.OnAuthorization(filterContext);
             if (filterContext.HttpContext.Request.IsAuthenticated)
             {
-                using (var db = new QLKSEntities1())
+                using (var db = new QLKSEntities2())
                 {
-                    var authorizedRoles = (from u in db.TaiKhoans
+                    var authorizedRoles = (from u in db.TaiKhoan
                                            where u.Email == filterContext.HttpContext.User.Identity.Name
                                            select u.Roles).SingleOrDefault();
                     Roles = string.IsNullOrEmpty(Roles) ? authorizedRoles : Roles;

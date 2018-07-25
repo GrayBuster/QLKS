@@ -14,12 +14,12 @@ namespace QLKS.Controllers
     [MyAuthorize(Roles ="Admin,PM")]
     public class ChucVusController : Controller
     {
-        private QLKSEntities1 db = new QLKSEntities1();
+        private QLKSEntities2 db = new QLKSEntities2();
         // GET: ChucVus
         [ActionName("QuảnLýChứcVụ")]
         public ActionResult Index()
         {
-            return View(db.ChucVus.ToList());
+            return View(db.ChucVu.ToList());
         }
 
         // GET: ChucVus/Details/5
@@ -31,7 +31,7 @@ namespace QLKS.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ChucVu chucVu = db.ChucVus.Find(x);
+            ChucVu chucVu = db.ChucVu.Find(x);
             if (chucVu == null)
             {
                 return HttpNotFound();
@@ -58,7 +58,7 @@ namespace QLKS.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    db.ChucVus.Add(chucVu);
+                    db.ChucVu.Add(chucVu);
                     db.SaveChanges();
                     return View("ThêmChứcVụThànhCông");
                 }
@@ -80,7 +80,7 @@ namespace QLKS.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ChucVu chucVu = db.ChucVus.Find(x);
+            ChucVu chucVu = db.ChucVu.Find(x);
             if (chucVu == null)
             {
                 return HttpNotFound();
@@ -122,7 +122,7 @@ namespace QLKS.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ChucVu chucVu = db.ChucVus.Find(x);
+            ChucVu chucVu = db.ChucVu.Find(x);
             if (chucVu == null)
             {
                 return HttpNotFound();
@@ -137,10 +137,10 @@ namespace QLKS.Controllers
         {
             var decode = Encryption.decrypt(id);
             int x = int.Parse(decode);
-            ChucVu chucVu = db.ChucVus.Find(x);
+            ChucVu chucVu = db.ChucVu.Find(x);
             try
             {
-                db.ChucVus.Remove(chucVu);
+                db.ChucVu.Remove(chucVu);
                 db.SaveChanges();
                 return View("XoáThànhCông");
             }

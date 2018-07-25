@@ -12,13 +12,13 @@ namespace QLKS.Controllers
 {
     public class TaiKhoansController : Controller
     {
-        private QLKSEntities1 db = new QLKSEntities1();
+        private QLKSEntities2 db = new QLKSEntities2();
 
 
         public ActionResult TruyenDuLieu()
         {
             TaiKhoan taiKhoan = new TaiKhoan();
-            foreach (var item in db.TaiKhoans)
+            foreach (var item in db.TaiKhoan)
             {
                 if (HttpContext.User.Identity.Name == item.Email)
                 {
@@ -33,7 +33,7 @@ namespace QLKS.Controllers
         // GET: TaiKhoans
         public ActionResult Index()
         {
-            var taiKhoans = db.TaiKhoans.Include(t => t.NV);
+            var taiKhoans = db.TaiKhoan.Include(t => t.NV);
             return View(taiKhoans.ToList());
         }
 
@@ -44,7 +44,7 @@ namespace QLKS.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            TaiKhoan taiKhoan = db.TaiKhoans.FirstOrDefault(t=>t.MaNV==id);
+            TaiKhoan taiKhoan = db.TaiKhoan.FirstOrDefault(t=>t.MaNV==id);
             if (taiKhoan == null)
             {
                 return HttpNotFound();
@@ -55,7 +55,7 @@ namespace QLKS.Controllers
         // GET: TaiKhoans/Create
         public ActionResult Create()
         {
-            ViewBag.MaNV = new SelectList(db.NVs, "MaNV", "TenNV");
+            ViewBag.MaNV = new SelectList(db.NV, "MaNV", "TenNV");
             return View();
         }
 
@@ -66,14 +66,18 @@ namespace QLKS.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Email,Pass,MaNV,Roles")] TaiKhoan taiKhoan)
         {
+           
             if (ModelState.IsValid)
             {
-                db.TaiKhoans.Add(taiKhoan);
+                db.TaiKhoan.Add(taiKhoan);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.MaNV = new SelectList(db.NVs, "MaNV", "TenNV", taiKhoan.MaNV);
+
+           
+
+            ViewBag.MaNV = new SelectList(db.NV, "MaNV", "TenNV", taiKhoan.MaNV);
             return View(taiKhoan);
         }
 
@@ -84,12 +88,12 @@ namespace QLKS.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            TaiKhoan taiKhoan = db.TaiKhoans.Find(id);
+            TaiKhoan taiKhoan = db.TaiKhoan.Find(id);
             if (taiKhoan == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.MaNV = new SelectList(db.NVs, "MaNV", "TenNV", taiKhoan.MaNV);
+            ViewBag.MaNV = new SelectList(db.NV, "MaNV", "TenNV", taiKhoan.MaNV);
             return View(taiKhoan);
         }
 
@@ -106,7 +110,7 @@ namespace QLKS.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.MaNV = new SelectList(db.NVs, "MaNV", "TenNV", taiKhoan.MaNV);
+            ViewBag.MaNV = new SelectList(db.NV, "MaNV", "TenNV", taiKhoan.MaNV);
             return View(taiKhoan);
         }
 
@@ -117,7 +121,7 @@ namespace QLKS.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            TaiKhoan taiKhoan = db.TaiKhoans.Find(id);
+            TaiKhoan taiKhoan = db.TaiKhoan.Find(id);
             if (taiKhoan == null)
             {
                 return HttpNotFound();
@@ -130,8 +134,8 @@ namespace QLKS.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)
         {
-            TaiKhoan taiKhoan = db.TaiKhoans.Find(id);
-            db.TaiKhoans.Remove(taiKhoan);
+            TaiKhoan taiKhoan = db.TaiKhoan.Find(id);
+            db.TaiKhoan.Remove(taiKhoan);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

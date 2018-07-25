@@ -37,6 +37,7 @@ namespace QLKS
         [DisplayFormat(DataFormatString = "{0:#,###}VNĐ")]
         public Nullable<decimal> ThanhTien { get; set; }
 
+
         public virtual HD HD { get; set; }
         public virtual ThuePhong ThuePhong { get; set; }
     }

@@ -15,7 +15,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>QLKS</RootNamespace>
     <AssemblyName>QLKS</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
@@ -25,6 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -106,6 +107,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
@@ -114,11 +116,8 @@
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.Abstractions" />
     <Reference Include="System.Web.Routing" />
     <Reference Include="System.Xml" />
@@ -160,6 +159,7 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
+    <Reference Include="System.Xml.Linq" />
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
@@ -320,7 +320,7 @@
       <DependentUpon>DataSetChiTietDoanhThu.xsd</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
-    <Compile Include="sysdiagram.cs">
+    <Compile Include="sysdiagrams.cs">
       <DependentUpon>QLKS.tt</DependentUpon>
     </Compile>
     <Compile Include="TaiKhoan.cs">
@@ -399,6 +399,7 @@
     <Content Include="Report\DataSetChiTietDoanhThu.xsc">
       <DependentUpon>DataSetChiTietDoanhThu.xsd</DependentUpon>
     </Content>
+    <None Include="Properties\PublishProfiles\QLKS.pubxml" />
     <EntityDeploy Include="QLKS.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>QLKS.Designer.cs</LastGenOutput>
@@ -406,7 +407,6 @@
     <Content Include="QLKS.edmx.diagram">
       <DependentUpon>QLKS.edmx</DependentUpon>
     </Content>
-    <None Include="Properties\PublishProfiles\QLKS.pubxml" />
     <None Include="Report\DataSetChiTietDoanhThu.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>

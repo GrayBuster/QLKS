@@ -20,10 +20,6 @@ D:\Code và Tài liệu\CNPM\CNPMNC\QLKS\New folder\QLKS\QLKS\QLKS\bin\QLKS.dll.
 D:\Code và Tài liệu\CNPM\CNPMNC\QLKS\New folder\QLKS\QLKS\QLKS\bin\QLKS.dll
 D:\Code và Tài liệu\CNPM\CNPMNC\QLKS\New folder\QLKS\QLKS\QLKS\bin\QLKS.pdb
 D:\Code và Tài liệu\CNPM\CNPMNC\QLKS\New folder\QLKS\QLKS\QLKS\bin\Antlr3.Runtime.dll
-D:\Code và Tài liệu\CNPM\CNPMNC\QLKS\New folder\QLKS\QLKS\QLKS\bin\CrystalDecisions.CrystalReports.Engine.dll
-D:\Code và Tài liệu\CNPM\CNPMNC\QLKS\New folder\QLKS\QLKS\QLKS\bin\CrystalDecisions.Data.AdoDotNetInterop.dll
-D:\Code và Tài liệu\CNPM\CNPMNC\QLKS\New folder\QLKS\QLKS\QLKS\bin\CrystalDecisions.ReportSource.dll
-D:\Code và Tài liệu\CNPM\CNPMNC\QLKS\New folder\QLKS\QLKS\QLKS\bin\CrystalDecisions.Shared.dll
 D:\Code và Tài liệu\CNPM\CNPMNC\QLKS\New folder\QLKS\QLKS\QLKS\bin\EntityFramework.dll
 D:\Code và Tài liệu\CNPM\CNPMNC\QLKS\New folder\QLKS\QLKS\QLKS\bin\EntityFramework.SqlServer.dll
 D:\Code và Tài liệu\CNPM\CNPMNC\QLKS\New folder\QLKS\QLKS\QLKS\bin\log4net.dll

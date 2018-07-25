@@ -5,14 +5,14 @@ namespace QLKS.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<QLKS.QLKSEntities1>
+    internal sealed class Configuration : DbMigrationsConfiguration<QLKS.QLKSEntities2>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(QLKS.QLKSEntities1 context)
+        protected override void Seed(QLKS.QLKSEntities2 context)
         {
             //  This method will be called after migrating to the latest version.
 
